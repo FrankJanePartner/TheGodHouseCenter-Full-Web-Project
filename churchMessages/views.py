@@ -5,25 +5,26 @@ from .models import VideoMessage, AudioMessage
 # Create your views here.
 def message(request):
     # get all the videos and audio form the database
-    # get the use selected video or audio
-    # display the video to the frontend
-
-    return render(request, 'sermon.html')
+    video = VideoMessage.objects.all()
+    audio = AudioMessage.objects.all()
+    context = {
+        'video': video,
+        'audio': audio,
+    }
+    return render(request, 'sermon.html', context)
 
 def download(request):
-    # save the file of the user selected video
-    pass
-
-def videoMessages(request):
-    videoMessages = VideoMessage.objects.all()
-    context={
-        'videoMessages':videoMessages
-    }
-    return render(request, 'videoStream.html', context)
-
-def audioMessages(request):
-    audioMessages = AudioMessage.objects.all()
-    context={
-        'audioMessages':audioMessages
-    }
-    return render(request, 'audioStream.html', context)
+    # get the video or audio selected and download it to the users device
+    if request.method == "POST":
+        id = int(request.POST['id'])
+        type = str(request.POST['type'])
+        if type == 'Video':
+            obj = get_object_or_404(VideoMessage, pk=id)
+            filepath = obj.file.url
+        elif type == 'Audio':
+            obj = get_object_or_404(AudioMessage, pk=id)
+            filepath = obj.file.url
+        else:
+            print('Invalid Type')
+        return redirect('/message/')
+        
