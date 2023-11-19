@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}  - The GodHouse Center</title>
+    <link rel="stylesheet" href="{% static 'core/css/leadership.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <!--WRAPPER START-->
+     <div class="wrapper">
+        <!--FIRST - HEADER-->
+        <div class="header_container">
+            <div class="left">
+                <img src="{% static 'https://i0.wp.com/godhouse.org/wp-content/uploads/2021/01/godhouseLogoWhite.png?resize=145%2C79&ssl=1" alt="church-logo">
+            </div>
+    
+            <div class="right">
+                <div class="give_btn">
+                    <a href="./give.html"><button>Give</button></a>
+                </div>
+    
+                <button class="menu_bar">
+                    <div id="menu-btn" class="fas fa-bars"></div>
+                    <span class="menu_span">Menu</span>
+                </button>
+            </div>
+    
+            <!--NAVBAR ACCORDION START-->
+            <ul class="accordion_menu">    
+                <li><a class="dropdown_text" href="home.html">Home</a></li>
+                <li class="link">
+                    <div class="dropdown">
+                        About
+                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="about.html">WHO WE ARE</a></li>
+                        <li><a href="our-beliefs.html">OUR BELIEF</a></li>
+                        <li><a href="leadership.html">LEADERSHIP</a></li>
+                    </ul>
+                </li>
+                <li><a class="dropdown_text" href="location.html">Our Centers</a></li>
+                <li class="link">
+                    <div class="dropdown">
+                        RESOURCES
+                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">TESTIMONIES</a></li>
+                        <li><a href="#">BOOK & MERCH</a></li>
+                        <li><a href="#">BLOG</a></li> 
+                    </ul>
+                </li>
+                <li><a class="dropdown_text" href="#">EVENT</a></li>
+                <li class="link">
+                    <div class="dropdown">
+                        WATCH & LISTEN
+                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">VIDEO</a></li>
+                        <li><a href="#">AUDIO</a></li>
+                    </ul>
+                </li>
+                <li><a class="dropdown_text" href="give.html">GIVE</a></li>
+                <li><a class="dropdown_text" href="#">CONTACT</a></li>
+            </ul>
+            <!--NAVBAR ACCORDION END-->
+        </div>
+        {% block content %}
+        
+        {% endblock %}
+        <footer>
+            <span>
+                <img src="{% static 'images/logo-white.png" alt="">
+            </span>
+            <span>
+                <h1><a href="">About</a></h1>
+                <a href="">Vision</a>
+                <a href="">Who are we</a>
+                <a href="">Leadership</a>
+                <a href="">Location</a>
+            </span>
+            <span>
+                <h1><a href="">Get Involved</a></h1>
+                <a href="">Godhouse Men</a>
+                <a href="">Godhouse Women</a>
+                <a href="">Christ Tribe</a>
+                <a href="">Serve</a>
+                <a href="">Give</a>
+            </span>
+            <span>
+                <span>
+                    <i class="ri-map-pin-2-fill"></i>
+                    <p>2 Indian Street, beside Mansal hotel off Japka Road, Effurun, Warri, Delta State, Nigeria</p>
+                </span>
+                <span>
+                    <i class="bi bi-telephone-fill"></i>
+                    <p>+2349012345678</p>
+                </span>
+                <span>
+                    <i class="bi bi-envelope-fill"></i>
+                    <p>Click here to send us a mail</p>
+                </span>
+
+                <div class="social">
+                    <h5>Social Media</h5>
+                    <a href="">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <a href="">
+                        <i class="bx bxl-instagram"></i>
+                    </a>
+                </div>
+            </span>
+        </footer>
+    </div>
+    
+    <!--Ionicon Link Start-->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!--Ionicon Link End-->
+
+    <!--Javascript Link-->
+    <script src="{% static 'core/js/home.js' %}"></script>
+    <!--Javascript link End-->
+</body>
+</html>
