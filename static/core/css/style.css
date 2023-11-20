@@ -1,567 +1,298 @@
+/* general styling */
 body{
     width: 100%;
     margin: 0px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    overflow-x: hidden;
 }
 
-.header{
+header,
+main,
+footer{
     width: 100%;
-    height: 1000px;
-    margin: 0px;
-    background-image: url(../images/header-image.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    justify-content: space-between;
-}
-
-.header .first{
-    width: 95%;
-    height: 200px;
+    margin: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
 }
 
-.header .first .logo{
-    width: 140px;
-    height: 90px;
+header{
+    height: 7rem;
+    position: fixed;
+    top: 0;
+    z-index: 10;
 }
 
-.header .first .link{
+header .logo img{
+    width: 7rem;
+    margin-left: 3rem;
+}
+
+header .btn{
     width: 30%;
-    height: 40px;
+    margin: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+header .btn button{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-}
-
-.header .first .link nav a{
-    text-decoration: none;
-    color: white;
-    font-weight: bolder;
-    font-size: 16px;
-    margin: 8px;
-}
-
-.header .first .a{
-    height: 20px;
-    width: 70px;
-    padding: 15px 40px;
-    background-image: linear-gradient(to right,#FF6E01, #FF0000);
-    color: white;
     border-radius: 10px;
-    margin:5px;
-    text-decoration: none;
-    text-align: center;
+    font-size: 1rem;
 }
 
-.header .first .b{
+header .btn button a{
+    text-decoration: none;
+    font-size: 1rem;
+    color: white;
+}
+
+header .btn .orangebtn{
+    padding: 0.7rem 4rem;
+    background-image: linear-gradient(to right, #FF6E01, #FF0000);
+    border: none;
+}
+
+header .btn .whitebtn{
+    padding: 0.7rem 2.7rem;
     background-color: white;
-    height: 20px;
-    width: 70px;
-    color: black;
-    padding: 15px 40px;
-    border-radius: 10px;
-    margin:5px;
-    text-decoration: none;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-.header .first .b img{
-    width: 20px;
 }
 
-
-.header .second{
-    margin-bottom: 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header .second h1{
-    font-size: 50px;
-    margin: 5px;
-}
-
-.header .second p{
-    font-size: 20px;
-    margin: 5px;
-}
-
-.header .second .a{
-    padding: 15px 40px;
-    border-radius: 10px;
-    margin:30px;
-    text-decoration: none;
-    background-color: white;
-    color: black;
-
-}
-
-.firstMain{
-    width: 100%;
-    height: 700px;
-    margin: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    background-image: linear-gradient(to right, white, rgb(232, 215, 218));
-}
-
-.firstMain .one{
-    width: 500px;
-    height: 500px;
-    background-image: url(../images/location-back.jpg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.firstMain .two h2{
-    font-size: 50px;
-}
-
-.firstMain .two p{
-    margin-bottom: 50px;
-}
-
-.firstMain .two a{
-    padding: 15px 40px;
-    border-radius: 10px;
-    margin-top:30px;
-    text-decoration: none;
-    height: 20px;
-    background-image: linear-gradient(to right,#FF6E01, #FF0000);
-    color: white;
-}
-
-.secondMain{
-    width: 100%;
-    height: 700px;
-    margin: 0px;
-    background-image: url(../images/Rectangle-8.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    justify-content: center;
-}
-
-.secondMain .faint{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 70px;
-    height: 70px;
-    position: relative;
-    background-color: rgba(242, 56, 2, 0.3); /* 30% transparent */
-    border-radius: 50%; /* Round shape */
-    padding: 10px; /* Adjust padding as needed */
-    animation: pulse 1s infinite alternate; /* Animation */
-}
-
-.secondMain .faint .a{
-    padding: 30px;
-    background-color: #F23803;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.secondMain .faint .a .play{
-    width: 10px; /* Adjust image size as needed */
-    opacity: 1; /* Fully visible */
-}
-    
-@keyframes pulse {
-    0% {
-        transform: scale(1); /* Normal size */
-    }
-    100% {
-        transform: scale(1.2); /* Larger size */
-    }
-}
-
-.secondMain h3{
-    font-size: 38px;
-}
-
-.secondMain .b{
-    padding: 20px 76px;
-    background-color: white;
-    border-radius: 20px;
-    text-decoration: none;
+header .btn .whitebtn i{
+    margin-right: 1rem;
+    font-size: 1.5rem;
     color: black;
 }
 
-.thirdMain{
-    width: 100%;
-    height: 800px;
-    margin: 0px;
-    background-image: linear-gradient(to right, white, rgb(231, 200, 205));
-    display: flex;
+main{
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-.thirdMain .small-div{
-    width: 80%;
-}
-
-.thirdMain .small-div .third-first h4{
-    font-size: 24px;
-    margin-top: 0px;
-}
-
-.thirdMain .small-div .third-first .direction{
-    display: flex;
-    width: 90%;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.thirdMain .small-div .third-first .direction span{
-    width: 100px;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.thirdMain .small-div .third-first .direction span .leftArrow{
-    background-color: white;
-    color: grey;
-    height: 40px;
-    width: 40px;
-    border-radius: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.thirdMain .small-div .third-first .direction span .rightArrow{
-    background-color: #F9031A;
-    color: white;
-    border-radius: 40px;
-    height: 40px;
-    width: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.thirdMain .small-div .slide{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-bottom: 20px;
-}
-
-.thirdMain .small-div .slide .slide-item{
-    margin: 20px;
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-}
-
-.thirdMain .small-div .slide .slide-item h1{
-    color: #F23803;
-    font-family: Poppins;
-    font-size: 75px;
-    font-weight: 600;
-    line-height: 10px;
-    letter-spacing: 0px;
-    text-align: left;
-    font-style: italic;
-    margin: 20px 0px;
-
-}
-
-.thirdMain .small-div .slide .slide-item .user{
-    width: 180px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.thirdMain .small-div .slide .slide-item .user img{
-    width: 40px;
-    height: 40px;
-    border-radius: 40px;
-}
-
-.thirdMain .small-div .slide .slide-item .user .user-info{
-    line-height: 0px;
-}
-
-.thirdMain .small-div .testimonies-link{
-    width: 70%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.thirdMain .small-div .testimonies-link .testimonies{
-    padding: 15px 40px;
-    background-image: linear-gradient(to right,#FF6E01, #FF0000);
-    color: white;
-    border-radius: 10px;
-    text-decoration: none;
-    text-align: center;
-    font-size: 20px;
-}
-
-.forthMain{
-    width: 100%;
-    height: 700px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 0px;
-}
-
-.forthMain .messageBox{
-    width: 85%;
-    display: flex;
-    margin: 0px;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.forthMain .messageBox .messageText{
-    width: 45%;
-    margin: 20px;
-}
-
-.forthMain .messageBox .messageText h1{
-    color: #F23803;
-    font-size: 50px;
-    line-height: 10px;
-}
-
-.forthMain .messageBox .messageText h4{
-    font-size: 28px;
-}
-
-.forthMain .messageBox .messageText p{
-    color: grey;
-    margin-bottom: 50px;
-}
-
-.forthMain .messageBox .messageText a{
-    height: 20px;
-    width: 70px;
-    padding: 20px 45px;
-    background-image: linear-gradient(to right,#FF6E01, #FF0000);
-    color: white;
-    border-radius: 10px;
-    margin:10px;
-    text-decoration: none;
-    text-align: center;
-}
-
-.forthMain .messageBox img{
-    width: 800px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-}
-
-.fifthMain{
-    width: 100%;
-    height: 1200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0px;
-}
-
-.fifthMain .involved{
-    font-size: 60px;
-    line-height: 0px;
-    margin: 30px;
-}
-
-.fifthMain .involvedParagraph{
-    color: rgb(84, 84, 84);
-    font-size: 23px;
-    line-height: 0px;
-    margin: 20px;
-}
-
-.fifthMain .community{
-    width: 80%;
-    margin: 50px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.fifthMain .community .communityImages{
-    height: 400px;
-}
-
-.fifthMain .community .communityImages img{
-    width: 150px;
-}
-
-.fifthMain .community .communityImages .firstChild{
-    margin: 100px 5px 0px;
-}
-
-.fifthMain .community .communityImages .secondChild{
-    margin: 0px 5px 100px;
-}
-
-.fifthMain .community .communityImages .thirdChild{
-    margin: 60px 5px 40px;
-}
-
-.fifthMain .community .communityText{
-    height: 200px;
-    width: 45%;
-    margin: 30px;
-}
-
-.fifthMain .community .communityText h1{
-    font-size: 40px;
-}
-
-.fifthMain .community .communityText a{
-    text-decoration: none;
-    color: #F9031A;
-    font-weight: bold;
-    letter-spacing: 0px;
-}
-
-.sixthMain{
-    width: 100%;
-    height: 1200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0px;
-}
-
-.sixthMain h1{
-    font-size: 60px;
-    line-height: 0px;
-    margin: 30px;
-}
-
-.sixthMain .blogParagraph{
-    color: rgb(84, 84, 84);
-    font-size: 23px;
-    line-height: 0px;
-    margin: 20px;
-}
-
-.sixthMain .blogContent{
-    width: 90%;
-    height: auto;
-    height: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 150px 30px 30px;
-}
-
-.sixthMain .blogContent .bigBlogContent{
-    width: 50%;
-    height: 600px;
-    margin-right: 10px;
-}
-
-.sixthMain .blogContent .bigBlogContent img{
-    width: 100%;
-    height: 350px;
-    border-radius: 20px;
-}
-
-.sixthMain .blogContent .bigBlogContent h6{
-    font-size: 25px;
-    font-weight: 400;
-    margin: 10px;
-}
-
-.sixthMain .blogContent .bigBlogContent p{
-    font-size: 20px;
-    color: gray;
-    margin-bottom: 70px;
-}
-
-.sixthMain .blogContent .bigBlogContent a{
-    text-decoration: none;
-    color: #F9031A;
-    font-size: 20px;
-}
-
-.sixthMain .blogContent .smallBlogContentBox{
-    width: 50%;
-    height: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.sixthMain .blogContent .smallBlogContentBox a{
-    text-decoration: none;
-    color: black;
-}
-
-.sixthMain .blogContent .smallBlogContentBox .smallBlogContent{
-    width: 95%;
-    height: 200px;
-    display: flex;
-    text-decoration: none;
-}
-
-.sixthMain .blogContent .smallBlogContentBox .smallBlogContent img{
-    width: 300px;
-    height: 180px;
-    border-radius: 10px;
-    margin: 10px;
-}
-
-.sixthMain .blogContent .smallBlogContentBox .smallBlogContent h6{
-    font-size: 25px;
-    font-weight: 400;
-    margin: 20px;
-}
-
-.sixthMain .blogContent .smallBlogContentBox .smallBlogContent p{
-    font-size: 20px;
-    color: gray;
-    margin: 20px;
-}
-
-.sixthMain .blogLink{
-    padding: 20px 75px;
-    background-image: linear-gradient(to right,#FF6E01, #FF0000);
-    color: white;
-    border-radius: 10px;
-    margin:10px;
-    text-decoration: none;
-    text-align: center;
+    margin-top: 12rem;
+    margin-bottom: 5rem;
 }
 
 footer{
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 3rem;
+    height: 25rem;
+    background-color: black;
+    box-sizing: border-box;
+}
+
+footer span{
+    width: 23%;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: white;
+}
+
+footer span h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0px 0px 10px;
+}
+
+footer span a{
+    margin: 0px 0px 10px;
+    font-weight: 100;
+}
+
+footer span img{
+    width: 7rem;
+}
+
+footer span a{
+    color: white;
+    text-decoration: none;
+}
+
+footer span span{
     width: 100%;
-    height: 700px;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+footer span span i{
+    margin-right: 1rem;
+}
+
+footer span span p{
+    margin: 0px;
+}
+
+/* Event Page */
+.eventPage main section{
+    width: 80%;
+}
+
+.eventPage main .intro h1{
+    font-size: 3rem;
+}
+
+.eventPage main .selectCenter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20rem;
+    border-radius: 1rem;
+    margin: 3rem 0rem;
+    box-shadow: 0px 0px 15px 10px rgb(209, 208, 208);
+}
+
+.eventPage main .selectCenter h3{
+    font-size: 1.7rem;
+    line-height: 1rem;
+}
+
+.eventPage main .selectCenter p{
+    width: 50%;
+    text-align: center;
+    color: rgb(68, 68, 68);
+    font-size: 1.2rem;
+}
+
+.eventPage main .selectCenter select{
+    width: 20%;
+    height: 2rem;
+    padding: 0.5rem 0rem;
+    border-radius: 5px;
+    margin: 2rem 0rem 1rem;
+}
+
+.eventPage main .selectCenter button{
+    background-color: #FF0000;
+    color: white;
+    border: none;
+    padding: 0.7rem 4.3rem;
+    border-radius: 7px;
+    margin: 0.5rem 0rem 2rem;
+}
+
+.eventPage main section .grid-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr;
+    gap: 3rem;
+}
+
+.eventPage main section .grid-container .grid-item{
+    box-shadow: 0px 0px 15px 10px rgb(209, 208, 208);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.eventPage main section .grid-container .grid-item h4{
+    color: white;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    margin: 0;
+    background-color: #FF6E01;
+}
+.eventPage main section .grid-container .grid-item img{
+    width: 100%;
+}
+
+.eventPage main section .grid-container .grid-item .text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: rgb(56, 56, 56);
+    margin: 0.5rem 1.5rem;
+}
+
+.eventPage main section .grid-container .grid-item .text h3{
+    font-size: 2rem;
+    margin: 0px;
+    color: black;
+}
+
+.eventPage main section .grid-container .grid-item .text p{
+    margin: 4px
+}
+
+.eventPage main section .grid-container .grid-item .text p span{
+    font-weight: 600;
+}
+
+.eventPage main section .grid-container .grid-item .text button{
+    width: 100%;
+    height: 3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    background-color: #FF6E01;
+    color: white;
+    margin: 2rem 0rem;
+}
+
+/* Blog Page */
+.blogPage main{
+    margin-top: 7rem;
+    align-items: center;
+}
+
+.blogPage main section{
+    width: 80%;
+}
+
+.blogPage main .greySection{
+    width: 100%;
+    height: 5rem;
+    margin: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: gray;
+    color: white;
+}
+
+.blogPage main .greySection div{
+    width: 40%;
+    height: 50%;
+    margin-right: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.blogPage main .greySection h2{
+    margin-left: 2rem;
+    font-size: 2rem;
+}
+
+.blogPage main .greySection a{
+    color: white;
+    font-size: 1.1rem;
+    text-decoration: none;
+    text-align: center;
+}
+
+.blogPage main .greySection a i{
+    font-size: 1rem;
+}
+
+.blogPage main .greySection a.active{
+    display: flex;
+    flex-direction: column;
+}
+
+.blogPage main .blackSection{
+    width: 100%;
+    height: 20rem;
     margin: 0px;
     background-color: black;
     display: flex;
@@ -570,88 +301,586 @@ footer{
     color: white;
 }
 
-footer .footerBox{
-    width: 95%;
-    height: 70%;
+.blogPage main .blackSection h1{
+    width: 40%;
+}
+
+.blogPage main .introSection{
+    width: 80%;
+    height: 30rem;
     display: flex;
     justify-content: space-evenly;
-    align-items: flex-start;
-}
-
-footer .footerBox .footerSection{
-    margin: 20px;
-    width: 300px;
-}
-
-footer .footerBox .footerSection img{
-    width: 150px;
-}
-
-footer .footerBox .footerSection a{
-    display: block;
-    text-decoration: none;
-    color: white;
-    margin: 20px;
-}
-
-footer .footerBox .footerSection .footerdiv{
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: flex-start;
     align-items: center;
-    margin-bottom: 10px;
 }
 
-footer .footerBox .footerSection .footerdiv img{
-    width: 30px;
-    margin: 20px;
-}
-
-footer .footerBox .footerSection .footerdiv p{
+.blogPage main .introSection div{
+    width: 50%;
+    height: 80%;
     margin: 0px;
+    position: relative;
 }
 
-footer .socialMedia{
+.blogPage main .introSection .text{
+    width: 40%;
+    margin-right: 2rem;
+}
+
+.blogPage main .introSection .text h3{
+    font-size: 3.5rem;
+    margin: 0;
+}
+
+.blogPage main .introSection .text a{
+    color: #FF0000;
+}
+
+.blogPage main .introSection div span{
+    width: 30rem;
+    height: 17rem;
+    border-radius: 1rem;
+    background-image: linear-gradient(to right, #FF6E01, #FF0000);
+    position: absolute;
+    left: 0;
+    top: 30px;
+}
+
+.blogPage main .introSection div img{
+    width: 30rem;
+    height: 20rem;
+    border-radius: 1rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.blogPage main section .grid-container{
     width: 100%;
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+    gap: 2rem;
+}
+
+.blogPage main section .grid-container .grid-item{
+    overflow-x: hidden;
+    margin: 2rem 0rem;
+}
+
+.blogPage main section .grid-container .grid-item img{
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.blogPage main section .grid-container .grid-item p{
+    color: rgb(90, 90, 90);
+}
+
+.blogPage main section .grid-container .grid-item a{
+    color: #FF0000;
+}
+
+.blogPage main .loadBtn{
+    padding: 1rem 4rem;
+    background-image: linear-gradient(to right, #FF6E01, #FF0000);
+    border: none;
+    border-radius: 10px;
+    color: white;
+}
+
+.blogPage main .orangeSection{
+    background-color: #FF6E01;
+    color: white;
+    margin-top: 3rem;
+    height: 20rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-bottom: 30px;   
+    justify-content: center;
+    align-items: center;
 }
 
-footer .socialMedia h3{
-    font-size: 20px;
+.blogPage main .orangeSection h3{
+    font-size: 2.5rem;
+    margin: 10px;
 }
 
-/* animations */
+.blogPage main .orangeSection p{
+    width: 50%;
+    font-size: 1.2rem;
+    text-align: center;
+}
 
-.typing-animation {
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    height: 30px;
-    width: 30px;
-    border-right: 3px solid #dd0a0a; /* Cursor effect */
-    animation: typing 5s steps(20, end) infinite, blink-caret 1s step-end infinite;
-  }
+.blogPage main .orangeSection span input{
+    width: 17rem;
+    height: 2.5rem;
+    border: none;
+    background-color: #fb8d39;
+    border-radius: 5px;
+    padding-left: 1rem;
+}
 
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
-  }
+.blogPage main .orangeSection span button{
+    padding: 0.6rem 3rem;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    border: none;
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
 
-  @keyframes blink-caret {
-    from, to {
-      border-color: transparent;
+/* Books and Merchant design */
+.books main{
+    position: relative;
+}
+
+.books .blackSection img{
+    width: 8rem;
+    height: 12rem;
+    margin-right: 2rem;
+}
+
+.books .sectionTitle{
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.books section .grid-container-one{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5rem;
+    margin-bottom: 5rem;
+}
+
+.books section .grid-container-one .book{
+    position: relative;
+    background-color: white;
+    width: 100%;
+    height: 12rem;
+    box-shadow: 0px 0px 15px 10px rgb(209, 208, 208);
+}
+
+.books section .grid-container-one .book span{
+    width: 70%;
+    height: 10rem;
+    position: absolute;
+    right: 1rem;
+}
+.books section .grid-container-one .book span h3{
+    margin: 10px 0px;
+}
+
+.books section .grid-container-one .book span p{
+    /* width: 70%; */
+    font-size: 0.6rem;
+    margin: 5px 0px;
+}
+
+.books section .grid-container-one .book span p.p{
+    margin: 5px 0px;
+    font-weight: 600;
+}
+
+.books section .grid-container-one .book span button{
+    width: 90%;
+    height: 2rem;
+    border: 1px solid #FF6E01;
+    background-color: #fdd5b6;
+    color: #FF6E01;
+    border-radius: 5px;
+}
+
+.books section .grid-container-one .book span button:hover{
+    border: none;
+    background-color: #FF6E01;
+    color: white;
+}
+
+.books section .grid-container-one .book img{
+    position: absolute;
+    height: 9rem;
+    width: 6rem;
+    top: 1.5rem;
+    left: -3rem;
+}
+
+.books section .grid-container-one .merch{
+    position: relative;
+}
+
+.books section .grid-container-one .merch img{
+    width: 100%;
+    height: 20rem;
+}
+
+.books section .grid-container-one .merch button{
+    position: absolute;
+    /* display: none; */
+    top: 15rem;
+    width: 90%;
+    height: 3rem;
+    left: 1rem;
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+.books main .cart{
+    position: fixed;
+    bottom: 2rem;
+    right: 4rem;
+    background-color: rgb(210, 209, 209);
+    color: black;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.books main .cart p{
+    margin: 0;
+}
+
+.books main .cart sup{
+    position: fixed;
+    bottom: 5.5rem;
+    right: 4rem;
+    background-color: black;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 2rem;
+}
+
+/* Serve Page */
+.servePage .serveIntro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.servePage .serveIntro h2{
+    font-size: 2.5rem;
+    margin: 0.5rem;
+}
+
+.servePage .serveIntro p{
+    width: 50%;
+    text-align: center;
+}
+
+.servePage .serveIntro h6{
+    font-size: 1.1rem;
+    margin: 0rem;
+}
+
+.servePage .grid-container .serve{
+    position: relative;
+    box-shadow: none !important;
+    padding: 0px !important;
+    text-align: left;
+}
+
+.servePage .grid-container .serve span .text h3{
+    position: absolute;
+    top: 8rem;
+    color: white !important;
+}
+
+
+.servePage .grid-container .serve .text a{
+    text-decoration: none;
+    color: #FF0000;
+}
+
+
+/* for tablet size screen */
+@media screen and (max-width: 750px) {
+    /* general styling */
+    header,
+    main,
+    footer{
+        width: 100dvw;
+        margin: 0;
     }
-    50% {
-      border-color: #752525;
-      border-radius: 30px;
+
+    header{
+        height: 4rem;
+    }
+
+    header .logo img{
+        width: 4rem;
+        margin-left: 1rem;
+    }
+
+    header .btn{
+        width: 30%;
+        margin: 0;
+    }
+
+    header .btn button{
+        border-radius: 10px;
+        font-size: 0.7rem;
+    }
+
+    header .btn button a{
+        font-size: 0.7rem;
+    }
+
+    header .btn .orangebtn{
+        padding: 0.1rem 2rem;
+    }
+
+    header .btn .whitebtn{
+        padding: 0.3rem 1rem;
+    }
+
+    header .btn .whitebtn i{
+        font-size: 1rem;
+    }
+
+    main{
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    footer span h1{
+        font-size: 1rem;
+    }
+
+    footer span img{
+        width: 7rem;
+    }
+
+    footer span a{
+        color: white;
+        text-decoration: none;
+    }
+
+    footer span span{
+        width: 100%;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    /* Event Page */
+    .eventPage main .selectCenter h3{
+        margin-top: 2rem;
+        line-height: 25px;
+        text-align: center;
+    }
+
+    .eventPage main .selectCenter select{
+        margin: 1rem 0rem 1rem;
+    }
+
+    .eventPage main section .grid-container{
+        grid-template-columns:  1fr 1fr;
+    }
+
+    /* Blog Page */
+    .blogPage main{
+        margin-top: 3rem;
+        align-items: center;
+    }
+
+    .blogPage main .greySection div{
+        height: 20%;
+    }
+
+    .blogPage main .greySection h2{
+        margin-left: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .blogPage main .greySection a{
+        font-size: 0.75rem;
+    }
+
+    .blogPage main .greySection a i{
+        font-size: 0.7rem;
+    }
+
+    .blogPage main .blackSection{
+        height: 15rem;
+    }
+
+    .blogPage main .introSection{
+        height: 20rem;
+    }
+
+    .blogPage main .introSection div{
+        width: 50%;
+        height: 80%;
+        margin: 0px;
+        position: relative;
+    }
+
+    .blogPage main .introSection .text h3{
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    .blogPage main .introSection div span{
+        width: 15rem;
+        height: 10rem;
+    }
+
+    .blogPage main .introSection div img{
+        width: 15rem;
+        height: 10rem;
+    }
+
+    .blogPage main section .grid-container{
+        grid-template-columns:  1fr 1fr;
+    }
+
+    /* Books and Merchant design */
+    .books section .grid-container-one{
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    /* Serve Page */
+    .servePage .grid-container .serve span .text h3{
+        top: 7rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    /* general styling */
+    header,
+    main,
+    footer{
+        width: 100dvw;
+        margin: 0;
+    }
+
+    header .btn{
+        width: 43%;
+        margin: 0;
+    }
+
+    header .btn button a{
+        font-size: 0.7rem;
+    }
+
+    main{
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    footer{
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    footer span h1{
+        font-size: 1rem;
+    }
+
+    
+    footer span{
+        width: 90%;
+        margin-bottom: 2rem;
+    }
+
+    /* Event Page */
+    .eventPage main .intro h1{
+        font-size: 1.8rem;
+    }
+
+    .eventPage main .selectCenter h3{
+        margin-top: 2rem;
+        line-height: 25px;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .eventPage main .selectCenter p{
+        width: 90%;
+        
+    }
+
+    .eventPage main .selectCenter select{
+        margin: 1rem 0rem 1rem;
+        width: 90%;
+    }
+
+    .eventPage main section .grid-container{
+        grid-template-columns:  1fr 1fr;
+    }
+
+    /* Blog Page */
+    .blogPage main{
+        margin-top: 3rem;
+        align-items: center;
+    }
+
+    .blogPage main .greySection div{
+        height: 20%;
+    }
+
+    .blogPage main .greySection h2{
+        margin-left: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .blogPage main .greySection a{
+        font-size: 0.75rem;
+    }
+
+    .blogPage main .greySection a i{
+        font-size: 0.7rem;
+    }
+
+    .blogPage main .blackSection{
+        height: 15rem;
+    }
+
+    .blogPage main .introSection{
+        height: 20rem;
+    }
+
+    .blogPage main .introSection div{
+        width: 50%;
+        height: 80%;
+        margin: 0px;
+        position: relative;
+    }
+
+    .blogPage main .introSection .text h3{
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    .blogPage main .introSection div span{
+        width: 15rem;
+        height: 10rem;
+    }
+
+    .blogPage main .introSection div img{
+        width: 15rem;
+        height: 10rem;
+    }
+
+    .blogPage main section .grid-container{
+        grid-template-columns:  1fr 1fr;
+    }
+
+    /* Books and Merchant design */
+    .books section .grid-container-one{
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    /* Serve Page */
+    .servePage .grid-container .serve span .text h3{
+        top: 7rem;
     }
 }

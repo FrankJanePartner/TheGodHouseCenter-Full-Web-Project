@@ -851,79 +851,6 @@ body {
 }
 /*Blog Section End*/
 
-/* footer start */
-footer {
-    margin-top: 90px;
-    height: 400px;
-    background: #000000;
-}
-
-footer a {
-    text-decoration: none;
-    color: white;
-}
-
-.footer_content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 80px;
-    gap: 190px;
-    font-family: sans-serif;
-}
-
-.footer_first_content .identification {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
-
-.footer_first_content .identification a {
-    margin-bottom: 5px;
-}
-
-.footer_second_content .identification {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
-
-.footer_second_content .identification a {
-    margin-bottom: 5px;
-}
-
-.footer_third_content {
-    color: white;
-    font-size: 16px;
-    font-weight: 400;
-}
-
-.footer_third_content .third_sub_container {
-    margin-top: 35px;
-}
-
-.footer_third_content .third_sub_container .call {
-    margin-top: 24px;
-}
-
-ion-icon {
-    color: white;
-}
-
-.social_media {
-    font-family: sans-serif;
-    font-size: 18px;
-    color: white;
-    margin-top: 70px;
-    text-align: center;
-}
-
-.social_media ion-icon {
-    margin-top: 10px;
-    font-size: 25px;
-}
-/* footer end */
-
 /* RESPONSIVENESS START */
 @media screen and (max-width: 767px) {
     /* Styles for phone */
@@ -942,10 +869,3 @@ ion-icon {
 }
 
 /* RESPONSIVENESS END */
-
-
-
-
-.header-logo{
-    width: 5rem;
-}
