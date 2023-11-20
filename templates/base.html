@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}  - The GodHouse Center</title>
-    <link rel="stylesheet" href="{% static 'core/css/leadership.css' %}">
-    <link rel="stylesheet" href="{% static 'core/css/home.css' %}">
+    {% block link %}<link rel="stylesheet" href="{% static 'core/css/home.css' %}">{% endblock %}
+    <link rel="shortcut icon" href="{% static 'core/images/logo.jpg' %}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
         <!--FIRST - HEADER-->
         <div class="header_container">
             <div class="left">
-                <img src="{% static 'https://i0.wp.com/godhouse.org/wp-content/uploads/2021/01/godhouseLogoWhite.png?resize=145%2C79&ssl=1" alt="church-logo">
+                <img src="{%  static 'core/images/logo.jpg' %}" alt="church-logo" class='header-logo'>
             </div>
     
             <div class="right">
@@ -76,7 +76,7 @@
         {% endblock %}
         <footer>
             <span>
-                <img src="{% static 'images/logo-white.png" alt="">
+                <img src="{% static 'core/images/logo-white.png' %}" alt="">
             </span>
             <span>
                 <h1><a href="">About</a></h1>

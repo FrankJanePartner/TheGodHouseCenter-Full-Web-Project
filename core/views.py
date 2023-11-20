@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Leader, Location
 
 # Create your views here.
 def home(request):
@@ -11,7 +12,9 @@ def belief(request):
     return render(request, 'our-beliefs.html')
 
 def leaders(request):
-    return render(request, 'leadership.html')
+    leader = Leader.objects.all()
+    return render(request, 'leadership.html', {'leader':leader})
 
 def locations(request):
-    return render(request, 'location.html')
+    location = Location.objects.all()
+    return render(request, 'location.html', {'location':location})

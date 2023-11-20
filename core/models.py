@@ -30,8 +30,7 @@ class Category(CommonInfo):
         verbose_name_plural = "Categories"
 
 class Location(CommonInfo):
-    name = models.CharField(max_length=255)
-    adress = models.TextField()
+    address = models.TextField()
 
     def __str__(self):
         return f'{self.name}'

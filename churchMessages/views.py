@@ -27,4 +27,3 @@ def download(request):
         else:
             print('Invalid Type')
         return redirect('/message/')
-        

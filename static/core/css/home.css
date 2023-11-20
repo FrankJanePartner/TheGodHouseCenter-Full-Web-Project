@@ -15,7 +15,6 @@ body {
 }
 
 
-
 /* FIRST SECTION BACKGROUND */
 .first_section {
     background-image: url(../asset/first_section.png);
@@ -947,3 +946,6 @@ ion-icon {
 
 
 
+.header-logo{
+    width: 5rem;
+}
