@@ -1,8 +1,11 @@
 from django.shortcuts import render
+from .models import Church, Unit
 
 # Create your views here.
 def churches(request):
-    return render(request, 'men.html')
+    churches = Church.objects.all()
+    return render(request, 'men.html', {'churches':churches})
 
 def units(request):
-    return render(request, 'units.html')
+    units = Unit.objects.all()
+    return render(request, 'units.html', {"units":units})

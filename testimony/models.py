@@ -14,3 +14,12 @@ class Testimony(CommonInfo):
     
     class Meta:
         verbose_name_plural = "Testimonies"
+
+class TestimonyImage(models.Model):
+    image = models.ImageField(upload_to='bigTestImg')
+
+    def __str__(self):
+        return f'{self.id}'
+
+    class Meta:
+        verbose_name_plural = "TestimonyImages"

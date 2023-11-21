@@ -36,11 +36,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
 }
 
 .left img {
     margin-left: 13px;
 }
+
 
 .right {
     display: flex;
@@ -869,3 +871,10 @@ body {
 }
 
 /* RESPONSIVENESS END */
+
+main{
+    margin-top: 0rem !important;
+    height: fit-content !important;
+    padding: 0rem !important;
+    background-color: red;
+}

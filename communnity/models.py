@@ -4,7 +4,7 @@ from core.models import CommonInfo
 # Create your models here.
 class Unit(CommonInfo):
     description = models.TextField()
-    images = models.ImageField(upload_to='media/unit', height_field=None, width_field=None, max_length=None)
+    images = models.ImageField(upload_to='media/unit')
 
     def __str__(self):
         return f'{self.name}'
@@ -14,7 +14,7 @@ class Unit(CommonInfo):
 
 class Church(CommonInfo):
     description = models.TextField()
-    images = models.ImageField(upload_to='media/unit', height_field=None, width_field=None, max_length=None)
+    images = models.ImageField(upload_to='media/unit')
 
     def __str__(self):
         return f'{self.name}'

@@ -1,8 +1,7 @@
 from django.urls import path
-from . import views
+from .views import message, download
 
 urlpatterns = [
-    path('', views.message, name='message'),
-    path('audio/', views.audioMessages, name='audio'),
-    path('video/', views.videoMessages, name='video')
+    path('', message, name='message'),
+    path('download/', download, name='download'),
 ]

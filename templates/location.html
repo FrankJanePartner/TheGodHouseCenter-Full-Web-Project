@@ -1,86 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find GodHouse Around You</title>
-    <link rel="stylesheet" href="css/location.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-</head>
-<body>
-    <!-- Wrapper Container Start-->
-    <div class="wrapper">
-        <!--HEADER-->
-        <div class="header_container">
-
-            <div class="left">
-                <img src="https://i0.wp.com/godhouse.org/wp-content/uploads/2021/01/godhouseLogoWhite.png?resize=145%2C79&ssl=1" alt="church-logo">
-            </div>
-    
-            <div class="right">
-                <div class="give_btn">
-                    <a href="give.html"><button>Give</button></a>
-                </div>
-    
-                <button class="menu_bar">
-                    <div id="menu-btn" class="fas fa-bars"></div>
-                    <span class="menu_span">Menu</span>
-                </button>
-            </div>
-    
-            <!--NAVBAR ACCORDION START-->
-            <ul class="accordion_menu">    
-                <li><a class="dropdown_text" href="home.html">Home</a></li>
-                <li class="link">
-                    <div class="dropdown">
-                        About
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                    <ul class="submenuItems">
-                        <li><a href="about.html">WHO WE ARE</a></li>
-                        <li><a href="our-beliefs.html">OUR BELIEF</a></li>
-                        <li><a href="leadership.html">LEADERSHIP</a></li> 
-                    </ul>
-                </li>
-                <li><a class="dropdown_text" href="location.html">Our Centers</a></li>
-                <li class="link">
-                    <div class="dropdown">
-                        RESOURCES
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                    <ul class="submenuItems">
-                        <li><a href="#">TESTIMONIES</a></li>
-                        <li><a href="#">BOOK & MERCH</a></li>
-                        <li><a href="#">BLOG</a></li> 
-                    </ul>
-                </li>
-                <li><a class="dropdown_text" href="#">EVENT</a></li>
-                <li class="link">
-                    <div class="dropdown">
-                        WATCH & LISTEN
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                    <ul class="submenuItems">
-                        <li><a href="#">VIDEO</a></li>
-                        <li><a href="#">AUDIO</a></li>
-                    </ul>
-                </li>
-                <li><a class="dropdown_text" href="give.html">GIVE</a></li>
-                <li><a class="dropdown_text" href="#">CONTACT</a></li>
-            </ul>
-             <!--NAVBAR ACCORDION END-->
-           
-        </div>
-        <!--END - HEADER-->
-
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Leadership{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'core/css/location.css' %}">
+<link rel="stylesheet" href="{% static 'core/css/location1.css' %}">
+{% endblock %}
+{% block content %}
 
         <!--LOCATION-MAP-CONTAINER-->
         <div class="location">
 
             <div class="location_center">
                 <div class="location_image">
-                    <img class="blink_image" src="asset/Location.png" alt="location-image">
+                    <img class="blink_image" src="{% static 'core/asset/Location.png' %}" alt="location-image">
                 </div><br><br>
     
                 <div class="content">
@@ -99,7 +31,7 @@
 
              <div class="church first_church">
                 <div class="location_image center_image">
-                    <img src="./asset/warri church.jpg" alt="warri-location-image">
+                    <img src="{% static 'core/asset/warri church.jpg' %}" alt="warri-location-image">
                 </div>
 
                 <div class="center_address">Warri</div>
@@ -112,7 +44,7 @@
 
               <div class="church second_church">
                 <div class="location_image center_image">
-                    <img src="./asset/godhouse portharcourt.jpg" alt="warri-location-image">
+                    <img src="{% static 'core/asset/godhouse portharcourt.jpg' %}" alt="warri-location-image">
                 </div>
 
                 <div class="center_address">Port Harcourt</div>
@@ -124,7 +56,7 @@
 
               <div class="church third_church">
                 <div class="location_image center_image">
-                    <img src="./asset/godhouse lagos.jpg" alt="warri-location-image">
+                    <img src="{% static 'core/asset/godhouse lagos.jpg' %}" alt="warri-location-image">
                 </div>
 
                 <div class="center_address">Lagos</div>
@@ -143,7 +75,7 @@
 
                  <div class="church first_church">
                    <div class="location_image center_image">
-                       <img src="./asset/godhouse abuja.jpg" alt="warri-location-image">
+                       <img src="{% static 'core/asset/godhouse abuja.jpg' %}" alt="warri-location-image">
                    </div>
    
                    <div class="center_address">Abuja</div>
@@ -156,7 +88,7 @@
    
                  <div class="church second_church">
                    <div class="location_image center_image">
-                       <img src="asset/jeddo church.jpg" alt="warri-location-image">
+                       <img src="{% static 'core/asset/jeddo church.jpg' %}" alt="warri-location-image">
                    </div>
    
                    <div class="center_address">Jeddo</div>
@@ -168,7 +100,7 @@
    
                  <div class="church third_church">
                    <div class="location_image center_image">
-                       <img src="asset/bonny island.jpg" alt="warri-location-image">
+                       <img src="{% static 'core/asset/bonny island.jpg' %}" alt="warri-location-image">
                    </div>
    
                    <div class="center_address">Bonny Island</div>
@@ -187,7 +119,7 @@
 
                 <div class="church first_church">
                    <div class="location_image center_image">
-                       <img src="./asset/godhouse sagamu.jpg" alt="warri-location-image">
+                       <img src="{% static 'core/asset/godhouse sagamu.jpg' %}" alt="warri-location-image">
                    </div>
    
                    <div class="center_address">Sagamu</div>
@@ -200,7 +132,7 @@
    
                  <div class="church second_church">
                    <div class="location_image center_image">
-                       <img src="./asset/godhouse fupre.jpg" alt="warri-location-image">
+                       <img src="{% static 'core/asset/godhouse fupre.jpg' %}" alt="warri-location-image">
                    </div>
    
                    <div class="center_address">Fupre</div>
@@ -212,7 +144,7 @@
    
                  <div class="church third_church">
                    <div class="location_image center_image">
-                       <img src="./asset/godhouse ibadan.jpg" alt="warri-location-image">
+                       <img src="{% static 'core/asset/godhouse ibadan.jpg' %}" alt="warri-location-image">
                    </div>
    
                    <div class="center_address">Ibadan</div>
@@ -230,7 +162,7 @@
                     <div class="e_ceneters_gallery">
                         <div class="church first_church">
                             <div class="location_image center_image">
-                                <img src="./asset/godhouse uk.jpg" alt="warri-location-image">
+                                <img src="{% static 'core/asset/godhouse uk.jpg' %}" alt="warri-location-image">
                             </div>
             
                             <div class="center_address">UK</div>
@@ -243,7 +175,7 @@
 
                         <div class="church second_church">
                             <div class="location_image center_image">
-                                <img src="./asset/godhouse us.jpg" alt="warri-location-image">
+                                <img src="{% static 'core/asset/godhouse us.jpg' %}" alt="warri-location-image">
                             </div>
             
                             <div class="center_address">US</div>
@@ -256,7 +188,7 @@
 
                         <div class="church third_church">
                             <div class="location_image center_image">
-                                <img src="./asset/godhouse canada.jpg" alt="warri-location-image">
+                                <img src="{% static 'core/asset/godhouse canada.jpg' %}" alt="warri-location-image">
                             </div>
             
                             <div class="center_address">CANADA</div>
@@ -271,57 +203,4 @@
                 <!--E-CENETERS END-->
         </div>
 
-                  <!--Footer start-->
-        <footer>
-            <div class="footer_content">
-                <div class="footer_image">
-                    <img src="./asset/church-logo.png" alt="footer-image">
-                </div>
-
-                <div class="footer_first_content">
-                    <a href="#" class="footer_about">About</a>
-                    <div class="identification">
-                        <a href="#">Vision</a>
-                        <a href="#">Who We Are</a>
-                        <a href="#">Leadership</a>
-                        <a href="#">Location</a>
-                    </div>
-                </div>
-
-                <div class="footer_second_content">
-                    <a href="#" class="get_involved">Get Involved</a>
-                    <div class="identification">
-                        <a href="#">GodHouse Men</a>
-                        <a href="#">GodHouse Women</a>
-                        <a href="#">Christ Tribe</a>
-                        <a href="#">Serve</a>
-                        <a href="#">Give</a>
-                    </div>
-                </div>
-
-                <div class="footer_third_content">
-                    <a class="Contact" href="#">Contact</a>
-                    <div class="third_sub_container">
-                        <div class="locate"><ion-icon name="location-outline"></ion-icon> 2 Indian Street, beside Mansal <br>hotel, off Jakpa Road, Effurun, <br>Warri, Delta State, Nigeria.</div>
-                        <div class="call"><ion-icon name="call-outline"></ion-icon> +2349071511079</div>
-                    </div>
-                </div>
-
-            </div>
-            
-            <div class="social_media">
-                <div class="social_media_text"> Social Media </div>
-                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-                <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-                <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-            </div>
-        </footer>
-        <!--Footer End-->
-               
-    </div>
-    <!-- Wrapper Container End-->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="./js/location.js"></script>
-</body>
-</html>
+{% endblock %}

@@ -34,10 +34,3 @@ class Blog(models.Model):
 	
     def __str__(self):
         return self.title
-
-
-class Subscriber(models.Model):
-    user = models.EmailField(max_length=254)
-
-    def __str__(self):
-        return f"Subscriber: {self.id}"
