@@ -26,7 +26,7 @@ urlpatterns = [
     path('community/', include('communnity.urls')),
     # path('contact/', include('contact.urls')),
     path('events/', include('events.urls')),
-    # path('giving/', include('giving.urls')),
+    path('give/', include('giving.urls')),
     path('store/', include('store.urls')),
     path('testimony/', include('testimony.urls')),
 ]

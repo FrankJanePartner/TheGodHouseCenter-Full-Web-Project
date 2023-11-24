@@ -69,7 +69,7 @@ header .btn .whitebtn i{
 
 main{
     flex-direction: column;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     margin-bottom: 5rem;
 }
 
@@ -86,9 +86,9 @@ footer span{
     width: 23%;
     margin: 0px;
     display: flex;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     color: white;
 }
 
@@ -116,9 +116,9 @@ footer span span{
     width: 100%;
     margin-bottom: 1rem;
     display: flex;
-    flex-direction: row !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 footer span span i{
@@ -579,24 +579,192 @@ footer span span p{
 }
 
 .servePage .grid-container .serve{
-    position: relative;
     box-shadow: none !important;
     padding: 0px !important;
-    text-align: left;
+    text-align: left !important;
+    border-radius: 0 !important;
 }
 
-.servePage .grid-container .serve span .text h3{
-    position: absolute;
-    top: 8rem;
-    color: white !important;
+.servePage .grid-container .serve img{
+    border-radius: 1rem;
 }
 
+.servePage .grid-container .serve .text{
+    padding: 0 !important;
+    margin: 0px !important;
+}
 
 .servePage .grid-container .serve .text a{
     text-decoration: none;
     color: #FF0000;
 }
 
+.servePage .unitInfo{
+    margin-top: 5rem;
+}
+
+/* testimony Page */
+.testimonies .testimonyIntro{
+    text-align: center !important;
+    margin: 3rem 0rem;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.testimonies .testimonyIntro h1{
+    font-size: 2.5rem;
+    width: 40%;
+    margin: 0.2rem;
+}
+
+.testimonies .testimonyIntro p{
+    margin: 0.2rem;
+}
+
+.testimonies .width{
+    width: 99% !important;
+    height: fit-content;
+    margin: 0;
+}
+
+.testimonies section .grid-container{
+    width: 100% !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 3rem !important;
+}
+
+.testimonies section .grid-container .grid-item{
+    border-radius: 1rem;
+    height: 16rem;
+    padding: 1rem;
+    box-shadow: 0px 0px 10px 5px gray;
+    position: relative;
+}
+
+.testimonies section .grid-container .grid-item .testimonies-grid h2{
+    font-size: 4rem;
+    color: #FF0000;
+    margin-bottom: 0px;
+    line-height: 0px;
+}
+
+.testimonies section .grid-container .grid-item .testimonies-grid p{
+    margin: 10px;
+}
+
+.testimonies section .grid-container .testimonies-grid img{
+    height: 3rem !important;
+    width: 3rem !important;
+    border-radius: 20rem !important;
+    position: absolute !important;
+    bottom: 2rem;
+    left: 1rem;
+}
+
+.testimonies section .grid-container .testimonies-grid .userProfile{
+    position: absolute;
+    bottom: 2rem;
+    right: 8rem;
+    text-align: left !important;
+}
+
+.testimonies section .grid-container .testimonies-grid .userProfile h3{
+    margin: 0px;
+}
+
+.testimonies section .grid-container .testimonies-grid .userProfile p{
+    margin: 0px;
+}
+
+.testimonies .sectionTitle{
+    margin-top: 3rem;
+    font-size: 2rem;
+    text-align: center !important;
+}
+
+.grid-item-one{
+    grid-area: one !important;
+}
+
+.grid-item-two{
+    grid-area: two !important;
+}
+
+.grid-item-three{
+    grid-area: three !important;
+}
+
+.grid-item-four{
+    grid-area: four !important;
+}
+
+.grid-item-five{
+    grid-area: five !important;
+}
+
+.grid-item-six{
+    grid-area: six !important;
+}
+
+.grid-item-seven{
+    grid-area: seven !important;
+}
+
+.grid-item-eight{
+    grid-area: eight !important;
+}
+.grid-item-nine{
+    grid-area: nine !important;
+}
+
+.testimonies .testimony-grid-container{
+    height: auto;
+    display: grid !important;
+    grid-template-areas: 
+        'one one two three'
+        'four seven six six'
+        'five seven eight nine';
+    gap: 1rem;   
+}
+
+.testimonies .testimony-grid-container .testmony-grid-item{
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.testimonies .testimony-grid-container .testmony-grid-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: fit !important;
+}
+
+/* streaming pages */
+.VideoPage main{
+    margin-top: 5rem;
+}
+
+.VideoPage main section{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.VideoPage main section img{
+    width: 30%;
+    height: 70vh;
+}
+
+.VideoPage main section audio{
+    width: 100%;
+    margin: 4rem;
+}
 
 /* for tablet size screen */
 @media screen and (max-width: 750px) {
@@ -797,24 +965,25 @@ footer span span p{
     }
 
     .eventPage main .selectCenter h3{
+        width: 80%;
         margin-top: 2rem;
         line-height: 25px;
         text-align: center;
-        font-size: 0.9rem;
+        font-size: 0.98rem;
     }
 
     .eventPage main .selectCenter p{
-        width: 90%;
-        
+        width: 80%;
+        font-size: 0.7rem;
     }
 
     .eventPage main .selectCenter select{
         margin: 1rem 0rem 1rem;
-        width: 90%;
+        width: 50%;
     }
 
     .eventPage main section .grid-container{
-        grid-template-columns:  1fr 1fr;
+        grid-template-columns:  1fr;
     }
 
     /* Blog Page */
@@ -828,12 +997,12 @@ footer span span p{
     }
 
     .blogPage main .greySection h2{
-        margin-left: 2rem;
-        font-size: 1.5rem;
+        margin-left: 1rem;
+        font-size: 1.1rem;
     }
 
     .blogPage main .greySection a{
-        font-size: 0.75rem;
+        font-size: 0.5rem;
     }
 
     .blogPage main .greySection a i{
@@ -844,43 +1013,61 @@ footer span span p{
         height: 15rem;
     }
 
+    .blogPage main .blackSection h1{
+        font-size: 1rem;
+    }
+
     .blogPage main .introSection{
         height: 20rem;
     }
 
     .blogPage main .introSection div{
-        width: 50%;
-        height: 80%;
+        width: 40%;
+        height: 60%;
         margin: 0px;
         position: relative;
     }
 
+    .blogPage main .introSection .text{
+        width: 60%;
+    }
+
     .blogPage main .introSection .text h3{
-        font-size: 2rem;
+        font-size: 0.97rem;
         margin: 0;
     }
 
+    .blogPage main .introSection .text p{
+        font-size: 0.3;
+    }
+
     .blogPage main .introSection div span{
-        width: 15rem;
-        height: 10rem;
+        width: 10rem;
+        height: 7rem;
+        top: 2rem;
+        left: -1rem;
     }
 
     .blogPage main .introSection div img{
-        width: 15rem;
-        height: 10rem;
+        width: 10rem;
+        height: 7rem;
+        bottom: 2rem;
+        right: -2rem;
     }
 
     .blogPage main section .grid-container{
-        grid-template-columns:  1fr 1fr;
+        grid-template-columns:  1fr;
     }
 
     /* Books and Merchant design */
     .books section .grid-container-one{
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
     
     /* Serve Page */
     .servePage .grid-container .serve span .text h3{
-        top: 7rem;
+        top: 10rem;
+        text-align: center;
+        left: 3rem;
     }
 }

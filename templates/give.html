@@ -1,106 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/give.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
-<body>
-    <div class="giving_container">
-        <div class="header_container">
-            <div class="left">
-                <img src="https://i0.wp.com/godhouse.org/wp-content/uploads/2021/01/godhouseLogoWhite.png?resize=145%2C79&ssl=1" alt="church-logo">
-            </div>
-
-            <div class="right">
-                <button class="menu_bar">
-                    <div id="menu-btn" class="fas fa-bars"></div>
-                    <span class="menu_span">Menu</span>
-                </button>
-            </div> 
-
-           <!--NAVBAR ACCORDION START-->
-           <ul class="accordion_menu">    
-            <li><a class="dropdown_text" href="home.html">Home</a></li>
-            <li class="link">
-                <div class="dropdown">
-                    About
-                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                </div>
-                <ul class="submenuItems">
-                    <li><a href="about.html">WHO WE ARE</a></li>
-                    <li><a href="our-beliefs.html">OUR BELIEF</a></li>
-                    <li><a href="leadership.html">LEADERSHIP</a></li> 
-                </ul>
-            </li>
-            <li><a class="dropdown_text" href="location.html">Our Centers</a></li>
-            <li class="link">
-                <div class="dropdown">
-                    RESOURCES
-                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                </div>
-                <ul class="submenuItems">
-                    <li><a href="#">TESTIMONIES</a></li>
-                    <li><a href="#">BOOK & MERCH</a></li> 
-                    <li><a href="#">BLOG</a></li> 
-                </ul>
-            </li>
-            <li><a class="dropdown_text" href="#">EVENT</a></li>
-            <li class="link">
-                <div class="dropdown">
-                    WATCH & LISTEN
-                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                </div>
-                <ul class="submenuItems">
-                    <li><a href="#">VIDEO</a></li>
-                    <li><a href="#">AUDIO</a></li>
-                </ul>
-            </li>
-            <li><a class="dropdown_text" href="give.html">GIVE</a></li>
-            <li><a class="dropdown_text" href="#">CONTACT</a></li>
-        </ul>
-         <!--NAVBAR ACCORDION END-->
-        </div> 
-        <!--End NavBar-->
-
-        <div class="giving_image">
-            <div class="giving_center_content">
-                <div class="first_main_content">
-                    <div class="first_child_content">Your Giving Makes All the Difference</div>
-                </div>
-
-                <div class="second_main_content">
-                    <div class="second_child_content">We give as an act of service, worship, and total obedience to God</div>
-                    <div class="third_child_content">Just as God gave us His Son, we also have learned to lay down our</div>
-                    <div class="fourth_child_content">time, our love, and our finances for the advancement of the kingdom</div>
-                </div>
-            </div>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Giving{% endblock %}
+{% block link %}<link rel="stylesheet" href="{% static 'core/css/give.css' %}">{% endblock %}
+{% block content %}
+<div class="giving_image">
+    <div class="giving_center_content">
+        <div class="first_main_content">
+            <div class="first_child_content">Your Giving Makes All the Difference</div>
         </div>
 
-        <section>
-            <div class="gateway_container">
-                <form action="#">
-                    <label for="Amount">How much would you like to give?</label>
-                    <input required id="" type="text" name="Amount" placeholder="Enter amount you would like to give">
-        
-                    <label for="payment option">What would you like to give towards?</label>
-                    <select name="favouritepet" id="favouritepet">
-                        <option value="none">Offering</option>
-                        <option value="dog">Tithe</option>
-                        <option value="cat">Partnership</option>
-                        <option value="bird">Teacher seed</option>
-                        <option value="bird">Special Givings</option>
-                    </select>
-        
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-        </section>
+        <div class="second_main_content">
+            <div class="second_child_content">We give as an act of service, worship, and total obedience to God</div>
+            <div class="third_child_content">Just as God gave us His Son, we also have learned to lay down our</div>
+            <div class="fourth_child_content">time, our love, and our finances for the advancement of the kingdom</div>
+        </div>
     </div>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="./js/give.js"></script>
-</body>
-</html>
+</div>
+
+<section>
+    <div class="gateway_container">
+        <form action="#">
+            <label for="Amount">How much would you like to give?</label>
+            <input required id="" type="text" name="Amount" placeholder="Enter amount you would like to give">
+
+            <label for="payment option">What would you like to give towards?</label>
+            <select name="favouritepet" id="favouritepet">
+                <option value="none">Offering</option>
+                <option value="dog">Tithe</option>
+                <option value="cat">Partnership</option>
+                <option value="bird">Teacher seed</option>
+                <option value="bird">Special Givings</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

@@ -1,30 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="assests/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="assests/remixicon/remixicon.css">
-    <link rel="stylesheet" href="assests/boxicons/css/boxicons.css">
-    <title>Serve - The GodHouse Center</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Unit{% endblock %}
+{% block content %}
     <div class="eventPage servePage">
-        <header>
-            <div class="logo">
-                <img src="images/logo.jpg" alt="">
-            </div>
-            <div class="btn">
-                <button class="orangebtn">
-                    <a href="">Give</a>
-                </button>
-                <button class="whitebtn">
-                    <i class="bi bi-list"></i>
-                    Menu
-                </button>
-            </div>
-        </header>
         <main>
             <section class="serveIntro">
                 <h2>Serve with a team</h2>
@@ -41,7 +19,7 @@
                 <div class="grid-container">
                     <div class="grid-item serve">
                         <span>
-                            <img src="images/Rectangle 118.jpg" alt="">
+                            <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
                             <span class="text">
                                 <h3>Creative Team</h3>
                                 <p>
@@ -57,7 +35,7 @@
                     </div>
                     <div class="grid-item serve">
                         <span>
-                            <img src="images/Rectangle 118.jpg" alt="">
+                            <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
                             <span class="text">
                                 <h3>Creative Team</h3>
                                 <p>
@@ -73,7 +51,7 @@
                     </div>
                     <div class="grid-item serve">
                         <span>
-                            <img src="images/Rectangle 118.jpg" alt="">
+                            <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
                             <span class="text">
                                 <h3>Creative Team</h3>
                                 <p>
@@ -89,7 +67,7 @@
                     </div>
                     <div class="grid-item serve">
                         <span>
-                            <img src="images/Rectangle 118.jpg" alt="">
+                            <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
                             <span class="text">
                                 <h3>Creative Team</h3>
                                 <p>
@@ -105,7 +83,7 @@
                     </div>
                     <div class="grid-item serve">
                         <span>
-                            <img src="images/Rectangle 118.jpg" alt="">
+                            <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
                             <span class="text">
                                 <h3>Creative Team</h3>
                                 <p>
@@ -121,7 +99,7 @@
                     </div>
                     <div class="grid-item serve">
                         <span>
-                            <img src="images/Rectangle 118.jpg" alt="">
+                            <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
                             <span class="text">
                                 <h3>Creative Team</h3>
                                 <p>
@@ -137,7 +115,7 @@
                     </div>
                     <div class="grid-item serve">
                         <span>
-                            <img src="images/Rectangle 118.jpg" alt="">
+                            <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
                             <span class="text">
                                 <h3>Creative Team</h3>
                                 <p>
@@ -153,7 +131,7 @@
                     </div>
                     <div class="grid-item serve">
                         <span>
-                            <img src="images/Rectangle 118.jpg" alt="">
+                            <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
                             <span class="text">
                                 <h3>Creative Team</h3>
                                 <p>
@@ -169,7 +147,7 @@
                     </div>
                     <div class="grid-item serve">
                         <span>
-                            <img src="images/Rectangle 118.jpg" alt="">
+                            <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
                             <span class="text">
                                 <h3>Creative Team</h3>
                                 <p>
@@ -185,7 +163,7 @@
                     </div>
                     <div class="grid-item serve">
                         <span>
-                            <img src="images/Rectangle 118.jpg" alt="">
+                            <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
                             <span class="text">
                                 <h3>Creative Team</h3>
                                 <p>
@@ -201,7 +179,7 @@
                     </div>
                     <div class="grid-item serve">
                         <span>
-                            <img src="images/Rectangle 118.jpg" alt="">
+                            <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
                             <span class="text">
                                 <h3>Creative Team</h3>
                                 <p>
@@ -217,7 +195,7 @@
                     </div>
                     <div class="grid-item serve">
                         <span>
-                            <img src="images/Rectangle 118.jpg" alt="">
+                            <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
                             <span class="text">
                                 <h3>Creative Team</h3>
                                 <p>
@@ -237,56 +215,5 @@
                 <h1>To know how you can join a service unit, speak with a leader at your local GodHouse center</h1>
             </section>
         </main>
-        <footer>
-            <span>
-                <img src="images/logo-white.png" alt="">
-            </span>
-            <span>
-                <h1><a href="">About</a></h1>
-                <a href="">Vision</a>
-                <a href="">Who are we</a>
-                <a href="">Leadership</a>
-                <a href="">Location</a>
-            </span>
-            <span>
-                <h1><a href="">Get Involved</a></h1>
-                <a href="">Godhouse Men</a>
-                <a href="">Godhouse Women</a>
-                <a href="">Christ Tribe</a>
-                <a href="">Serve</a>
-                <a href="">Give</a>
-            </span>
-            <span>
-                <span>
-                    <i class="ri-map-pin-2-fill"></i>
-                    <p>
-                        2 Indian Street, beside Mansal hotel off Japka Road, 
-                        Effurun, Warri, Delta State, Nigeria
-                    </p>
-                </span>
-                <span>
-                    <i class="bi bi-telephone-fill"></i>
-                    <p>+2349012345678</p>
-                </span>
-                <span>
-                    <i class="bi bi-envelope-fill"></i>
-                    <p>Click here to send us a mail</p>
-                </span>
-
-                <div class="social">
-                    <h5>Social Media</h5>
-                    <a href="">
-                        <i class="bi bi-facebook"></i>
-                    </a>
-                    <a href="">
-                        <i class="bi bi-twitter"></i>
-                    </a>
-                    <a href="">
-                        <i class="bx bxl-instagram"></i>
-                    </a>
-                </div>
-            </span>
-        </footer>
     </div>
-</body>
-</html>
+{% endblock %}

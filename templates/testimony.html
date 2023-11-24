@@ -1,30 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="assests/bootstrap-icons/bootstrap-icons.css">
-        <link rel="stylesheet" href="assests/remixicon/remixicon.css">
-        <link rel="stylesheet" href="assests/boxicons/css/boxicons.css">
-        <title>Testimonies - The GodHouse Center</title>
-    </head>
-<body>
-    <div class="blogPage testimonies">
-        <header>
-            <div class="logo">
-                <img src="images/logo.jpg" alt="">
-            </div>
-            <div class="btn">
-                <button class="orangebtn">
-                    <a href="">Give</a>
-                </button>
-                <button class="whitebtn">
-                    <i class="bi bi-list"></i>
-                    Menu
-                </button>
-            </div>
-        </header>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Testimonies{% endblock %}
+{% block content %}
+    <div class="testimonies blogPage">
         <main>
             <section class="greySection">
                 <h2>Resources</h2>
@@ -57,7 +35,7 @@
                                 </p>
                             </span>
                             <span>
-                                <img src="images/Rectangle-8.jpg" alt="">
+                                <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
                                 <span class="userProfile">
                                     <h3>John Peter</h3>
                                     <p>Ceo, card center</p>
@@ -76,7 +54,7 @@
                                 </p>
                             </span>
                             <span>
-                                <img src="images/Rectangle-8.jpg" alt="">
+                                <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
                                 <span class="userProfile">
                                     <h3>John Peter</h3>
                                     <p>Ceo, card center</p>
@@ -95,7 +73,7 @@
                                 </p>
                             </span>
                             <span>
-                                <img src="images/Rectangle-8.jpg" alt="">
+                                <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
                                 <span class="userProfile">
                                     <h3>John Peter</h3>
                                     <p>Ceo, card center</p>
@@ -114,7 +92,7 @@
                                 </p>
                             </span>
                             <span>
-                                <img src="images/Rectangle-8.jpg" alt="">
+                                <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
                                 <span class="userProfile">
                                     <h3>John Peter</h3>
                                     <p>Ceo, card center</p>
@@ -133,7 +111,7 @@
                                 </p>
                             </span>
                             <span>
-                                <img src="images/Rectangle-8.jpg" alt="">
+                                <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
                                 <span class="userProfile">
                                     <h3>John Peter</h3>
                                     <p>Ceo, card center</p>
@@ -152,7 +130,7 @@
                                 </p>
                             </span>
                             <span>
-                                <img src="images/Rectangle-8.jpg" alt="">
+                                <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
                                 <span class="userProfile">
                                     <h3>John Peter</h3>
                                     <p>Ceo, card center</p>
@@ -167,81 +145,33 @@
             </section>
             <section class="testimony-grid-container  width">
                 <div class="testmony-grid-item grid-item-one">
-                    <img src="images/Rectangle-8.jpg" alt="">
+                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
                 </div>
                 <div class="testmony-grid-item grid-item-two">
-                    <img src="images/Rectangle-8.jpg" alt="">
+                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
                 </div>
                 <div class="testmony-grid-item grid-item-three">
-                    <img src="images/Rectangle-8.jpg" alt="">
+                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
                 </div>
                 <div class="testmony-grid-item grid-item-four">
-                    <img src="images/Rectangle-8.jpg" alt="">
+                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
                 </div>
                 <div class="testmony-grid-item grid-item-five">
-                    <img src="images/Rectangle-8.jpg" alt="">
+                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
                 </div>
                 <div class="testmony-grid-item grid-item-six">
-                    <img src="images/Rectangle-8.jpg" alt="">
+                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
                 </div>
                 <div class="testmony-grid-item grid-item-seven">
-                    <img src="images/Rectangle-8.jpg" alt="">
+                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
                 </div>
                 <div class="testmony-grid-item grid-item-eight">
-                    <img src="images/Rectangle-8.jpg" alt="">
+                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
                 </div>
                 <div class="testmony-grid-item grid-item-nine">
-                    <img src="images/Rectangle-8.jpg" alt="">
+                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
                 </div>
             </section>
         </main>
-        <footer>
-            <span>
-                <img src="images/logo-white.png" alt="">
-            </span>
-            <span>
-                <h1><a href="">About</a></h1>
-                <a href="">Vision</a>
-                <a href="">Who are we</a>
-                <a href="">Leadership</a>
-                <a href="">Location</a>
-            </span>
-            <span>
-                <h1><a href="">Get Involved</a></h1>
-                <a href="">Godhouse Men</a>
-                <a href="">Godhouse Women</a>
-                <a href="">Christ Tribe</a>
-                <a href="">Serve</a>
-                <a href="">Give</a>
-            </span>
-            <span>
-                <span>
-                    <i class="ri-map-pin-2-fill"></i>
-                    <p>2 Indian Street, beside Mansal hotel off Japka Road, Effurun, Warri, Delta State, Nigeria</p>
-                </span>
-                <span>
-                    <i class="bi bi-telephone-fill"></i>
-                    <p>+2349012345678</p>
-                </span>
-                <span>
-                    <i class="bi bi-envelope-fill"></i>
-                    <p>Click here to send us a mail</p>
-                </span>
-
-                <div class="social">
-                    <h5>Social Media</h5>
-                    <a href="">
-                        <i class="bi bi-facebook"></i>
-                    </a>
-                    <a href="">
-                        <i class="bi bi-twitter"></i>
-                    </a>
-                    <a href="">
-                        <i class="bx bxl-instagram"></i>
-                    </a>
-                </div>
-            </span>
-        </footer>
     </div>
-</body>
-</html>
+{% endblock %}
