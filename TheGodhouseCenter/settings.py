@@ -72,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'core.context_processors.category',
             ],
         },
     },
@@ -136,3 +137,9 @@ MEDIA_ROOT = 'media'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# paystack api settings
+PAYSTACK_SECRET_KEY='sk_test_506937dcbc9e7feba'
+PAYSTACK_PUBLIC_KEY='pk_test_b6efddcdbf62769ee908'
+PAYSTACK_RECURRING_CHARGE_PLAN='plan_code'
