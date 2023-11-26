@@ -24,7 +24,7 @@
     
             <div class="right">
                 <div class="give_btn">
-                    <a href="./give.html"><button>Give</button></a>
+                    <a href="/give/"><button>Give</button></a>
                 </div>
     
                 <button class="menu_bar">
@@ -35,43 +35,43 @@
     
             <!--NAVBAR ACCORDION START-->
             <ul class="accordion_menu">    
-                <li><a class="dropdown_text" href="home.html">Home</a></li>
+                <li><a class="dropdown_text" href="/">Home</a></li>
                 <li class="link">
                     <div class="dropdown">
                         About
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </div>
                     <ul class="submenuItems">
-                        <li><a href="about.html">WHO WE ARE</a></li>
-                        <li><a href="our-beliefs.html">OUR BELIEF</a></li>
-                        <li><a href="leadership.html">LEADERSHIP</a></li>
+                        <li><a href="/about/">WHO WE ARE</a></li>
+                        <li><a href="/belief/">OUR BELIEF</a></li>
+                        <li><a href="/leaders/">LEADERSHIP</a></li>
                     </ul>
                 </li>
-                <li><a class="dropdown_text" href="location.html">Our Centers</a></li>
+                <li><a class="dropdown_text" href="/locations/">Our Centers</a></li>
                 <li class="link">
                     <div class="dropdown">
                         RESOURCES
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </div>
                     <ul class="submenuItems">
-                        <li><a href="#">TESTIMONIES</a></li>
-                        <li><a href="#">BOOK & MERCH</a></li>
-                        <li><a href="#">BLOG</a></li> 
+                        <li><a href="/testimony">TESTIMONIES</a></li>
+                        <li><a href="/store/">BOOK & MERCH</a></li>
+                        <li><a href="/blog/">BLOG</a></li> 
                     </ul>
                 </li>
-                <li><a class="dropdown_text" href="#">EVENT</a></li>
+                <li><a class="dropdown_text" href="/events/">EVENT</a></li>
                 <li class="link">
                     <div class="dropdown">
                         WATCH & LISTEN
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </div>
                     <ul class="submenuItems">
-                        <li><a href="#">VIDEO</a></li>
-                        <li><a href="#">AUDIO</a></li>
+                        <li><a href="/churchMessages/">VIDEO</a></li>
+                        <li><a href="/churchMessages/">AUDIO</a></li>
                     </ul>
                 </li>
-                <li><a class="dropdown_text" href="give.html">GIVE</a></li>
-                <li><a class="dropdown_text" href="#">CONTACT</a></li>
+                <li><a class="dropdown_text" href="/give/">GIVE</a></li>
+                <li><a class="dropdown_text" href="/contact/">CONTACT</a></li>
             </ul>
             <!--NAVBAR ACCORDION END-->
         </div>
@@ -83,19 +83,19 @@
                 <img src="{% static 'core/images/logo-white.png' %}" alt="">
             </span>
             <span>
-                <h1><a href="">About</a></h1>
-                <a href="">Vision</a>
-                <a href="">Who are we</a>
-                <a href="">Leadership</a>
-                <a href="">Location</a>
+                <h1><a href="/about/">About</a></h1>
+                <a href="/about/">Vision</a>
+                <a href="/about/">Who are we</a>
+                <a href="/leaders/">Leadership</a>
+                <a href="/locations/">Location</a>
             </span>
             <span>
-                <h1><a href="">Get Involved</a></h1>
-                <a href="">Godhouse Men</a>
-                <a href="">Godhouse Women</a>
-                <a href="">Christ Tribe</a>
-                <a href="">Serve</a>
-                <a href="">Give</a>
+                <h1><a href="/community/">Get Involved</a></h1>
+                <a href="/community/">Godhouse Men</a>
+                <a href="/community/">Godhouse Women</a>
+                <a href="/community/">Christ Tribe</a>
+                <a href="/community/unit">Serve</a>
+                <a href="/give/">Give</a>
             </span>
             <span>
                 <span>
@@ -120,7 +120,7 @@
                         <i class="bi bi-twitter"></i>
                     </a>
                     <a href="">
-                        <i class="bx bxl-instagram"></i>
+                        <i class="bi bi-instagram"></i>
                     </a>
                 </div>
             </span>
@@ -133,7 +133,7 @@
     <!--Ionicon Link End-->
 
     <!--Javascript Link-->
-    <script src="{% static 'core/js/home.js' %}"></script>
+    {% block script %}<script src="{% static 'core/js/home.js' %}"></script>{% endblock %}
     <!--Javascript link End-->
 </body>
 </html>

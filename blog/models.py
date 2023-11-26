@@ -1,24 +1,10 @@
 from django.db import models
 from django.utils import timezone
 from django.urls import reverse
+from core.models import CommonInfo #, Category
 
 # Create your models here.
-class BlogCategories(models.Model):
-    name = models.CharField(max_length=255)
-    slug = models.SlugField(default='')
-
-    class Meta:
-        verbose_name = ("BlogCategory")
-        verbose_name_plural = "BlogCategories"
-
-    def get_absolute_url(self):
-        return reverse("blog:category_list", args=[self.slug])
-
-    def __str__(self):
-        return self.name
-
-
-class Blog(models.Model):
+class Blog(CommonInfo):
     title = models.CharField(max_length=255)
     content = models.TextField()
     slug = models.SlugField(default='')

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Blog, BlogCategories
+from .models import Blog
 from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.shortcuts import redirect
@@ -7,27 +7,21 @@ from django.shortcuts import redirect
 # Create your views here.
 def home(request):
     post = Blog.objects.all()
-    category = BlogCategories.objects.all()
     context = {
-        "post":post,
-        "category":category
+        "post":post
     }
     return render(request, 'home.html', context)
 
 def allPost(request):
-    post = Blog.objects.all()
-    category = BlogCategories.objects.all()
+    blog = Blog.objects.all()
     context = {
-        "post":post,
-        "category":category
+        "blog":blog
     }
     return render(request, 'all-post.html', context)
 
 def details(request):
-    post = Blog.objects.all()
-    category = BlogCategories.objects.all()
+    blog = Blog.objects.all()
     context = {
-        "post":post,
-        "category":category
+        "blog":blog
     }
     return render(request, 'post.html', context)
