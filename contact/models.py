@@ -6,10 +6,10 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     giving_type = (
         ('offering', 'offering'), 
-        ('tithe', 'tithe')
-        ("teacher's send", "teacher's send")
-        ('special giving', 'special giving')
-        )
+        ('tithe', 'tithe'),
+        ("teacher's send", "teacher's send"),
+        ('special giving', 'special giving'),
+    )
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone = models.CharField(max_length=20)
