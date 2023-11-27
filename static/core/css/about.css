@@ -129,8 +129,7 @@ body {
     font-family: "Poppins", sans-serif;
     font-size: 30px;
     font-weight: 500;
-    line-height: 34px;
-    padding: 1.50rem 1.5rem; /* 1rem 1.5rem*/
+    padding: 1.16rem 1.5rem; /* 1rem 1.5rem*/
     border-bottom: 1px solid white;
     color: black;
     position: relative;
@@ -169,10 +168,9 @@ body {
     display: block;
     cursor: pointer;
     font-family: "Poppins", sans-serif;
-    font-size: 20PX;
+    font-size: 20px;
     font-weight: 600;
-    line-height: 23px;
-    padding: 1.50rem 1.5rem; /* 1rem 1.5rem*/
+    padding: 1rem 1.5rem; /* 1rem 1.5rem*/
     border-bottom: 1px solid black;
     color: #fff;
     border-width: 2px;
@@ -205,8 +203,6 @@ body {
     font-family: "Montserrat", sans-serif;
     font-size: 35px;
     font-weight: 700;
-    line-height: 45px;
-    letter-spacing: 0em;
     margin-left: 13px;
 }
 
@@ -215,8 +211,6 @@ body {
     font-family: "Inter", sans-serif;
     font-size: 24px;
     font-weight: 500;
-    line-height: 27px;
-    letter-spacing: 0em;
     margin-right: 35px;
 }
 
@@ -266,16 +260,12 @@ body {
     font-family: 'poppins', sans-serif;
     font-size: 74px;
     font-weight: 700;
-    line-height: 84px;
-    letter-spacing: 0em;
 }
 
 .first_section_second_content {
     font-family: "Poppins", sans-serif;
     font-size: 28px;
     font-weight: 500;
-    line-height: 37px;
-    letter-spacing: 0em;
 }
 
 /*FIRST SECTION CONTENT END */
@@ -293,15 +283,10 @@ body {
     border-radius: 20px;
 }
 
-.second_section_content_text {
-    width: 400px;
-}
-
 .vision_text {
     font-family: "Poppins", sans-serif;
     font-size: 58px;
     font-weight: 600;
-    line-height: 66px;
     color: rgba(0, 0, 0, 1);
 }
 
@@ -309,8 +294,8 @@ body {
     font-family: "Poppins", sans-serif;
     font-size: 16px;
     font-weight: 400;
-    line-height: 22px;
     color:rgba(75, 76, 77, 1);
+    width: 400px;
 }
 /*SECOND SECTION CONTENT END */
 
@@ -339,8 +324,6 @@ body {
     font-family: "Montserrat", sans-serif;
     font-size: 50px;
     font-weight: 700;
-    line-height: 57px;
-    letter-spacing: 0em;
     color: rgba(255, 255, 255, 1);
     padding-top: 35px;
 }
@@ -349,8 +332,6 @@ body {
     font-family: "Inter", sans-serif;
     font-size: 16px;
     font-weight: 400;
-    line-height: 22px;
-    width: 600px;
     padding-top: 40px;
     color: rgba(255, 255, 255, 1);
 }
@@ -366,8 +347,6 @@ body {
     font-family: "Montserrat", sans-serif;
     font-size: 50px;
     font-weight: 700;
-    line-height: 57px;
-    letter-spacing: 0em;
     color: rgba(0, 0, 0, 1);
     padding-top: 35px;
 }
@@ -376,10 +355,8 @@ body {
     font-family: "Inter", sans-serif;
     font-size: 16px;
     font-weight: 400;
-    line-height: 22px;
-    width: 600px;
     padding-top: 40px;
-    color:rgba(0, 0, 0, 1);
+    color:green;
 }
 /*FOURTH SECTION CONTENT END */
 
@@ -392,8 +369,6 @@ body {
     font-family: "Montserrat", sans-serif;
     font-size: 50px;
     font-weight: 700;
-    line-height: 57px;
-    letter-spacing: 0em;
     color: rgba(0, 0, 0, 1);
     padding-top: 35px;
 }
@@ -402,7 +377,6 @@ body {
     font-family: "Inter", sans-serif;
     font-size: 16px;
     font-weight: 400;
-    line-height: 22px;
     width: 600px;
     padding-top: 40px;
     color: rgba(75, 76, 77, 1);
@@ -420,117 +394,578 @@ body {
     font-family: "Poppins", sans-serif;
     font-size: 96px;
     font-weight: 700;
-    line-height: 109px;
 }
 
 .we_take {
     font-family: "Poppins", sans-serif;
     font-size: 48px;
     font-weight: 500;
-    line-height: 64px;
 }
 
 .prosperous {
     font-family: "Poppins", sans-serif;
     font-size: 42px;
     font-weight: 500;
-    line-height: 56px;
 }
 
 .successful {
     font-family: "Poppins", sans-serif;
     font-size: 36px;
     font-weight: 500;
-    line-height: 48px;
 }
 
 .here {
     font-family: "Poppins", sans-serif;
     font-size: 30px;
     font-weight: 500;
-    line-height: 40px;
-    letter-spacing: 0em;
 }
 
 .everywhere {
     font-family: "Poppins", sans-serif;
     font-size: 24px;
     font-weight: 500;
-    line-height: 32px;
 }
 /*SIXTH SECTION CONTENT END */
 
 
 /* footer start */
 footer {
-    margin-top: 90px;
-    height: 400px;
-    background: #000000;
-}
-
-footer a {
-    text-decoration: none;
-    color: white;
-}
-
-.footer_content {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding-top: 80px;
-    gap: 190px;
     font-family: sans-serif;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 3rem;
+    margin-top: 3.5rem;
+    height: 17rem;
+    background-color: black;
 }
 
-.footer_first_content .identification {
+footer span{
+    width: 23%;
+    margin: 0px;
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: white;
 }
 
-.footer_first_content .identification a {
-    margin-bottom: 5px;
+footer span h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0px 0px 10px;
 }
 
-.footer_second_content .identification {
+footer span a{
+    margin: 0px 0px 10px;
+    font-weight: 100;
+}
+
+footer span img{
+    width: 7rem;
+}
+
+footer span a{
+    color: white;
+    text-decoration: none;
+}
+
+footer span span{
+    width: 100%;
+    margin-bottom: 1rem;
     display: flex;
-    flex-direction: column;
-    margin-top: 20px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
-.footer_second_content .identification a {
-    margin-bottom: 5px;
+footer span span ion-icon, i{
+    margin-right: 12px;
 }
 
-.footer_third_content {
-    color: white;
-    font-size: 16px;
-    font-weight: 400;
+footer span span p{
+    margin: 0px;
 }
 
-.footer_third_content .third_sub_container {
-    margin-top: 35px;
-}
-
-.footer_third_content .third_sub_container .call {
-    margin-top: 24px;
-}
-
-ion-icon {
-    color: white;
-}
-
-.social_media {
-    font-family: sans-serif;
-    font-size: 18px;
-    color: white;
-    margin-top: 70px;
-    text-align: center;
-}
-
-.social_media ion-icon {
-    margin-top: 10px;
-    font-size: 25px;
+footer .social a ion-icon {
+    gap: 10px;
 }
 
 /* footer end */
+
+/* BREAK POINT */
+@media screen and (max-width: 550px) {
+    /* Styles for phone */
+    /* HEADER START */
+    .header_container {
+        position: fixed;
+        background-color: #f9f9f9;
+        width: 100%;
+        height: 60px;
+        padding: none;   
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    
+    .left img {
+    margin-left: 7px;
+    }
+
+    .left img {
+        width: 5rem;
+    }
+
+    .give_btn {
+        display: none;
+    }
+
+    .right .menu_bar {
+        width: 0;
+        border: none;
+    }
+    
+    .right .menu_bar .menu_span {
+        display: none;
+    }
+
+     /* NAVBAR ACCORDION START */
+     .accordion_menu {
+        width: 100%;
+        height: 100vh;
+        background-color: grey;
+    }
+
+    .dropdown, .dropdown_text {
+        font-size: 27px;
+        font-weight: 300;
+        line-height: 34px;
+        border-width: 1.5px;
+    }
+
+    .dropdown .fa-chevron-down {
+        font-size: 1rem;
+    }
+
+    .submenuItems a {
+        font-size: 17px;
+        font-weight: 300;
+        line-height: 23px;
+        border-width: 1px;
+    }
+
+    /* NAVBAR ACCORDION END */
+
+    .second_header {
+        display: none;
+    }
+
+    /* HEADER END */  
+
+    /* FIRST SECTION BACKGROUND */
+    .first_section_content {
+        background-image: url(../asset/first_section.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 90vh;
+        margin-top: 25px;
+    }
+
+    /*FIRST SECTION CONTENT START */
+    .first_section_first_content {
+        font-size: 30px;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .first_section_second_content {
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+    }  
+    /*FIRST SECTION CONTENT END */
+
+    /*SECOND SECTION CONTENT START */
+    .second_section_content {
+        flex-direction: column;
+    }
+
+    .second_section_content_image img {
+        height: 220px;
+        border-radius: 25px;
+    }   
+
+    .vision_text {
+        text-align: center;
+        font-size: 26px;
+        font-weight: 600;
+    }
+    
+    .vision_content {
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        text-align: center;
+        width: 190px;
+    }
+    /*SECOND SECTION CONTENT END */
+
+    /* MIDDLE CONTAINER START */
+     .middle {
+      padding-top: 4rem;
+    }
+    
+    /*THIRD SECTION CONTENT START */
+    .third_section, .forth_section, .fifth_section {
+        text-align: center;
+        padding-bottom: 0;
+    }
+    
+    .third_section_content, .forth_section_content, .fifth_section_content {
+        text-align: center;
+        border-radius: none;
+        background: none;
+        color: black;
+        padding-left: 0;
+        width: 250px;
+        height: 200px;
+
+    }
+
+    .we_pray {
+        font-family: "Montserrat", sans-serif;
+        font-size: 25px;
+        font-weight: 700;
+        text-align: center;
+        color: #000;
+        padding-top: 0px;
+    }
+    
+    .we_pray_text {
+        font-size: 15px;
+        font-weight: 400;
+        text-align: center;
+        padding-top: 20px;
+        color: #000;
+    }
+    /*THIRD SECTION CONTENT END */
+
+    /*FOURTH SECTION CONTENT START */
+
+    .forth_section {
+        padding-top: 20%;
+    }
+
+    .forth_section_content {
+        background: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+ 
+    .we_go {
+        font-size: 25px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 1);
+        text-align: center;
+    }
+    
+    .we_go_text {
+        font-size: 13px;
+        font-weight: 400;
+        text-align: center;
+        padding-top: 12px;
+        color:rgba(0, 0, 0, 1); 
+    }
+    /*FOURTH SECTION CONTENT END */
+    
+    /*FIFTH SECTION CONTENT START */
+    .fifth_section_content {
+        background: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .we_give {
+        font-size: 25px;
+        color: rgba(0, 0, 0, 1);
+        padding-top: 0px;
+        text-align: center;
+    }
+    
+    .we_give_text {
+        font-size: 13px;
+        font-weight: 400;
+        padding-top: 12px;
+        text-align: center;
+        width: 300px;
+        color: rgba(75, 76, 77, 1);
+    }
+    
+    /*FIFTH SECTION CONTENT END */
+    
+    /*SIXTH SECTION CONTENT START */
+    .sixth_section_content {
+        padding-top: 70px;
+        text-align: center;
+    }
+    
+    .we_are_gh {
+        font-size: 22px;
+    }
+    
+    .we_take {
+        font-size: 15px;
+    }
+    
+    .prosperous {
+        font-size: 16px;
+    }
+    
+    .successful {
+        font-size: 16px;
+    }
+    
+    .here {
+        font-size: 16px;
+    }
+    
+    .everywhere {
+        font-size: 16px;
+    }
+    /*SIXTH SECTION CONTENT END */
+    
+
+
+    /* footer start */
+
+    footer{
+        flex-direction: column;
+        height: fit-content;
+    }
+    
+    footer span h1{
+        font-size: 1rem;
+    }
+    
+    
+    footer span{
+        width: 90%;
+        margin-bottom: 2rem;
+    }
+
+    /* footer end */ 
+    
+    
+    
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    /* HEADER START */
+    .header_container {
+        position: fixed;
+        background-color: #f9f9f9;
+        width: 100vw;
+        height: 70px;
+        padding: none;   
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    .left img {
+        width: 5rem;
+    }
+
+      
+    .right .give_btn button {
+        width: 170px; /*242px*/
+        height: 55px;
+        border-radius: 16px;
+    }
+
+    .right .menu_bar {
+        width: 170px;
+        height: 55px;
+        gap: 8px;
+        border-radius: 16px;
+    }
+
+    /* NAVBAR ACCORDION START */
+    .accordion_menu {
+        width: 100%;
+        height: 100vh;
+        background: rgba(213, 166, 25, 1);
+    }
+
+    .dropdown, .dropdown_text {
+        font-size: 29px;
+        font-weight: 300;
+        border-width: 1.5px;
+    }
+
+    .dropdown .fa-chevron-down {
+        font-size: 1rem;
+    }
+
+    .submenuItems a {
+        font-size: 17px;
+        font-weight: 300;
+        border-width: 1px;
+    }
+
+    /* NAVBAR ACCORDION END */
+
+    /* FIRST SECTION SECOND HEADER START */
+    .second_header {
+        display: none;
+    }
+    
+
+    /* HEADER END */
+
+    /* FIRST SECTION SECOND HEADER END */
+
+    /* FIRST SECTION BACKGROUND */
+    .first_section_content {
+      background-image: url(../asset/first_section.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 90vh;
+      margin-top: 25px;
+    }
+    
+    /*SECOND SECTION CONTENT START */
+    .second_section_content {
+        flex-direction: column;
+    }
+
+    .second_section_content_image img {
+        height: 280px;
+        border-radius: 25px;
+    }   
+
+    .vision_text {
+        text-align: center;
+        font-size: 35px;
+        font-weight: 600;
+    }
+    
+    .vision_content {
+        font-family: "Poppins", sans-serif;
+        font-size: 20px;
+        text-align: center;
+        width: 390px;
+    }
+    /*SECOND SECTION CONTENT END */
+
+    /* MIDDLE CONTAINER START */
+     .middle {
+      padding-top: 4rem;
+    }
+
+    
+    /*THIRD SECTION CONTENT START */
+
+    .third_section_content, .forth_section_content, .fifth_section_content {
+        width: 480px;
+        height: 300px;
+        border-radius: 7px;
+        color: white;
+        padding-left: 0px;
+    }
+     
+    .we_pray {
+        font-size: 30px;
+        padding-top: 35px;
+        text-align: center;
+    }
+    
+    .we_pray_text {
+        font-size: 18px;
+        font-weight: 300;
+        padding-top: 30px;
+        text-align: center;
+    }
+    /*THIRD SECTION CONTENT END */
+
+    /*FOURTH SECTION CONTENT START */
+    
+    .we_go {
+        font-size: 30px;
+        padding-top: 35px;
+        text-align: center;
+    }
+    
+    .we_go_text {
+        font-size: 18px;
+        font-weight: 300;
+        padding-top: 30px;
+        text-align: center;
+    }
+    /*FOURTH SECTION CONTENT END */
+
+    /*FIFTH SECTION CONTENT START */
+    .we_give {
+        font-size: 30px;
+        padding-top: 35px;
+        text-align: center;
+    }
+    
+    .we_give_text {
+        font-size: 18px;
+        font-weight: 300;
+        width: fit-content;
+        padding-top: 30px;
+        text-align: center;
+    }
+    
+    /*FIFTH SECTION CONTENT END */
+
+    
+    /*SIXTH SECTION CONTENT START */
+    .sixth_section_content {
+        padding-top: 25px;
+    }
+    
+    .we_are_gh {
+        font-size: 46px;
+    }
+    
+    .we_take {
+        font-size: 30px;
+        font-weight: 500;
+    }
+    
+    .prosperous {
+        font-size: 30px;
+    }
+    
+    .successful {
+        font-size: 28px;
+    }
+    
+    .here {
+        font-size: 30px;
+        font-weight: 420;
+    }
+    
+    .everywhere {
+        font-size: 26px;
+        font-weight: 500;
+    }
+    /*SIXTH SECTION CONTENT END */
+
+         
+    /* footer start */
+    footer {
+        height: 18rem;
+    }
+
+    /* footer end */
+}

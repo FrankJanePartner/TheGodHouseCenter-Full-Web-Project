@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect, JsonResponse
+# from pypaystack import Transaction, Customer, plan
+from django.conf import settings
 
 # Create your views here.
 def giving(request):

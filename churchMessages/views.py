@@ -13,17 +13,30 @@ def message(request):
     }
     return render(request, 'sermon.html', context)
 
-def download(request):
-    # get the video or audio selected and download it to the users device
+def videoStream(request, slug):
+    # get all the videos and audio form the database
+    video = VideoMessage.objects.all()
+    product = get_object_or_404(AudioMessage, slug=slug)
+    context = {
+        'video': video
+    }
+    return render(request, 'audioStream.html', context)
+
+def audioStream(request, slug):
+    # get all the videos and audio form the database
+    product = get_object_or_404(AudioMessage, slug=slug)
+
+    audio = AudioMessage.objects.all()
+    context = {
+        'audio': audio,
+    }
+    return render(request, 'videoStream.html', context)
+
+# download youtube video using video embed id
+def downloadVideo(request, slug):
     if request.method == "POST":
-        id = int(request.POST['id'])
-        type = str(request.POST['type'])
-        if type == 'Video':
-            obj = get_object_or_404(VideoMessage, pk=id)
-            filepath = obj.file.url
-        elif type == 'Audio':
-            obj = get_object_or_404(AudioMessage, pk=id)
-            filepath = obj.file.url
-        else:
-            print('Invalid Type')
-        return redirect('/message/')
+        video = get_object_or_404(VideoMessage, slug=slug)
+        print("downloading")
+        url = f"https://www.youtube.com/watch?v={video.embed}"
+        response = requests.get(url, stream=True)
+        

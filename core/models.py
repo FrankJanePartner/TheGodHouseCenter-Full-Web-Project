@@ -18,10 +18,10 @@ class CommonInfo(models.Model):
 
     class Meta:
         abstract = True
-        ordering = ["name"]
+        ordering = ["-name"]
 
 class Category(CommonInfo):
-    status = models.TextField(blank=True)
+    description = models.TextField(blank=True)
     
     def __str__(self):
         return f'{self.name}'

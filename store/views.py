@@ -5,17 +5,7 @@ from .models import Category, Product
 
 def product_all(request):
     products = Product.products.all()
-    return render(request, 'home.html', {'products': products})
-
-
-def category_list(request, category_slug=None):
-    category = get_object_or_404(Category, slug=category_slug)
-    products = Product.objects.filter(category=category)
-    context = {
-        'category': category,
-        'products': products
-    }
-    return render(request, 'products/category.html', context)
+    return render(request, 'books-merchants.html', {'products': products})
 
 
 def product_detail(request, slug):
