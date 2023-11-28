@@ -1,5 +1,6 @@
 from django.db import models
 from core.models import CommonInfo
+from django.urls import reverse
 
 # Create your models here.
 class Testimony(CommonInfo):
@@ -11,6 +12,9 @@ class Testimony(CommonInfo):
     
     def __str__(self):
         return f'{self.name}'
+        
+    def get_absolute_url(self):
+        return reverse('details:audioStream', args=[self.slug])
     
     class Meta:
         ordering = ["-uploaded_at"]

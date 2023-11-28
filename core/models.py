@@ -28,7 +28,7 @@ class Category(CommonInfo):
         return f'{self.name}'
     
     def get_absolute_url(self):
-        return reverse('locationdetails:audioStream', args=[self.slug])
+        return reverse('core:category_list', args=[self.slug])
     
     class Meta:
         verbose_name_plural = "Categories"
@@ -36,13 +36,14 @@ class Category(CommonInfo):
 class Location(CommonInfo):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     location_class = models.CharField(max_length=255)
-    address = models.TextField()
+    center = models.TextField()
+    image = models.ImageField(upload_to='Locations')
 
     def __str__(self):
         return f'{self.name}'
     
     def get_absolute_url(self):
-        return reverse('locationdetails:audioStream', args=[self.slug])
+        return reverse('core:locationdetails', args=[self.slug])
     
     class Meta:
         verbose_name_plural = "Locations"

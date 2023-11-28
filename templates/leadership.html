@@ -41,15 +41,17 @@
 <div class="forth_section_container">
     <div class="forth_section_leadership_text">Our Leadership</div>
     <div class="forth_section_leadership_info">
-        <div class="leadership_one l-one popup" id="popup-1">
+        {% for l in leader %}
+        <div class="leadership_one" id="popup-1">
             <div class="overlay"></div>
-            <div class="leadership_one_image"><img src="{{ leader.images }}" alt="Apostle-image"></div>
+            <div class="leadership_one_image"><img src="{{ l.images }}" alt="Apostle-image"></div>
             <div class="leadership_content">
-                <div class="leadership_one_name">{{ leader.name }}</div>
-                <div class="leadership_one_position">{{ leader.position }}</div>
-                <div class="about_leadership_one"><a href='{{ leader.get_absolute_url }}'>About{{ leader.name }} &rarr;</a></div>
+                <div class="leadership_one_name">{{ l.name }}</div>
+                <div class="leadership_one_position">{{ l.position }}</div>
+                <div class="about_leadership_one"><a href='{{ l.get_absolute_url }}'>About{{ l.name }} &rarr;</a></div>
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 </div>

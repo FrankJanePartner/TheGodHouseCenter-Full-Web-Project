@@ -28,5 +28,5 @@ urlpatterns = [
     path('events/', include('events.urls')),
     path('give/', include('giving.urls')),
     path('store/', include('store.urls', namespace='store')),
-    path('testimony/', include('testimony.urls')),
+    path('testimony/', include('testimony.urls', namespace='testimony')),
 ]

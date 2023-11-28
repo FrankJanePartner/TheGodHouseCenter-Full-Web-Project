@@ -30,13 +30,13 @@
                             <a href=''>
                                 <span>
                                     <h2>&quot;</h2>
-                                    <p>{{ testimony.testimony_content }} </p>
+                                    <p>{{ t.testimony_content|slice:":30" }} </p>
                                 </span>
                                 <span>
-                                    <img src="{{ testimony.Testifer_images }}" alt="">
+                                    <img src="{{ t.Testifer_images }}" alt="">
                                     <span class="userProfile">
-                                        <h3>{{ testimony.Testifer_names }}r</h3>
-                                        <p>{{ testimony.Testifer_center }}</p>
+                                        <h3>{{ t.Testifer_names }}r</h3>
+                                        <p>{{ t.Testifer_center }}</p>
                                     </span>
                                 </span>
                             </a>
@@ -50,8 +50,8 @@
             </section>
             <section class="testimony-grid-container  width">
                 {% for i in testimg %}
-                <div class="testmony-grid-item grid-item-{{ testimg.class_number }}">
-                    <img src="{{ testimg.image }}" alt="">
+                <div class="testmony-grid-item grid-item-{{ i.class_number }}">
+                    <img src="{{ i.image }}" alt="">
                 </div>
                 {% endfor %}
             </section>

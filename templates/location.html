@@ -27,19 +27,22 @@
         <div class="location_gallery"> <!--LOCATION-GALLERY-CONTAINER (LOCATION GALLERY IS DIVIDED INTO THREE GALLERY BEACAUSE OF PROPER STYLING)-->
             <!--FIRST-LOCATION-GALLERY-CONTAINER-->
             <div class="first_location_gallery">
-
-             <div class="church first_church">
-                <div class="location_image center_image">
-                    <img src="{% static 'core/asset/warri church.jpg' %}" alt="warri-location-image">
-                </div>
-
-                <div class="center_address">Warri</div>
-
-                <div class="get_location">Get Direction</div>
-
-                <div class="location_detatils"><a href="#">View Location Details</a></div>
-                
-              </div>
+                {% for l in locations %}
+                    {% if l.category == 'onsite' %}
+                    <div class="church first_church">
+                        <div class="location_image center_image">
+                            <img src="{{ l.image }}" alt="warri-location-image">
+                        </div>
+        
+                        <div class="center_address">The Godhouse Center - {{l.center}}</div>
+        
+                        <div class="get_location">Get Direction</div>
+        
+                        <div class="location_detatils"><a href="{{ l.get_absolute_url }}">View Location Details</a></div>
+                        
+                    </div>
+                    {% endif %}
+                {% endfor %}
             </div>
             <!--FIRST-LOCATION-GALLERY-CONTAINER-END-->
             <!--E-CENETERS START-->
@@ -48,40 +51,14 @@
                 <div class="e_ceneters_gallery">
                     <div class="church first_church">
                         <div class="location_image center_image">
-                            <img src="{% static 'core/asset/godhouse uk.jpg' %}" alt="warri-location-image">
+                            <img src="{{ l.image }}" alt="warri-location-image">
                         </div>
         
-                        <div class="center_address">UK</div>
+                        <div class="center_address">The Godhouse Center - {{l.center}}</div>
         
                         <div class="get_location">Get Direction</div>
         
-                        <div class="location_detatils"><a href="#">View Location Details</a></div>
-                        
-                    </div>
-
-                    <div class="church second_church">
-                        <div class="location_image center_image">
-                            <img src="{% static 'core/asset/godhouse us.jpg' %}" alt="warri-location-image">
-                        </div>
-        
-                        <div class="center_address">US</div>
-        
-                        <div class="get_location">Get Direction</div>
-        
-                        <div class="location_detatils"><a href="#">View Location Details</a></div>
-                        
-                    </div>
-
-                    <div class="church third_church">
-                        <div class="location_image center_image">
-                            <img src="{% static 'core/asset/godhouse canada.jpg' %}" alt="warri-location-image">
-                        </div>
-        
-                        <div class="center_address">CANADA</div>
-        
-                        <div class="get_location">Get Direction</div>
-        
-                        <div class="location_detatils"><a href="#">View Location Details</a></div>
+                        <div class="location_detatils"><a href="{{ l.get_absolute_url }}">View Location Details</a></div>
                         
                     </div>
                 </div>
