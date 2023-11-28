@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.utils.text import slugify
+from django.urls import reverse
 # from datetime import datetime
 
 # Create your models here.
@@ -26,14 +27,22 @@ class Category(CommonInfo):
     def __str__(self):
         return f'{self.name}'
     
+    def get_absolute_url(self):
+        return reverse('locationdetails:audioStream', args=[self.slug])
+    
     class Meta:
         verbose_name_plural = "Categories"
 
 class Location(CommonInfo):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    location_class = models.CharField(max_length=255)
     address = models.TextField()
 
     def __str__(self):
         return f'{self.name}'
+    
+    def get_absolute_url(self):
+        return reverse('locationdetails:audioStream', args=[self.slug])
     
     class Meta:
         verbose_name_plural = "Locations"
@@ -46,6 +55,9 @@ class Leader(CommonInfo):
 
     def __str__(self):
         return f'{self.name}'
+
+    def get_absolute_url(self):
+        return reverse('leaderdetails:audioStream', args=[self.slug])
     
     class Meta:
         verbose_name_plural = "Leaders"

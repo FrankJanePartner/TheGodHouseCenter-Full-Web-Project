@@ -9,6 +9,7 @@ body{
 header,
 main,
 footer{
+    font-family: "inter", sans-serif;
     width: 100%;
     margin: 0;
     display: flex;
@@ -101,15 +102,12 @@ footer span h1{
 footer span a{
     margin: 0px 0px 10px;
     font-weight: 100;
+    color: white;
+    text-decoration: none;
 }
 
 footer span img{
     width: 7rem;
-}
-
-footer span a{
-    color: white;
-    text-decoration: none;
 }
 
 footer span span{
@@ -121,8 +119,8 @@ footer span span{
     align-items: flex-start;
 }
 
-footer span span i{
-    margin-right: 3rem;
+footer span span a{
+    margin-right: 5rem;
 }
 
 footer span span p{
@@ -445,23 +443,23 @@ footer span span p{
 }
 
 .books section .grid-container-one{
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 5rem;
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 5rem !important;
     margin-bottom: 5rem;
 }
 
 .books section .grid-container-one .book{
     position: relative;
     background-color: white;
-    width: 100%;
+    width: 100% !important;
     height: 12rem;
     box-shadow: 0px 0px 15px 10px rgb(209, 208, 208);
 }
 
 .books section .grid-container-one .book span{
-    width: 70%;
+    width: 70% !important;
     height: 10rem;
     position: absolute;
     right: 1rem;

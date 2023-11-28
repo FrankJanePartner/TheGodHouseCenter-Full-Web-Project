@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,  get_object_or_404
 from .models import Leader, Location
 
 # Create your views here.
@@ -18,3 +18,19 @@ def leaders(request):
 def locations(request):
     location = Location.objects.all()
     return render(request, 'location.html', {'location':location})
+
+def leaderdetails(request, slug):
+    # get all the videos and audio form the database
+    audio = get_object_or_404(Leader, slug=slug)
+    context = {
+        'audio': audio,
+    }
+    return render(request, 'videoStream.html', context)
+
+def locationdetails(request, slug):
+    # get all the videos and audio form the database
+    audio = get_object_or_404(Location, slug=slug)
+    context = {
+        'audio': audio,
+    }
+    return render(request, 'videoStream.html', context)

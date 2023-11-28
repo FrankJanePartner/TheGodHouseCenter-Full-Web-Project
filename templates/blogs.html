@@ -7,10 +7,10 @@
             <section class="greySection">
                 <h2>Resources</h2>
                 <div>
-                    <a href="">Testimonies</a>
+                    <a href="/testimony/">Testimonies</a>
                     <a href="">Worship with Shekinah</a>
-                    <a href="">Books & Merch</a>
-                    <a href="" class="active">
+                    <a href="/store/">Books & Merch</a>
+                    <a href="/blog/" class="active">
                         Blogs
                         <i class="bi bi-record-fill"></i>
                     </a>
@@ -39,7 +39,7 @@
                 <div class="grid-container">
                     <div class="grid-item">
                         <span>
-                            <img src="{{ post.images }}" alt="">
+                            <img src="{{ blog.images }}" alt="">
                             <span>
                                 <h3>{{ blog.title }}</h3>
                                 <p>{{ blog.content }}</p>
@@ -63,3 +63,4 @@
         </main>
     </div>
 {% endblock %}
+{% block script %}<script src="{% static 'core/js/leadership.js' %}"></script>{% endblock %}

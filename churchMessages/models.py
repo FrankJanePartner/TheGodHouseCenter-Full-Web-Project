@@ -1,5 +1,6 @@
 from django.db import models
 from core.models import Category, CommonInfo
+from django.urls import reverse
 
 # Create your models here.
 class VideoMessage(CommonInfo):
@@ -11,6 +12,9 @@ class VideoMessage(CommonInfo):
     def __str__(self):
         return f'{self.name}'
     
+    def get_absolute_url(self):
+        return reverse('sermons:videoStream', args=[self.slug])
+
     class Meta:
         verbose_name_plural = "VideoMessages"
 
@@ -23,5 +27,9 @@ class AudioMessage(CommonInfo):
     def __str__(self):
         return f'{self.name}'
     
+    def get_absolute_url(self):
+        return reverse('sermons:audioStream', args=[self.slug])
+    
     class Meta:
         verbose_name_plural = "AudioMessages"
+        
