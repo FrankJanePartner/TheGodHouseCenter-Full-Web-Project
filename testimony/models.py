@@ -13,10 +13,12 @@ class Testimony(CommonInfo):
         return f'{self.name}'
     
     class Meta:
+        ordering = ["-uploaded_at"]
         verbose_name_plural = "Testimonies"
 
 class TestimonyImage(models.Model):
     image = models.ImageField(upload_to='bigTestImg')
+    class_number = models.CharField(max_length=255)
 
     def __str__(self):
         return f'{self.id}'

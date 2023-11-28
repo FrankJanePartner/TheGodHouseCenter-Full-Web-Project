@@ -24,153 +24,36 @@
             </section>
             <section>
                 <div class="grid-container">
+                    {% for t in testimony %}
                     <div class="grid-item">
                         <span class="testimonies-grid">
                             <span>
                                 <h2>&quot;</h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Aliquam temporibus quasi doloribus tenetur beatae minima 
-                                    fuga non consequatur dolorum dolor ad, suscipit, voluptatem numquam eos.
-                                </p>
+                                <p>{{ testimony.testimony_content }} </p>
                             </span>
                             <span>
-                                <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
-                                <span class="userProfile">
-                                    <h3>John Peter</h3>
-                                    <p>Ceo, card center</p>
-                                </span>
+                                <a href=''>
+                                    <img src="{{ testimony.Testifer_images }}" alt="">
+                                    <span class="userProfile">
+                                        <h3>{{ testimony.Testifer_names }}r</h3>
+                                        <p>{{ testimony.Testifer_center }}</p>
+                                    </span>
+                                </a>
                             </span>
                         </span>
                     </div>
-                    <div class="grid-item">
-                        <span class="testimonies-grid">
-                            <span>
-                                <h2>&quot;</h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Aliquam temporibus quasi doloribus tenetur beatae minima 
-                                    fuga non consequatur dolorum dolor ad, suscipit, voluptatem numquam eos.
-                                </p>
-                            </span>
-                            <span>
-                                <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
-                                <span class="userProfile">
-                                    <h3>John Peter</h3>
-                                    <p>Ceo, card center</p>
-                                </span>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="grid-item">
-                        <span class="testimonies-grid">
-                            <span>
-                                <h2>&quot;</h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Aliquam temporibus quasi doloribus tenetur beatae minima 
-                                    fuga non consequatur dolorum dolor ad, suscipit, voluptatem numquam eos.
-                                </p>
-                            </span>
-                            <span>
-                                <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
-                                <span class="userProfile">
-                                    <h3>John Peter</h3>
-                                    <p>Ceo, card center</p>
-                                </span>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="grid-item">
-                        <span class="testimonies-grid">
-                            <span>
-                                <h2>&quot;</h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Aliquam temporibus quasi doloribus tenetur beatae minima 
-                                    fuga non consequatur dolorum dolor ad, suscipit, voluptatem numquam eos.
-                                </p>
-                            </span>
-                            <span>
-                                <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
-                                <span class="userProfile">
-                                    <h3>John Peter</h3>
-                                    <p>Ceo, card center</p>
-                                </span>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="grid-item">
-                        <span class="testimonies-grid">
-                            <span>
-                                <h2>&quot;</h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Aliquam temporibus quasi doloribus tenetur beatae minima 
-                                    fuga non consequatur dolorum dolor ad, suscipit, voluptatem numquam eos.
-                                </p>
-                            </span>
-                            <span>
-                                <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
-                                <span class="userProfile">
-                                    <h3>John Peter</h3>
-                                    <p>Ceo, card center</p>
-                                </span>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="grid-item">
-                        <span class="testimonies-grid">
-                            <span>
-                                <h2>&quot;</h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Aliquam temporibus quasi doloribus tenetur beatae minima 
-                                    fuga non consequatur dolorum dolor ad, suscipit, voluptatem numquam eos.
-                                </p>
-                            </span>
-                            <span>
-                                <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
-                                <span class="userProfile">
-                                    <h3>John Peter</h3>
-                                    <p>Ceo, card center</p>
-                                </span>
-                            </span>
-                        </span>
-                    </div>
+                    {% endfor %}
                 </div>
             </section>
             <section class="sectionTitle">
                 <h1>Pictures from Healing services</h1>
             </section>
             <section class="testimony-grid-container  width">
-                <div class="testmony-grid-item grid-item-one">
-                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
+                {% for i in testimg %}
+                <div class="testmony-grid-item grid-item-{{ testimg.class_number }}">
+                    <img src="{{ testimg.image }}" alt="">
                 </div>
-                <div class="testmony-grid-item grid-item-two">
-                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
-                </div>
-                <div class="testmony-grid-item grid-item-three">
-                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
-                </div>
-                <div class="testmony-grid-item grid-item-four">
-                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
-                </div>
-                <div class="testmony-grid-item grid-item-five">
-                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
-                </div>
-                <div class="testmony-grid-item grid-item-six">
-                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
-                </div>
-                <div class="testmony-grid-item grid-item-seven">
-                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
-                </div>
-                <div class="testmony-grid-item grid-item-eight">
-                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
-                </div>
-                <div class="testmony-grid-item grid-item-nine">
-                    <img src="{% static 'core/images/Rectangle-8.jpg' %}" alt="">
-                </div>
+                {% endfor %}
             </section>
         </main>
     </div>
