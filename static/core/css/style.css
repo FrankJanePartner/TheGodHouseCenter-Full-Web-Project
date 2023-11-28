@@ -454,13 +454,13 @@ footer span span p{
     position: relative;
     background-color: white;
     width: 100% !important;
-    height: 12rem;
+    height: 12rem !important;
     box-shadow: 0px 0px 15px 10px rgb(209, 208, 208);
 }
 
 .books section .grid-container-one .book span{
     width: 70% !important;
-    height: 10rem;
+    height: 10rem !important;
     position: absolute;
     right: 1rem;
 }
@@ -480,8 +480,8 @@ footer span span p{
 }
 
 .books section .grid-container-one .book span button{
-    width: 90%;
-    height: 2rem;
+    width: 90% !important;
+    height: 2rem !important;
     border: 1px solid #FF6E01;
     background-color: #fdd5b6;
     color: #FF6E01;
@@ -507,7 +507,7 @@ footer span span p{
 }
 
 .books section .grid-container-one .merch img{
-    width: 100%;
+    width: 100% !important;
     height: 20rem;
 }
 
