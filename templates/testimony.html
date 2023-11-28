@@ -27,19 +27,19 @@
                     {% for t in testimony %}
                     <div class="grid-item">
                         <span class="testimonies-grid">
-                            <span>
-                                <h2>&quot;</h2>
-                                <p>{{ testimony.testimony_content }} </p>
-                            </span>
-                            <span>
-                                <a href=''>
+                            <a href=''>
+                                <span>
+                                    <h2>&quot;</h2>
+                                    <p>{{ testimony.testimony_content }} </p>
+                                </span>
+                                <span>
                                     <img src="{{ testimony.Testifer_images }}" alt="">
                                     <span class="userProfile">
                                         <h3>{{ testimony.Testifer_names }}r</h3>
                                         <p>{{ testimony.Testifer_center }}</p>
                                     </span>
-                                </a>
-                            </span>
+                                </span>
+                            </a>
                         </span>
                     </div>
                     {% endfor %}
