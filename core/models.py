@@ -58,7 +58,7 @@ class Leader(CommonInfo):
         return f'{self.name}'
 
     def get_absolute_url(self):
-        return reverse('leaderdetails:audioStream', args=[self.slug])
+        return reverse('core:leaderdetails', args=[self.slug])
     
     class Meta:
         verbose_name_plural = "Leaders"
