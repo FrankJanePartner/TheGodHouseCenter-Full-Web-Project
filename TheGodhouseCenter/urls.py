@@ -16,6 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+
+admin.site.site_header = 'The Godhouse Center'
+admin.site.site_title = 'The Godhouse center Admin Panel'
+admin.site.index_title = 'Godhouse Administration'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,3 +36,7 @@ urlpatterns = [
     path('store/', include('store.urls', namespace='store')),
     path('testimony/', include('testimony.urls', namespace='testimony')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
