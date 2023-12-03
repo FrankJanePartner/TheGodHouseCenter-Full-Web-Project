@@ -130,7 +130,7 @@ body {
     font-size: 30px;
     font-weight: 500;
     line-height: 34px;
-    padding: 1.50rem 1.5rem; /* 1rem 1.5rem*/
+    padding: 1.16rem 1.5rem; /* 1rem 1.5rem*/
     border-bottom: 1px solid white;
     color: black;
     position: relative;
@@ -169,10 +169,10 @@ body {
     display: block;
     cursor: pointer;
     font-family: "Poppins", sans-serif;
-    font-size: 20PX;
+    font-size: 20px;
     font-weight: 600;
     line-height: 23px;
-    padding: 1.50rem 1.5rem; /* 1rem 1.5rem*/
+    padding: 1rem 1.5rem; /* 1rem 1.5rem*/
     border-bottom: 1px solid black;
     color: #fff;
     border-width: 2px;

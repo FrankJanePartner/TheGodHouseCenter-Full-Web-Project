@@ -29,7 +29,7 @@ urlpatterns = [
     path('basket/', include('basket.urls')),
     path('blog/', include('blog.urls')),
     path('churchMessages/', include('churchMessages.urls', namespace='sermons')),
-    path('community/', include('communnity.urls')),
+    path('community/', include('communnity.urls', namespace='community')),
     path('contact/', include('contact.urls')),
     path('events/', include('events.urls')),
     path('give/', include('giving.urls')),

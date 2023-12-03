@@ -3,12 +3,10 @@ from core.models import CommonInfo
 
 # Create your models here.
 class Event(CommonInfo):
-    status = models.TextField(blank=True)
     active = models.BooleanField(default=False)
     date = models.DateTimeField()
-    duration = models.DurationField()
     description = models.TextField()
-    location = models.TextField()
+    location = models.CharField(max_length=255)
     image = models.ImageField(upload_to='EventsImage')
     register_link = models.URLField(max_length=700)
 

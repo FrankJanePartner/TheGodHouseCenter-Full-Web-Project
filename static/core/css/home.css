@@ -15,6 +15,7 @@ body {
 }
 
 
+
 /* FIRST SECTION BACKGROUND */
 .first_section {
     background-image: url(../asset/first_section.png);
@@ -36,13 +37,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
 }
 
 .left img {
     margin-left: 13px;
 }
-
 
 .right {
     display: flex;
@@ -356,6 +355,7 @@ body {
     background-image: url('../asset/third-section-img.png');
     height: 90vh;
     background-position: center;
+    background-repeat: no-repeat;
     margin-top: 60px;
 }
 
@@ -390,7 +390,7 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     font-weight: 500;
-    gap: 5px;
+    gap: 15px;
 }
 
 .join_now:hover {
@@ -514,7 +514,6 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 34px;
     font-weight: 600;
-    line-height: 50px;
     color: rgba(0, 0, 0, 1);
 }
 
@@ -522,8 +521,6 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     font-weight: 400;
-    line-height: 30px;
-    letter-spacing: 0em;
 }
 
 .message_content2 img {
@@ -534,7 +531,7 @@ body {
     width: 226px;
     height: 74px;
     border-radius: 10px;
-    background: linear-gradient(254.81deg, #FF0000 8.13%, #FF6E01 92.46%);    ;
+    background: linear-gradient(254.81deg, #FF0000 8.13%, #FF6E01 92.46%);
     color: rgba(255, 255, 255, 1);    ;
     display: flex;
     justify-content: center;
@@ -544,7 +541,6 @@ body {
     font-family: "Poppins", sans-serif;
     font-size: 16px;
     font-weight: 500;
-    line-height: 17.92px;
     letter-spacing: 0.02em;
     gap: 15px;
 }
@@ -564,14 +560,12 @@ body {
 .get_in {
    font-size: 55px;
    font-weight: 600;
-   line-height: 72px;
 }
 
 .be_part {
    font-family: "poppins", sans-serif;
    font-size: 24px;
    font-weight: 500;
-   line-height: 32px;
 }
 
 .get_involve_extra {
@@ -598,16 +592,12 @@ body {
     font-family: "Poppins", sans-serif;
     font-size: 48px;
     font-weight: 600;
-    line-height: 64px;
-    letter-spacing: 0px;
 }
 
 .home_community_small_text {
     font-family: "Poppins", sans-serif;
     font-size: 16px;
     font-weight: 400;
-    line-height: 28px;
-    letter-spacing: 0em;
 }
 
 .know_more_dropbtn {
@@ -618,8 +608,6 @@ body {
     font-family: "Roboto", sans-serif;
     font-size: 18px;
     font-weight: 500;
-    line-height: 24px;
-    letter-spacing: 0.5px;
 }
 
 .know_more_dropdown {
@@ -661,20 +649,19 @@ body {
     font-family: "poppins", sans-serif;
     font-size: 24px;
     font-weight: 500;
-    line-height: 32px;
  }
  
  .seventh_section_container {
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     padding-top: 150px;
-     gap: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 150px;
+    gap: 170px;
  }
  
  .community_image {
-     display: flex;
-     position: relative;
+    display: flex;
+    position: relative;
  }
 
  .Serve_image_right {
@@ -683,26 +670,22 @@ body {
  }
  
  .icon-2 {
-     position: absolute;
-     top: 60%;
-     left: 78%;
-     z-index: -1;
+    position: absolute;
+    top: 60%;
+    left: 78%;
+    z-index: -1;
  }
  
  .home_community_text {
-     font-family: "Poppins", sans-serif;
-     font-size: 48px;
-     font-weight: 600;
-     line-height: 64px;
-     letter-spacing: 0px;
+    font-family: "Poppins", sans-serif;
+    font-size: 48px;
+    font-weight: 600;
  }
  
  .home_community_small_text {
-     font-family: "Poppins", sans-serif;
-     font-size: 16px;
-     font-weight: 400;
-     line-height: 28px;
-     letter-spacing: 0em;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
  }
  
  .know_more {
@@ -732,16 +715,12 @@ body {
     font-family: "Poppins", sans-serif;
     font-size: 64px;
     font-weight: 600;
-    line-height: 72px;
-    letter-spacing: 0em;
 }
 
 .blog_header_content_two {
     font-family: "Poppins", sans-serif;
     font-size: 24px;
     font-weight: 500;
-    line-height: 32px;
-    letter-spacing: 0em;
     color: rgba(75, 76, 77, 1);
 }
 
@@ -762,7 +741,6 @@ body {
     font-family: "Poppins", sans-serif;
     font-size: 26px;
     font-weight: 500;
-    line-height: 47px;
     color: rgba(37, 38, 65, 1);
 }
 
@@ -770,16 +748,12 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     font-weight: 400;
-    line-height: 36px;
-    letter-spacing: 0.02em;
 }
 
 .blog_read_more {
     font-family: "Poppins", sans-serif;
     font-size: 20px;
     font-weight: 400;
-    line-height: 36px;
-    letter-spacing: 0.02em;
     color: rgba(249, 3, 26, 1);
     text-decoration: underline;
 }
@@ -802,15 +776,12 @@ body {
     width: 280px;
     height: 200px;
     border-radius: 20px;
-    opacity: 0.1px;
 }
 
 .blog_section_ttimg_one_content {
     font-family: "Poppins", sans-serif;
     font-size: 22px;
     font-weight: 500;
-    line-height: 40px;
-    letter-spacing: 0em;
     color: rgba(37, 38, 65, 1);
 }
 
@@ -818,9 +789,12 @@ body {
     font-family: "Poppins", sans-serif;
     font-size: 20px;
     font-weight: 400;
-    line-height: 36px;
-    letter-spacing: 0.02em;
     color: rgba(105, 105, 132, 1);
+}
+
+.blog_link {
+    display: flex;
+    justify-content: center;
 }
 
 .blog_btn {
@@ -837,8 +811,6 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     font-weight: 500;
-    line-height: 17.92px;
-    letter-spacing: 0.02em;
     gap: 5px;
 }
 
@@ -846,12 +818,75 @@ body {
     background: #FF0000;
     gap: 12px;
 }
-
-.blog_link {
-    display: flex;
-    justify-content: center;
-}
 /*Blog Section End*/
+
+/* footer start */
+footer {
+    display: flex;
+    align-items: center;
+    font-family: sans-serif;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 3rem;
+    margin-top: 3.5rem;
+    height: 17rem;
+    background-color: black;
+}
+
+footer span{
+    width: 23%;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: white;
+}
+
+footer span h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0px 0px 10px;
+}
+
+footer span a{
+    margin: 0px 0px 10px;
+    font-weight: 100;
+}
+
+footer span img{
+    width: 7rem;
+}
+
+footer span a{
+    color: white;
+    text-decoration: none;
+}
+
+footer span span{
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+footer span span ion-icon, i{
+    margin-right: 12px;
+}
+
+footer span span p{
+    margin: 0px;
+}
+
+footer .social a ion-icon {
+    gap: 10px;
+}
+
+
+
+/* footer end */
 
 /* RESPONSIVENESS START */
 @media screen and (max-width: 767px) {
@@ -872,9 +907,6 @@ body {
 
 /* RESPONSIVENESS END */
 
-main{
-    margin-top: 0rem !important;
-    height: fit-content !important;
-    padding: 0rem !important;
-    background-color: red;
-}
+
+
+

@@ -1,9 +1,22 @@
 from django.shortcuts import render,  get_object_or_404
 from .models import Leader, Location
+from communnity.models import Unit, Church
+from blog.models import Blog
+from testimony.models import Testimony
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    units = Unit.objects.all()
+    churches = Church.objects.all()
+    blog = Blog.objects.all()
+    testimony = Testimony.objects.all()
+    context = {
+        'blog':blog,
+        'units':units,
+        'churches':churches,
+        'testimony':testimony
+    }
+    return render(request, 'home.html', context)
 
 def about(request):
     return render(request, 'about.html')
@@ -29,8 +42,8 @@ def leaderdetails(request, slug):
 
 def locationdetails(request, slug):
     # get all the videos and audio form the database
-    audio = get_object_or_404(Location, slug=slug)
+    location = get_object_or_404(Location, slug=slug)
     context = {
-        'audio': audio,
+        'location': location,
     }
-    return render(request, 'videoStream.html', context)
+    return render(request, 'location1.html', context)

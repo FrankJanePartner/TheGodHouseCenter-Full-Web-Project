@@ -27,11 +27,11 @@
         <div class="location_gallery"> <!--LOCATION-GALLERY-CONTAINER (LOCATION GALLERY IS DIVIDED INTO THREE GALLERY BEACAUSE OF PROPER STYLING)-->
             <!--FIRST-LOCATION-GALLERY-CONTAINER-->
             <div class="first_location_gallery">
-                {% for l in locations %}
-                    {% if l.category == 'onsite' %}
+                {% for l in location %}
+                    {% if l.category.name == 'onsite' %}
                     <div class="church first_church">
                         <div class="location_image center_image">
-                            <img src="{{ l.image }}" alt="warri-location-image">
+                            <img src="{{ l.thumbnail.url }}" alt="warri-location-image">
                         </div>
         
                         <div class="center_address">The Godhouse Center - {{l.center}}</div>
@@ -49,9 +49,11 @@
             <div class="e_centers_container">
                 <div class="e_content">E-Centers</div>
                 <div class="e_ceneters_gallery">
+                    {% for l in location %}
+                    {% if l.category.name == 'ecenter' %}
                     <div class="church first_church">
                         <div class="location_image center_image">
-                            <img src="{{ l.image }}" alt="warri-location-image">
+                            <img src="{{ l.image.url }}" alt="warri-location-image">
                         </div>
         
                         <div class="center_address">The Godhouse Center - {{l.center}}</div>
@@ -61,6 +63,8 @@
                         <div class="location_detatils"><a href="{{ l.get_absolute_url }}">View Location Details</a></div>
                         
                     </div>
+                    {% endif %}
+                {% endfor %}
                 </div>
             </div>
             <!--E-CENETERS END-->

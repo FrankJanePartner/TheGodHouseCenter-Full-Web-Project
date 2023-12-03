@@ -7,7 +7,6 @@ from django.urls import reverse
 # Create your models here.
 class CommonInfo(models.Model):
     name = models.CharField(max_length=100)
-    class_id = models.PositiveIntegerField()
     slug = models.SlugField(max_length=20)
     created_at = models.DateTimeField(default=timezone.now)
 
@@ -35,9 +34,10 @@ class Category(CommonInfo):
 
 class Location(CommonInfo):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    location_class = models.CharField(max_length=255)
-    center = models.TextField()
-    image = models.ImageField(upload_to='Locations')
+    address = models.TextField()
+    description = models.TextField(blank=True)
+    thumbnail = models.ImageField(upload_to='Locations_thumbmail')
+    image = models.ImageField(upload_to='Locations_images')
 
     def __str__(self):
         return f'{self.name}'

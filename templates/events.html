@@ -31,258 +31,41 @@
             </section>
             <section>
                 <div class="grid-container">
-                    <div class="grid-item">
-                        <span>
+                    {% for event in events %}
+                        {% if event.active == True %}
+                        <div class="grid-item">
                             <span>
-                                <h4>Sep 23 2023</h4>
-                                <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
+                                <span>
+                                    <h4>{{ event.date.Date}}</h4>
+                                    <img src="{{ event.image.url }}" alt="">
+                                </span>
+                                <span class="text">
+                                    <h3>{{ event.name }}</h3>
+                                    <p><span>THE GODHOUSE CENTER - {{ event.location}}</span></p>
+                                    <p><span>{{ event.date.Time }}</span> GMT+1</p>
+                                    <p>{{ event.description }}</p>
+                                    <button style='background-color:gray;'><a href='' style='text-decoration:none'>Find Out More</a></button>
+                                </span>
                             </span>
-                            <span class="text">
-                                <h3>The God Of Miracle</h3>
-                                <p><span>THE GODHOUSE CENTER - WARRI</span></p>
-                                <p><span>10:00AM</span> GMT+1</p>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur 
-                                    adipisicing elit. Enim debitis harum 
-                                    recusandae vel neque asperiores 
-                                    distinctio architecto placeat natus! 
-                                    Quod!
-                                </p>
-                                <button>Find Out More</button>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="grid-item">
-                        <span>
+                        </div>
+                        {% else %}
+                        <div class="grid-item">
                             <span>
-                                <h4>Sep 23 2023</h4>
-                                <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
+                                <span>
+                                    <h4>{{ event.date.Date}}</h4>
+                                    <img src="{{ event.image.url }}" alt="">
+                                </span>
+                                <span class="text">
+                                    <h3>{{ event.name }}</h3>
+                                    <p><span>THE GODHOUSE CENTER - {{ event.location}}</span></p>
+                                    <p><span>{{ event.date.Time }}</span> GMT+1</p>
+                                    <p>{{ event.description }}</p>
+                                    <button><a href='' style='text-decoration:none'>Find Out More</a></button>
+                                </span>
                             </span>
-                            <span class="text">
-                                <h3>The God Of Miracle</h3>
-                                <p><span>THE GODHOUSE CENTER - WARRI</span></p>
-                                <p><span>10:00AM</span> GMT+1</p>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur 
-                                    adipisicing elit. Enim debitis harum 
-                                    recusandae vel neque asperiores 
-                                    distinctio architecto placeat natus! 
-                                    Quod!
-                                </p>
-                                <button>Find Out More</button>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="grid-item">
-                        <span>
-                            <span>
-                                <h4>Sep 23 2023</h4>
-                                <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
-                            </span>
-                            <span class="text">
-                                <h3>The God Of Miracle</h3>
-                                <p><span>THE GODHOUSE CENTER - WARRI</span></p>
-                                <p><span>10:00AM</span> GMT+1</p>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur 
-                                    adipisicing elit. Enim debitis harum 
-                                    recusandae vel neque asperiores 
-                                    distinctio architecto placeat natus! 
-                                    Quod!
-                                </p>
-                                <button>Find Out More</button>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="grid-item">
-                        <span>
-                            <span>
-                                <h4>Sep 23 2023</h4>
-                                <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
-                            </span>
-                            <span class="text">
-                                <h3>The God Of Miracle</h3>
-                                <p><span>THE GODHOUSE CENTER - WARRI</span></p>
-                                <p><span>10:00AM</span> GMT+1</p>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur 
-                                    adipisicing elit. Enim debitis harum 
-                                    recusandae vel neque asperiores 
-                                    distinctio architecto placeat natus! 
-                                    Quod!
-                                </p>
-                                <button>Find Out More</button>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="grid-item">
-                        <span>
-                            <span>
-                                <h4>Sep 23 2023</h4>
-                                <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
-                            </span>
-                            <span class="text">
-                                <h3>The God Of Miracle</h3>
-                                <p><span>THE GODHOUSE CENTER - WARRI</span></p>
-                                <p><span>10:00AM</span> GMT+1</p>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur 
-                                    adipisicing elit. Enim debitis harum 
-                                    recusandae vel neque asperiores 
-                                    distinctio architecto placeat natus! 
-                                    Quod!
-                                </p>
-                                <button>Find Out More</button>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="grid-item">
-                        <span>
-                            <span>
-                                <h4>Sep 23 2023</h4>
-                                <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
-                            </span>
-                            <span class="text">
-                                <h3>The God Of Miracle</h3>
-                                <p><span>THE GODHOUSE CENTER - WARRI</span></p>
-                                <p><span>10:00AM</span> GMT+1</p>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur 
-                                    adipisicing elit. Enim debitis harum 
-                                    recusandae vel neque asperiores 
-                                    distinctio architecto placeat natus! 
-                                    Quod!
-                                </p>
-                                <button>Find Out More</button>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="grid-item">
-                        <span>
-                            <span>
-                                <h4>Sep 23 2023</h4>
-                                <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
-                            </span>
-                            <span class="text">
-                                <h3>The God Of Miracle</h3>
-                                <p><span>THE GODHOUSE CENTER - WARRI</span></p>
-                                <p><span>10:00AM</span> GMT+1</p>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur 
-                                    adipisicing elit. Enim debitis harum 
-                                    recusandae vel neque asperiores 
-                                    distinctio architecto placeat natus! 
-                                    Quod!
-                                </p>
-                                <button>Find Out More</button>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="grid-item">
-                        <span>
-                            <span>
-                                <h4>Sep 23 2023</h4>
-                                <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
-                            </span>
-                            <span class="text">
-                                <h3>The God Of Miracle</h3>
-                                <p><span>THE GODHOUSE CENTER - WARRI</span></p>
-                                <p><span>10:00AM</span> GMT+1</p>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur 
-                                    adipisicing elit. Enim debitis harum 
-                                    recusandae vel neque asperiores 
-                                    distinctio architecto placeat natus! 
-                                    Quod!
-                                </p>
-                                <button>Find Out More</button>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="grid-item">
-                        <span>
-                            <span>
-                                <h4>Sep 23 2023</h4>
-                                <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
-                            </span>
-                            <span class="text">
-                                <h3>The God Of Miracle</h3>
-                                <p><span>THE GODHOUSE CENTER - WARRI</span></p>
-                                <p><span>10:00AM</span> GMT+1</p>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur 
-                                    adipisicing elit. Enim debitis harum 
-                                    recusandae vel neque asperiores 
-                                    distinctio architecto placeat natus! 
-                                    Quod!
-                                </p>
-                                <button>Find Out More</button>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="grid-item">
-                        <span>
-                            <span>
-                                <h4>Sep 23 2023</h4>
-                                <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
-                            </span>
-                            <span class="text">
-                                <h3>The God Of Miracle</h3>
-                                <p><span>THE GODHOUSE CENTER - WARRI</span></p>
-                                <p><span>10:00AM</span> GMT+1</p>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur 
-                                    adipisicing elit. Enim debitis harum 
-                                    recusandae vel neque asperiores 
-                                    distinctio architecto placeat natus! 
-                                    Quod!
-                                </p>
-                                <button>Find Out More</button>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="grid-item">
-                        <span>
-                            <span>
-                                <h4>Sep 23 2023</h4>
-                                <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
-                            </span>
-                            <span class="text">
-                                <h3>The God Of Miracle</h3>
-                                <p><span>THE GODHOUSE CENTER - WARRI</span></p>
-                                <p><span>10:00AM</span> GMT+1</p>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur 
-                                    adipisicing elit. Enim debitis harum 
-                                    recusandae vel neque asperiores 
-                                    distinctio architecto placeat natus! 
-                                    Quod!
-                                </p>
-                                <button>Find Out More</button>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="grid-item">
-                        <span>
-                            <span>
-                                <h4>Sep 23 2023</h4>
-                                <img src="{% static 'core/images/Rectangle 118.jpg' %}" alt="">
-                            </span>
-                            <span class="text">
-                                <h3>The God Of Miracle</h3>
-                                <p><span>THE GODHOUSE CENTER - WARRI</span></p>
-                                <p><span>10:00AM</span> GMT+1</p>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur 
-                                    adipisicing elit. Enim debitis harum 
-                                    recusandae vel neque asperiores 
-                                    distinctio architecto placeat natus! 
-                                    Quod!
-                                </p>
-                                <button>Find Out More</button>
-                            </span>
-                        </span>
-                    </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </section>
         </main>
