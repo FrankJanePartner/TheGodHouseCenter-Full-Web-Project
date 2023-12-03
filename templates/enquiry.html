@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Contact Us{% endblock %}
-{% block link %}<link rel="stylesheet" href="{% static 'core/css/prayer-request.css' %}">{% endblock %}
+{% block link %}<link rel="stylesheet" href="{% static 'core/css/enquiry.css' %}">{% endblock %}
 {% block content %}
         <!--FIRST SECTION START-->
         <div class="first_section_content">
@@ -62,15 +62,6 @@
             <div class="third_section_container">
                 <div class="reach">What are you trying to reach on?</div>
             </div>
-
-            <div class="select_container">
-                <div class="select_btn">
-                    <div class="select">Please Select</div>
-                    <div class="select_icon">
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                </div>
-            </div>
         </div>
         <!--THIRD SECTION END-->
 
@@ -78,8 +69,7 @@
         <div class="forth_section">
             <div class="form_section">
                 <div class="header_text">
-                 <div class="form_header_one">Prayer Request</div>
-                 <div class="form_header_two">We’re are honored to agree with you in prayer today. Would you please take a minute to fill out the form below to let us know how we can be praying?</div>
+                   <div class="form_header_one">Enquiry</div>
                 </div>
 
                 <form action="#">
@@ -90,23 +80,8 @@
                         <input type="email" placeholder="Email" class="form_control">
                         <input type="text" placeholder="Phone number" class="form_control" required>
 
-                        <div class="sub_input">
-                            <div class="prayer_team_contact">Would You Like To Be Contacted By Our Prayer Team?</div>
-
-                           <div class="radio_btn">
-                              <div class="radio_one">
-                                <input type="radio" name="rad" id="yes"> <span>Yes- I'd like to talk to someone</span>
-                              </div>
-
-                              <div class="radio_two">
-                                <input type="radio" name="rad" id="no"> <span>No- I'd like to talk to someone</span>
-                              </div>
-
-                            </div>
-                        </div>
-    
                         <div class="text_area">
-                            <textarea class="text_message" name="Write Your Message" placeholder="Write your payer request.." cols="30" rows="10"></textarea>
+                            <textarea class="text_message" name="Write Your Message" placeholder="Make enquiry..." cols="30" rows="10"></textarea>
                         </div>
     
                         <div class="button">
@@ -118,7 +93,6 @@
                 
             </div>
         </div>
-        <!--FORTH SECTION END-->
-        
+
 {% endblock %}
 {% block script %}<script src="{% static 'core/js/contact.js' %}"></script>{% endblock %}

@@ -1,77 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You Are Welcome Home</title>
-    <link rel="stylesheet" href="css/contact.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
-<body>
-    <!--WRAPPER START-->
-    <div class="wrapper">
-        <!--HEADER-->
-         <div class="header_container">
-            <div class="left">
-                <img src="https://i0.wp.com/godhouse.org/wp-content/uploads/2021/01/godhouseLogoWhite.png?resize=145%2C79&ssl=1" alt="church-logo">
-            </div>
-    
-            <div class="right">
-                <div class="give_btn">
-                    <a href="./give.html"><button>Give</button></a>
-                </div>
-
-                <button class="menu_bar">
-                    <div id="menu-btn" class="fas fa-bars"></div>
-                    <div><span class="menu_span">Menu</span></div>
-                </button>
-            </div>
-
-            <!--NAVBAR ACCORDION START-->
-            <ul class="accordion_menu">    
-                <li><a class="dropdown_text" href="home.html">Home</a></li>
-                <li class="link">
-                    <div class="dropdown">
-                        About
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                    <ul class="submenuItems">
-                        <li><a href="about.html">Who We Are</a></li>
-                        <li><a href="our-beliefs.html">Our Belief</a></li>
-                        <li><a href="leadership.html">Leadership</a></li> 
-                    </ul>
-                </li>
-                <li><a class="dropdown_text" href="location.html">Our Centers</a></li>
-                <li class="link">
-                    <div class="dropdown">
-                        Resources
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                    <ul class="submenuItems">
-                        <li><a href="#">Testimonies</a></li>
-                        <li><a href="#">Book & Merch</a></li>
-                        <li><a href="#">Blog</a></li> 
-                    </ul>
-                </li>
-                <li><a class="dropdown_text" href="#">Event</a></li>
-                <li class="link">
-                    <div class="dropdown">
-                        Watch & Listen
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                    <ul class="submenuItems">
-                        <li><a href="#">Video</a></li>
-                        <li><a href="#">Audio</a></li>
-                    </ul>
-                </li>
-                <li><a class="dropdown_text" href="giving.html">Give</a></li>
-                <li><a class="dropdown_text" href="contact.html">Contact</a></li>
-            </ul>
-            <!--NAVBAR ACCORDION END-->
-           
-        </div>
-        <!--END - HEADER-->
-         
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Contact Us{% endblock %}
+{% block link %}<link rel="stylesheet" href="{% static 'core/css/contact.css' %}">{% endblock %}
+{% block content %}
         <!--FIRST SECTION START-->
         <div class="first_section_content">
             <div class="fs_one">
@@ -79,7 +10,7 @@
                 <div class="fs_d">We’d love to get to know you!</div>
             </div>
             <div class="fs_one_image">
-                <img class="fs_one_image" src="./asset/contact-image.png" alt="contact-image">
+                <img class="fs_one_image" src="{% static 'core/asset/contact-image.png'%}" alt="contact-image">
             </div>
         </div>
         <!--FIRST SECTION START-->
@@ -93,7 +24,7 @@
                     </div>
 
                     <div class="map-content">Visit Us:</div>
-                    <div class="map_link"><a href="location.html">At any of our 19 branches</a></div>
+                    <div class="map_link"><a href="/locations/">At any of our 19 branches</a></div>
                 </div>
 
                 <div class="social_one_content">
@@ -102,7 +33,7 @@
                     </div>
 
                     <div class="map-content">Send us a mail</div>
-                    <div class="map_link"><a href="location.html">contact@Godhouse.com</a></div>
+                    <div class="map_link"><a href="">contact@Godhouse.com</a></div>
                 </div>
 
                 <div class="social_one_content">
@@ -111,7 +42,7 @@
                     </div>
 
                     <div class="map-content">Facebook</div>
-                    <div class="map_link"><a href="location.html">@GodHouse</a></div>
+                    <div class="map_link"><a href="https://w.facebook.com/theGodHouseCentre">@theGodHouseCentre</a></div>
                 </div>
 
                 <div class="social_one_content">
@@ -120,7 +51,7 @@
                     </div>
 
                     <div class="map-content">Instagram</div>
-                    <div class="map_link"><a href="location.html">@GodHouse</a></div>
+                    <div class="map_link"><a href="https://www.instagram.com/thegodhousecentre">@thegodhousecentre</a></div>
                 </div>
             </div>
         </div>
@@ -145,74 +76,14 @@
                 <div class="select_option_container">
                     <div class="select_option">
                         <div class="option_select">Please Select:</div>
-                        <a href="prayer-request.html"><div class="option">Prayers</div></a>
-                        <a href="#"><div class="option">Enquiry</div></a>
-                        <a href="#"> <div class="option">Share a Testimony</div></a>
+                        <a href="prayers/"><div class="option">Prayers</div></a>
+                        <a href="enquiry/"><div class="option">Enquiry</div></a>
+                        <a href="http://bit.ly/I_testify"> <div class="option">Share a Testimony</div></a>
                     </div>
                 </div>
             </div>
         </div>
         <!--THIRD SECTION END-->
 
-         <!--Footer start-->
-         <footer>
-            <div class="footer_content">
-                <div class="footer_image">
-                    <img src="./asset/church-logo.png" alt="footer-image">
-                </div>
-
-                <div class="footer_first_content">
-                    <a href="#" class="footer_about">About</a>
-                    <div class="identification">
-                        <a href="#">Vision</a>
-                        <a href="#">Who We Are</a>
-                        <a href="#">Leadership</a>
-                        <a href="#">Location</a>
-                    </div>
-                </div>
-
-                <div class="footer_second_content">
-                    <a href="#" class="get_involved">Get Involved</a>
-                    <div class="identification">
-                        <a href="#">GodHouse Men</a>
-                        <a href="#">GodHouse Women</a>
-                        <a href="#">Christ Tribe</a>
-                        <a href="#">Serve</a>
-                        <a href="#">Give</a>
-                    </div>
-                </div>
-
-                <div class="footer_third_content">
-                    <a class="Contact" href="#">Contact</a>
-                    <div class="third_sub_container">
-                        <div class="locate"><ion-icon name="location-outline"></ion-icon> 2 Indian Street, beside Mansal <br>hotel, off Jakpa Road, Effurun, <br>Warri, Delta State, Nigeria.</div>
-                        <div class="call"><ion-icon name="call-outline"></ion-icon> +2349071511079</div>
-                    </div>
-                </div>
-
-            </div>
-            
-            <div class="social_media">
-                <div class="social_media_text"> Social Media </div>
-                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-                <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-                <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-            </div>
-        </footer>
-        <!--Footer End-->
-     
-     
-    </div>
-    <!--WRAPPER END-->
-
-
-   <!--Ionicon Link Start-->
-   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-   <!--Ionicon Link End-->
-
-   <!--Javascript Link-->
-   <script src="js/contact.js"></script>
-   <!--Javascript link End-->
-</body>
-</html>
+{% endblock %}
+{% block script %}<script src="{% static 'core/js/contact.js' %}"></script>{% endblock %}
