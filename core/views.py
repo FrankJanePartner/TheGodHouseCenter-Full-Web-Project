@@ -1,5 +1,5 @@
 from django.shortcuts import render,  get_object_or_404
-from .models import Leader, Location
+from .models import Leader, Location, ServiceDay
 from communnity.models import Unit, Church
 from blog.models import Blog
 from testimony.models import Testimony
@@ -10,11 +10,13 @@ def home(request):
     churches = Church.objects.all()
     blog = Blog.objects.all()
     testimony = Testimony.objects.all()
+    service = ServiceDay.objects.all()
     context = {
         'blog':blog,
         'units':units,
         'churches':churches,
-        'testimony':testimony
+        'testimony':testimony,
+        'service': service
     }
     return render(request, 'home.html', context)
 

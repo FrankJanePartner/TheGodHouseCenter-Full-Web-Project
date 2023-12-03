@@ -11,7 +11,7 @@
             <div class="first_section_content">
                 <div class="gh_port_content">
                     <div class="gh_portharcourt">GodHouse Center</div>
-                    <div class="gh_portharcourt_one">Port Harcourt, NG</div>
+                    <div class="gh_portharcourt_one">{{ location.name }}</div>
                 </div>
             </div>
         </div>
@@ -24,26 +24,26 @@
                 <div class="second_section_content_one">
                     <h3 class="center_location">Center Information</h3>
                     <div class="center_address c-1">
-                        <ion-icon class="ic" name="location-outline"></ion-icon> <a href="#">Port harcourt</a>
+                        <ion-icon class="ic" name="location-outline"></ion-icon> <a href="#">{{ location.name }}</a>
                     </div>
 
                     <div class="center_call c-1">
-                        <ion-icon class="ic" name="call-outline"></ion-icon> <a href="#">+2349071511079</a>
+                        <ion-icon class="ic" name="call-outline"></ion-icon> <a href="#">{{ location.tel }}</a>
                     </div>
 
                     <div class="center_mail c-1">
-                        <ion-icon class="ic" name="mail-outline"></ion-icon> <a href="#">godhousecenter@gmail.com</a>
+                        <ion-icon class="ic" name="mail-outline"></ion-icon> <a href="#">{{ location.email }}</a>
                     </div>
 
                     <div class="center_time c-1">
-                        <ion-icon class="ic" name="time-outline"></ion-icon> <span>Every Sunday at 9:15 and 11:15am</span>
+                        <ion-icon class="ic" name="time-outline"></ion-icon> <span>{{ service.days }}</span>
                     </div>
                 </div>
 
                 <div class="second_section_content_two">
                     <div class="about_godhouse">About Center</div>
 
-                    <div class="about_godhouse_content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora dolorem expedita eaque minima tenetur perspiciatis odit alias nesciunt culpa temporibus quis impedit architecto libero, optio consequatur at vitae recusandae neque vel? Quibusdam eveniet saepe voluptatum sint laboriosam id eos alias dignissimos magnam sapiente a itaque dicta laudantium numquam, error autem qui perferendis in iure corporis magni veniam consequatur at. Velit modi soluta ex reiciendis. Soluta dolore quidem, culpa tempore doloremque voluptates pariatur totam ut deserunt veniam. Molestiae, quo consectetur fugit voluptates atque repudiandae sapiente obcaecati illum eos quas ab aliquam odio minus dignissimos officia perferendis ut asperiores possimus. Laudantium culpa at nisi reprehenderit possimus officiis repudiandae tempore eum voluptates sunt consectetur quod, nesciunt minima explicabo molestiae maxime provident rem. Facere assumenda aspernatur expedita? Eum, debitis est ipsam quam atque sunt maxime labore perspiciatis! Pariatur odit, quisquam perferendis ut aut rem aspernatur, cupiditate eaque voluptatem, ducimus minus officia qui unde architecto!</div>
+                    <div class="about_godhouse_content">{{ location.description }}</div>
                 </div>
             </div>
         </div>

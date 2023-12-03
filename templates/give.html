@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giving - GodHouse center</title>
-<link rel="stylesheet" href="{% static 'core/css/giving.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/giving.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
 </head>
 <body>
 
     <div class="back_icon">
-        <a href="home.html"><ion-icon class="arrow_icon" name="arrow-back-outline"></ion-icon></a>
+        <a href="/"><ion-icon class="arrow_icon" name="arrow-back-outline"></ion-icon></a>
     </div>
 
     <div class="container">
@@ -21,7 +22,7 @@
                 </div>
 
                 <div class="giving_svg">
-                    <img style="height: 220px;" src="./asset/giving-2.svg" alt="giving-svg">
+                    <img style="height: 220px;" src="{% static 'core/asset/giving-2.svg' %}" alt="giving-svg">
                 </div>
 
                 <div class="left_content">
@@ -121,48 +122,59 @@
 
          <!--Footer start-->
          <footer>
-            <div class="footer_content">
-                <div class="footer_image">
-                    <img src="./asset/church-logo.png" alt="footer-image">
-                </div>
+            <span>
+                <img src="{% static 'core/images/logo-white.png' %}" alt="">
+            </span>
+            <span>
+                <h1><a href="/about/">About</a></h1>
+                <a href="/about/">Vision</a>
+                <a href="/about/">Who are we</a>
+                <a href="/leaders/">Leadership</a>
+                <a href="/locations/">Location</a>
+            </span>
+            <span>
+                <h1><a href="/community/">Get Involved</a></h1>
+                <a href="/community/">Godhouse Men</a>
+                <a href="/community/">Godhouse Women</a>
+                <a href="/community/">Christ Tribe</a>
+                <a href="/community/unit">Serve</a>
+                <a href="/give/">Give</a>
+            </span>
+            <span>
+                <span>
+                    <i class="ri-map-pin-2-fill"></i>
+                    <p>2 Indian Street, beside Mansal hotel off Japka Road, Effurun, Warri, Delta State, Nigeria</p>
+                </span>
+                <span>
+                    <i class="bi bi-telephone-fill"></i>
+                    <p>+2349012345678</p>
+                </span>
+                <span>
+                    <i class="bi bi-envelope-fill"></i>
+                    <p>Click here to send us a mail</p>
+                </span>
 
-                <div class="footer_first_content">
-                    <a href="#" class="footer_about">About</a>
-                    <div class="identification">
-                        <a href="#">Vision</a>
-                        <a href="#">Who We Are</a>
-                        <a href="#">Leadership</a>
-                        <a href="#">Location</a>
-                    </div>
+                <div class="social">
+                    <h5>Social Media</h5>
+                    <a href="https://w.facebook.com/theGodHouseCentre">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/godhousecentre">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/thegodhousecentre/">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@TheGodHouseCentre">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                    <!-- for tiktok -->
+                    <a href="https://www.tiktok.com/@the_god_house_centre">
+                        <i class="bx bxl-tiktok"></i>
+                    </a>
                 </div>
-
-                <div class="footer_second_content">
-                    <a href="#" class="get_involved">Get Involved</a>
-                    <div class="identification">
-                        <a href="#">GodHouse Men</a>
-                        <a href="#">GodHouse Women</a>
-                        <a href="#">Christ Tribe</a>
-                        <a href="#">Serve</a>
-                        <a href="#">Give</a>
-                    </div>
-                </div>
-
-                <div class="footer_third_content">
-                    <a class="Contact" href="#">Contact</a>
-                    <div class="third_sub_container">
-                        <div class="locate"><ion-icon name="location-outline"></ion-icon> 2 Indian Street, beside Mansal <br>hotel, off Jakpa Road, Effurun, <br>Warri, Delta State, Nigeria.</div>
-                        <div class="call"><ion-icon name="call-outline"></ion-icon> +2349071511079</div>
-                    </div>
-                </div>
-
-            </div>
-            
-            <div class="social_media">
-                <div class="social_media_text"> Social Media </div>
-                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-                <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-                <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-            </div>
+                
+            </span>
         </footer>
         <!--Footer End-->
 

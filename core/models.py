@@ -38,6 +38,8 @@ class Location(CommonInfo):
     description = models.TextField(blank=True)
     thumbnail = models.ImageField(upload_to='Locations_thumbmail')
     image = models.ImageField(upload_to='Locations_images')
+    tel = models.CharField(blank=True, max_length=20)
+    email = models.EmailField(max_length=255)
 
     def __str__(self):
         return f'{self.name}'
@@ -62,3 +64,14 @@ class Leader(CommonInfo):
     
     class Meta:
         verbose_name_plural = "Leaders"
+
+
+class ServiceDay(models.Model):
+    center = models.ForeignKey(Location, on_delete=models.CASCADE)
+    day = models.CharField(max_length=255)
+    time = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f'{self.name}'
+    class Meta:
+        verbose_name_plural = "ServiceDays"

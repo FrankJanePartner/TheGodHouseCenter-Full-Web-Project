@@ -213,42 +213,34 @@
     </div>
 
     <div class="blog_section_content">
-        {% for b in blog | slice : [:-1] %}
-        <div class="blog_section_table_one">
-            <div class="section_table_one_image"><img src="{{ b.image.url }}"></div>
-            <div class="section_table_one_image_content_one">{{ b.name }}</div>
-            <div class="section_table_one_image_content_two">{{ b.content | slice: '30' }}...</div>
-            <a class="blog_read_more" href="b.get_absolute_url">Read More</a>
-        </div>
-        
-        <div class="blog_section_table_two">
-            <div class="blog_section_table_two_content">
-                <div class="blog_section_ttimg"><img src="{{ b.image.url }}"></div>
-                <div class="blog_section_table_two_separate">
-                <div class="blog_section_ttimg_one_content">{{ b.name }}</div>
-                <div class="blog_section_ttimg_two_content">{{ b.content }}...</div>
-                </div>
+        {% for b in blog|slice:'0:-1' %}
+            <div class="blog_section_table_one">
+                <div class="section_table_one_image"><img src="{{ b.image.url }}"></div>
+                <div class="section_table_one_image_content_one">{{ b.name }}</div>
+                {% with sliced_content=b.content|slice:'0:30' %}
+                    <div class="section_table_one_image_content_two">{{ sliced_content }}...</div>
+                {% endwith %}
+                <a class="blog_read_more" href="{{ b.get_absolute_url }}">Read More</a>
             </div>
-            <div class="blog_section_table_two_content">
-                <div class="blog_section_ttimg"><img src="{{ b.image.url }}"></div>
-                <div class="blog_section_table_two_separate">
-                <div class="blog_section_ttimg_one_content">{{ b.name }}</div>
-                <div class="blog_section_ttimg_two_content">{{ b.content }}...</div>
-                </div>
-            </div>
-            <div class="blog_section_table_two_content">
-                <div class="blog_section_ttimg"><img src="{{ b.image.url }}"></div>
-                <div class="blog_section_table_two_separate">
-                <div class="blog_section_ttimg_one_content">{{ b.name }}</div>
-                <div class="blog_section_ttimg_two_content">{{ b.content }}...</div>
-                </div>
-            </div>
-        </div>
-        
         {% endfor %}
         
-
+        <div class="blog_section_table_two">
+            {% for b in blog|slice:'-3:-1' %}
+                <div class="blog_section_table_two_content">
+                    <div class="blog_section_ttimg"><img src="{{ b.image.url }}"></div>
+                    <div class="blog_section_table_two_separate">
+                        <div class="blog_section_ttimg_one_content">{{ b.name }}</div>
+                        {% with sliced_content=b.content|slice:'0:30' %}
+                            <div class="section_table_one_image_content_two">{{ sliced_content }}...</div>
+                        {% endwith %}
+                        <a class="blog_read_more" href="{{ b.get_absolute_url }}">Read More</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
+    
+    
 
     <a class="blog_link" href="/blog/"><div class="blog_btn">Go to Blog <span>&rarr;</span></div></a>
 </div>

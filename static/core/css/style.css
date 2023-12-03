@@ -81,6 +81,7 @@ footer{
     height: 25rem;
     background-color: black;
     box-sizing: border-box;
+    margin-top: 1rem;
 }
 
 footer span{
