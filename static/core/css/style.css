@@ -606,10 +606,10 @@ footer span span p{
 .testimonies .testimonyIntro{
     text-align: center !important;
     margin: 3rem 0rem;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .testimonies .testimonyIntro h1{

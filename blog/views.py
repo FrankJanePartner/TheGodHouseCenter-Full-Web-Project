@@ -10,7 +10,7 @@ def home(request):
     context = {
         "post":post
     }
-    return render(request, 'home.html', context)
+    return render(request, 'blogs.html', context)
 
 def allPost(request):
     blog = Blog.objects.all()

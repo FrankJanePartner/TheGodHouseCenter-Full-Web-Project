@@ -82,31 +82,31 @@
                  <div class="form_header_two">We’re are honored to agree with you in prayer today. Would you please take a minute to fill out the form below to let us know how we can be praying?</div>
                 </div>
 
-                <form action="#">
-    
+                <form action="{% url "prayers" %}" method='post'>
+                    {% csrf_token %}
                     <div class="form_group">
     
-                        <input type="text" placeholder="Name" class="form_control" required>
-                        <input type="email" placeholder="Email" class="form_control">
-                        <input type="text" placeholder="Phone number" class="form_control" required>
+                        <input type="text" name="name" placeholder="Name" class="form_control" required>
+                        <input type="email" name="email" placeholder="Email" class="form_control">
+                        <input type="text"  name="phone_number" placeholder="Phone number" class="form_control" required>
 
                         <div class="sub_input">
                             <div class="prayer_team_contact">Would You Like To Be Contacted By Our Prayer Team?</div>
 
                            <div class="radio_btn">
                               <div class="radio_one">
-                                <input type="radio" name="rad" id="yes"> <span>Yes- I'd like to talk to someone</span>
+                                <input type="radio" name="yes" id="yes" value="yes"> <span>Yes- I'd like to talk to someone</span>
                               </div>
 
                               <div class="radio_two">
-                                <input type="radio" name="rad" id="no"> <span>No- I'd like to talk to someone</span>
+                                <input type="radio" name="no" id="no" value="no"> <span>No- I'd like to talk to someone</span>
                               </div>
 
                             </div>
                         </div>
     
                         <div class="text_area">
-                            <textarea class="text_message" name="Write Your Message" placeholder="Write your payer request.." cols="30" rows="10"></textarea>
+                            <textarea class="text_message" name="message" placeholder="Write your payer request.." cols="30" rows="10"></textarea>
                         </div>
     
                         <div class="button">
