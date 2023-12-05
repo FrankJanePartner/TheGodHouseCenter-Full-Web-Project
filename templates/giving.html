@@ -1,16 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="css/giving.css">
+    <title>Giving  - The GodHouse Center</title>
+    <link rel="stylesheet" href="{% static 'core/assests/bootstrap-icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'core/assests/remixicon/remixicon.css' %}">
+    <link rel="stylesheet" href="{% static 'core/assests/boxicons/css/boxicons.css' %}">
+    <link rel="shortcut icon" href="{% static 'core/images/logo.jpg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <link rel="stylesheet" href="{% static 'core/asset/give1.css' %}">
 </head>
 <body>
 
-    <div class="back_icon">
+    <!--<div class="back_icon">
         <a href="home.html"><ion-icon class="arrow_icon" name="arrow-back-outline"></ion-icon></a>
-    </div>
+    </div>-->
 
     <div class="container">
         <div class="giving_container">
@@ -20,7 +27,7 @@
                 </div>
 
                 <div class="giving_svg">
-                    <img style="height: 220px;" src="./asset/giving-2.svg" alt="giving-svg">
+                    <img style="height: 220px;" src="{% static 'core/asset/giving-2.svg' %}" alt="giving-svg">
                 </div>
 
                 <div class="left_content">
@@ -31,144 +38,121 @@
             </div>
 
             <div class="right">
-                <div class="right_header">Fill the form below to give online</div>
-
-                <form action="" method='post'>
-                    {% csrf_token %}
-                    <div class="form_group_container">
-                        <div class="form_group">
-                            <div class="label">
-                                <label for="">First Name <span>*</span> </label>
-                            </div>
-    
-                            <div class="form_control">
-                                <input type="text" class="form_control" required>
-                            </div>
+                <div class="bank_logo1_container">
+                    <div class="bank_logo">
+                        <div class="gt banks-content">
+                            <img width="60px" src="{% static 'core/gtbank-logo.png' %}" alt="gtbank-logo">
+                            <span class="gt_name">Guaranty Trust Bank</span>
                         </div>
-
-                        <div class="form_group">
-                            <div class="label">
-                                <label for="">Second Name <span>*</span> </label>
-                            </div>
-    
-                            <div class="form_control">
-                                <input type="text" class="form_control" required>
-                            </div>
-                        </div>
-        
                     </div>
-
-                    <div class="form_group_container two">
-                        <div class="form_group">
-                            <div class="label">
-                                <label for="">Email <span>*</span> </label>
-                            </div>
     
-                            <div class="form_control">
-                                <input type="text" class="form_control">
-                            </div>
+                    <div class="banks_details">
+                        <div class="bank_name same">
+                            <div>Bank Name</div>
+                            <div class="bname">Guaranty Trust Bank</div>
                         </div>
 
-                        <div class="form_group">
-                            <div class="label">
-                                <label for="">Phone Number <span>*</span> </label>
-                            </div>
-    
-                            <div class="form_control">
-                                <input type="text" class="form_control" required>
-                            </div>
+                        <div class="account_name same">
+                            <div>Account Name</div>
+                            <div class="bname">Godhouse Missions</div>
                         </div>
-        
+
+                        <div class="account_number same">
+                            <div>Account Number</div>
+                            <div class="bname">0122534037</div>
+                        </div>
+
                     </div>
+                </div>
 
-                    <div class="form_group_container three">
-                        <div class="form_group">
-                            <div class="label">
-                                <label for="">Giving For <span>*</span> </label>
-                            </div>
-    
-                            <div class="form_control">
-                                <select class="selector" name="Donation Type" id="Donation Type">
-                                    <option style="display: none;" value="Offering"></option>
-                                    <option value="Offering">Offering</option>
-                                    <option value="Tithe">Tithe</option>
-                                    <option value="Partnership">Partnership</option>
-                                    <option value="Teacher seed">Teacher seed</option>
-                                    <option value="Special Givings">Special Givings</option>
-                                </select>  
-                            </div>
-                        </div>
-
-                        <div class="form_group">
-                            <div class="label">
-                                <label for="">Amount <span>*</span> </label>
-                            </div>
-    
-                            <div class="form_control">
-                                <input type="text" class="form_control" required>
-                            </div>
-                        </div>
-        
-                    </div>
-
-                    <div class="give_btn_container">
-                        <button class="give_btn">Give</button>
-                    </div>
-                </form>
-          
+                <div class="right_left">
+                   <div class="bank_logo2">
+                       <div class="access banks-content">
+                           <img width="60px" src="{% static 'access bank logo.png' %}" alt="access-bank">
+                           <span class="access_name">Access Bank (Teacher Seed)</span>
+                       </div>
+       
+                       <div class="banks_details2">
+                            <div class="bank_name same">
+                               <div>Bank Name</div>
+                               <div class="bname">Access Bank</div>
+                           </div>
+   
+                           <div class="account_name same">
+                               <div>Account Name</div>
+                               <div class="bname">Theophilus Danjuma</div>
+                           </div>
+   
+                           <div class="account_number same">
+                               <div>Account Number</div>
+                               <div class="bname">0043306505</div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
             </div>
         </div>
 
-         <!--Footer start-->
-         <footer>
-            <div class="footer_content">
-                <div class="footer_image">
-                    <img src="./asset/church-logo.png" alt="footer-image">
+        <!--Footer start-->
+        <footer>
+            <span>
+                <img src="asset/church-logo.png" alt="">
+            </span>
+            <span>
+                <h1><a href="/about/">About</a></h1>
+                <a href="/about/">Vision</a>
+                <a href="/about/">Who are we</a>
+                <a href="/leaders/">Leadership</a>
+                <a href="">Location</a>
+            </span>
+            <span>
+                <h1><a href="/community/">Get Involved</a></h1>
+                <a href="/community/">Godhouse Men</a>
+                <a href="/community/">Godhouse Women</a>
+                <a href="/community/">Christ Tribe</a>
+                <a href="/community/unit">Serve</a>
+                <a href="/give/">Give</a>
+            </span>
+            <span>
+                <span>
+                    <i class="ri-map-pin-2-fill"></i>
+                    <p>2 Indian Street, beside Mansal hotel off Japka Road, Effurun, Warri, Delta State, Nigeria</p>
+                </span>
+                <span>
+                    <ion-icon name="call-outline"></ion-icon>
+                    <p>+2349012345678</p>
+                </span>
+                <span>
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <p>Click here to send us a mail</p>
+                </span>
+    
+                <div class="social">
+                    <h5>Social Media</h5>
+                    <a href="https://w.facebook.com/theGodHouseCentre">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/godhousecentre">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/thegodhousecentre"/>
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@TheGodHouseCentre">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                    <!-- for tiktok -->
+                    <a href="https://www.tiktok.com/@the_god_house_centre">
+                        <i class="bx bxl-tiktok"></i>
+                    </a>
                 </div>
-
-                <div class="footer_first_content">
-                    <a href="#" class="footer_about">About</a>
-                    <div class="identification">
-                        <a href="#">Vision</a>
-                        <a href="#">Who We Are</a>
-                        <a href="#">Leadership</a>
-                        <a href="#">Location</a>
-                    </div>
-                </div>
-
-                <div class="footer_second_content">
-                    <a href="#" class="get_involved">Get Involved</a>
-                    <div class="identification">
-                        <a href="#">GodHouse Men</a>
-                        <a href="#">GodHouse Women</a>
-                        <a href="#">Christ Tribe</a>
-                        <a href="#">Serve</a>
-                        <a href="#">Give</a>
-                    </div>
-                </div>
-
-                <div class="footer_third_content">
-                    <a class="Contact" href="#">Contact</a>
-                    <div class="third_sub_container">
-                        <div class="locate"><ion-icon name="location-outline"></ion-icon> 2 Indian Street, beside Mansal <br>hotel, off Jakpa Road, Effurun, <br>Warri, Delta State, Nigeria.</div>
-                        <div class="call"><ion-icon name="call-outline"></ion-icon> +2349071511079</div>
-                    </div>
-                </div>
-
-            </div>
-            
-            <div class="social_media">
-                <div class="social_media_text"> Social Media </div>
-                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-                <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-                <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-            </div>
+            </span>
         </footer>
-        <!--Footer End-->
-
+    
+    <!--Footer End-->
     </div>
 
-     <!--Ionicon Link Start-->
+    <!--Ionicon Link Start-->
      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
      <!--Ionicon Link End-->

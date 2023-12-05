@@ -5,7 +5,7 @@ from django.conf import settings
 
 # Create your views here.
 def giving(request):
-    return render(request, 'give.html')
+    return render(request, 'giving.html')
 
 # #a view for implementing paystack
 # # payment gateway
