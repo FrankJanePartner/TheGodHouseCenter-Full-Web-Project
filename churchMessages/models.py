@@ -4,7 +4,7 @@ from django.urls import reverse
 
 # Create your models here.
 class VideoMessage(CommonInfo):
-    images = models.ImageField(upload_to="media/videoMessages", height_field=None, width_field=None, max_length=None)
+    images = models.ImageField(upload_to="media/videoMessages")
     ItemNumber = models.IntegerField(default=0)
     seriesDescription =models.TextField()
 
@@ -18,7 +18,7 @@ class VideoMessage(CommonInfo):
         verbose_name_plural = "VideoMessages"
 
 class AudioMessage(CommonInfo):
-    images = models.ImageField(upload_to="media/AudioMessages", height_field=None, width_field=None, max_length=None)
+    images = models.ImageField(upload_to="media/AudioMessages")
     ItemNumber = models.IntegerField(default=0)
     seriesDescription =models.TextField()
     
