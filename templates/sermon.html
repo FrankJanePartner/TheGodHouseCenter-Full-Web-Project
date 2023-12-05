@@ -102,30 +102,6 @@
                         <div class="s_t">When It’s time to Walk Away</div>
                         <div class="series_part">Part 1</div>
                     </div>
-
-                    <div class="in_this_one">
-                        <div class="img">
-                            <img src="{% static 'core/asset/series-image.png' %}" alt="in-this-series">
-                        </div>
-                        <div class="s_t">When It’s time to Walk Away</div>
-                        <div class="series_part">Part 2</div>
-                    </div>
-
-                    <div class="in_this_one">
-                        <div class="img">
-                            <img src="{% static 'core/asset/series-image.png' %}" alt="in-this-series">
-                        </div>
-                        <div class="s_t">When It’s time to Walk Away</div>
-                        <div class="series_part">Part 3</div>
-                    </div>
-
-                    <div class="in_this_one">
-                        <div class="img">
-                            <img src="{% static 'core/asset/series-image.png' %}" alt="in-this-series">
-                        </div>
-                        <div class="s_t">When It’s time to Walk Away</div>
-                        <div class="series_part">Part 4</div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -136,67 +112,16 @@
             <div class="seventh_section_container">
                 <div class="past_series">Past Series</div>
                 <div class="past_series_container">
+                    {% for  in  %}
                     <div class="past_series_item_container">
                         <div class="past_series_item">
                             <div class="past_series_image">
-                              <a href="#"><img src="{% static 'core/asset/Team.pngg' %}" alt="past-series-image"></a>
+                              <a href="{{ audio.get_absolute_url }}"><img src="{{ audio.image.url }}" alt="past-series-image"></a>
                             </div>
-                            <div class="past_series_text">Been There <br> How to walk with God</div>
-                        </div>
-
-                        <div class="past_series_item">
-                            <div class="past_series_image">
-                              <a href="#"><img src="{% static 'core/asset/Team.pngg' %}" alt="past-series-image"></a>
-                            </div>
-                            <div class="past_series_text">Been There <br> How to walk with God</div>
-                        </div>
-
-                        <div class="past_series_item">
-                            <div class="past_series_image">
-                              <a href="#"><img src="{% static 'core/asset/Team2.png' %}" alt="past-series-image"></a>
-                            </div>
-                            <div class="past_series_text">Been There <br> How to walk with God</div>
-                        </div>
-
-                        <div class="past_series_item">
-                            <div class="past_series_image">
-                              <a href="#"><img src="{% static 'core/asset/Team3.png' %}" alt="past-series-image"></a>
-                            </div>
-                            <div class="past_series_text">Been There <br> How to walk with God</div>
-                        </div>
-
+                            <div class="past_series_text">{{ audio.name }}</div>
+                        </div> 
                     </div>
-
-                    <div class="past_series_item_container">
-                        <div class="past_series_item">
-                            <div class="past_series_image">
-                              <a href="#"><img src="{% static 'core/asset/Team.png' %}" alt="past-series-image"></a>
-                            </div>
-                            <div class="past_series_text">Been There <br> How to walk with God</div>
-                        </div>
-
-                        <div class="past_series_item">
-                            <div class="past_series_image">
-                              <a href="#"><img src="{% static 'core/asset/Team.png' %}" alt="past-series-image"></a>
-                            </div>
-                            <div class="past_series_text">Been There <br> How to walk with God</div>
-                        </div>
-
-                        <div class="past_series_item">
-                            <div class="past_series_image">
-                              <a href="#"><img src="{% static 'core/asset/Team2.png' %}" alt="past-series-image"></a>
-                            </div>
-                            <div class="past_series_text">Been There <br> How to walk with God</div>
-                        </div>
-
-                        <div class="past_series_item">
-                            <div class="past_series_image">
-                              <a href="#"><img src="{% static 'core/asset/Team3.png' %}" alt="past-series-image"></a>
-                            </div>
-                            <div class="past_series_text">Been There <br> How to walk with God</div>
-                        </div>
-                        
-                    </div>
+                    {% endfor %}
                 </div>
 
                 <div class="btn_c">

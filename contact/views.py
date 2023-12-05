@@ -11,7 +11,7 @@ def enquiry(request):
         email = request.POST['email']
         phone_number = request.POST['phone_number']
         message = request.POST['message']
-        enq = Enquire.objects.get(name=name, email=email, tel=phone_number, message=message)
+        enq = Enquire.objects.create(name=name, email=email, tel=phone_number, message=message)
     return render(request, 'enquiry.html')
 
 def prayers(request):
@@ -25,5 +25,5 @@ def prayers(request):
         if contactMe.value == True:
             pryreq = PrayerRequest.objects.create(name=name, email=email, tel=phone_number, message=message, should_contact=True) 
         elif DontContactMe.value == True:
-            pryreq = PrayerRequest.objects.get(name=name, email=email, tel=phone_number, message=message, should_contact=False)
+            pryreq = PrayerRequest.objects.create(name=name, email=email, tel=phone_number, message=message, should_contact=False)
     return render(request, 'prayer-request.html')
