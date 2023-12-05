@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load custom_filters %}
 {% block title %}Sermons{% endblock %}
 {% block link %}<link rel="stylesheet" href="{% static 'core/css/sermon.css' %}">{% endblock %}
 {% block content %}
@@ -68,14 +69,15 @@
         <!--FOURTH SECTION END-->
 
         <!--FIFTH SECTION START-->
-        <div class="forth_section">
+        <div class="sixth_section">
+            <div class="forth_section" >
             <div class="forth_section_content">
                 <div class="series_text_c">
                     <div class="our_current">Our Current Series</div>
 
-                    <div class="series_title">The Book of Ruth</div>
+                    <div class="series_title">{{ audio.name }}</div>
 
-                    <div class="series_content">We often define our lives by the big moments. But most of our lives consist of ordinary chapters. They may not feel significant, but ultimately change everything. In our series, The Book of Ruth, we'll discover the hidden beauty of life’s small moments.</div>
+                    <div class="series_content">{{ audio.seriesDescription }}</div>
 
                     <div class="links">
                         <a class="listen_link" href="">Listen Now</a>
@@ -84,24 +86,44 @@
                 </div>
                 
                 <div class="series_image">
-                    <img src="{% static 'core/asset/series-image.png' %}" alt="series-image">
+                    <img src="{{ audio.image.url }}" alt="series-image">
                 </div>
             </div>
         </div>
         <!--FIFTH SECTION SECTION END-->
+        {% load static %}
 
+        {% if not 'custom_range' in template.libraries %}
+            <script>
+                // Define the custom_range filter in the template
+                function custom_range(value) {
+                    return Array.from({ length: value }, (_, i) => i);
+                }
+            </script>
+        
+            <script>
+                // Load the custom_range filter into the template.libraries
+                template.libraries.custom_range = {
+                    '__call__': custom_range,
+                };
+            </script>
+        {% endif %}
+        
         <!--SIXTH SECTION START-->
-        <div class="sixth_section">
             <div class="sixth_section_content">
                 <div class="sixth_series">In This Series</div>
                 <div class="in_this_content">
-                    <div class="in_this_one">
-                        <div class="img">
-                            <img src="{% static 'core/asset/series-image.png' %}" alt="in-this-series">
-                        </div>
-                        <div class="s_t">When It’s time to Walk Away</div>
-                        <div class="series_part">Part 1</div>
-                    </div>
+                    {% with audio_item_number=audio.ItemNumber|default:0 %}
+                        {% for x in audio_item_number|custom_range %}
+                            <div class="in_this_one">
+                                <div class="img">
+                                    <img src="{{ audio.image.url }}" alt="in-this-series">
+                                </div>
+                                <div class="s_t">{{ audio.name }}</div>
+                                <div class="series_part">Part {{ x }}</div>
+                            </div>
+                        {% endfor %}
+                    {% endwith %}
                 </div>
             </div>
         </div>
@@ -112,13 +134,13 @@
             <div class="seventh_section_container">
                 <div class="past_series">Past Series</div>
                 <div class="past_series_container">
-                    {% for  in  %}
+                    {% for a in audio %}
                     <div class="past_series_item_container">
                         <div class="past_series_item">
                             <div class="past_series_image">
-                              <a href="{{ audio.get_absolute_url }}"><img src="{{ audio.image.url }}" alt="past-series-image"></a>
+                              <a href="{{ a.show_absolute_url }}"><img src="{{ a.image.url }}" alt="past-series-image"></a>
                             </div>
-                            <div class="past_series_text">{{ audio.name }}</div>
+                            <div class="past_series_text">{{ a.name }}</div>
                         </div> 
                     </div>
                     {% endfor %}

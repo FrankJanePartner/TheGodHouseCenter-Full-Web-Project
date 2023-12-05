@@ -28,6 +28,9 @@ class AudioMessage(CommonInfo):
     def get_absolute_url(self):
         return reverse('sermons:audioStream', args=[self.slug])
     
+    def show_absolute_url(self):
+        return reverse('sermons:sermondetail', args=[self.slug])
+    
     class Meta:
         verbose_name_plural = "AudioMessages"
 

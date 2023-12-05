@@ -19,7 +19,7 @@ def videoStream(request, slug):
     context = {
         'video': video
     }
-    return render(request, 'audioStream.html', context)
+    return render(request, 'videoStream.html', context)
 
 def audioStream(request, slug):
     # get all the videos and audio form the database
@@ -29,7 +29,17 @@ def audioStream(request, slug):
     context = {
         'audio': audio,
     }
-    return render(request, 'videoStream.html', context)
+    return render(request, 'audioStream.html', context)
+
+def sermondetail(request, slug):
+    # get all the videos and audio form the database
+    audio = get_object_or_404(AudioMessage, slug=slug)
+
+    audio = AudioMessage.objects.all()
+    context = {
+        'audio': audio,
+    }
+    return render(request, 'sermon.html/#description', context)
 
 # download youtube video using video embed id
 def downloadVideo(request, slug):
