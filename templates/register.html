@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!---Coding By CodingLab | www.codinglabweb.com--->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--<title>Registration Form in HTML CSS</title>-->
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="register.css" />
+  </head>
+  <body>
+    <section class="container">
+      <div class="registration-image-container">
+            <img class="registration-image" src="asset/rvc copy.png">
+      </div>
+      <form action="#" class="form">
+        <div class="input-box">
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter full name" required />
+        </div>
+
+        <div class="input-box">
+          <label>Email Address</label>
+          <input type="text" placeholder="Enter email address" required />
+        </div>
+
+        <div class="column">
+          <div class="input-box">
+            <label>Phone Number</label>
+            <input type="number" placeholder="Enter phone number" required />
+          </div>
+        </div>
+
+        <div class="column">
+            <div class="input-box">
+              <label>Address/Location</label>
+              <input type="text" placeholder="Enter Location" required />
+            </div>
+          </div>
+
+        <div class="input-box address">
+            <label for="ministry-select" class="visually-hidden">Select Ministry</label>
+            <div class="column">
+                <div class="select-box">
+                  <select id="ministry-select" onchange="showAdditionalOptions()">
+                    <option hidden>Select Ministry</option>
+                    <option>Godhouse Center</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              
+                <!-- Additional options for Godhouse Center -->
+                <div id="godhouse-options" style="display: none; margin-top: 10px;">
+                  <label for="godhouse-suboption">Godhouse Center Options:</label>
+                  <select id="godhouse-suboption">
+                    <option hidden>Select an Option</option>
+                    <option>GodHouse Warri</option>
+                    <option>GodHouse Lagos</option>
+                    <option>GodHouse Portharcourt</option>
+                    <option>GodHouse Ibadan</option>
+                    <option>GodHouse Sagamu</option>
+                    <option>GodHouse Abuja</option>
+                    <option>GodHouse Asaba</option>
+                    <option>GodHouse Bonny Island</option>
+                    <option>GodHouse Fupre</option>
+                    <option>GodHouse Abraka</option>
+                    <option>GodHouse PTI</option>
+                    <option>GodHouse Lasu</option>
+                    <option>Ecclesia USA</option>
+                    <option>Ecclesia United Kingdom</option>
+                    <option>Ecclesia Canada</option>
+                  </select>
+                </div>
+              
+                <!-- Input field for "Other" option -->
+                <div id="other-input" style="display: none;">
+                  <label for="other-text">Please specify:</label>
+                  <input style="margin-top: 2px; height: 57%;" type="text" id="other-text" placeholder="Enter other ministry">
+                </div>
+            </div>
+
+          </div>
+
+          <div class="column">
+            <div class="select-box">
+              <select>
+                <option hidden>Ministry Status</option>
+                <option>Pastor</option>
+                <option>Minister</option>
+                <option>Leaders</option>
+                <option>Workers</option>
+                <option>Members</option>
+              </select>
+            </div>
+        </div>
+
+    
+        <div class="column">
+            <div class="select-box">
+              <select>
+                <option hidden>How did you know about RVC</option>
+                <option>Godhouse</option>
+                <option>Banner/Billboard</option>
+                <option>Fliers</option>
+                <option>Social media</option>
+                <option>Invited</option>
+                <option>Others</option>
+              </select>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="select-box">
+              <select>
+                <option hidden>How will you be attending</option>
+                <option>Online</option>
+                <option>Onsite</option>
+              </select>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="select-box">
+              <select>
+                <option hidden>Would You need Accomodation</option>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+            </div>
+        </div>
+        <button>Submit</button>
+      </form>
+    </section>  
+
+    <script src="register.js"></script>
+  </body>
+</html>

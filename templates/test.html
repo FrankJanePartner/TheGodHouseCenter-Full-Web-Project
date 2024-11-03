@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="checkout-form" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <section>
+            <span>
+                <div>
+                    <label for="name">Full Name <span style="color:red;">*</span></label>
+                    <input id="name" name="name" type="text" required>
+                </div>
+                <div>
+                    <label for="email">Email <span style="color:red;">*</span></label>
+                    <input id="email" name="email" type="email" required>
+                </div>
+                
+                <div>
+                    <label for="phone_number">Phone Number <span style="color:red;">*</span></label>
+                    <div class='phone-and-code' style="display: flex; justify-content: space-between; align-items: center; height: 2.5rem; width: 95%;">
+                        <input type="text" name="phone_country_code" id="phone_country_code">
+                        
+                        <input id="phone_number" name="phone_number" type="tel" style="margin-bottom: 0px; width: 73%; height:80%; padding :0px;" required>
+                    </div>
+                </div>
+                
+                
+                <!-- State Selection for Nigeria -->
+                <div id="state-container">
+                    <label for="state">State:</label>
+                    <input type="text" id="state" name="state">
+                </div>
+
+                <!-- Other State/Province Input for Non-Nigerian Countries -->
+                <div id="input-container">
+                    <label for="other_state">State/Province:</label>
+                    <input type="text" id="other_state" name="other_state" placeholder="Enter your state or province">
+                </div>
+
+                <div id="lga-input-container">
+                    <label for="lga_input">City/LGA:</label>
+                    <input type="text" id="lga_input" name="lga-input" placeholder="Enter your City or LGA">
+                </div>
+
+                <!-- Delivery Address -->
+                <div id="delivery_address_container">
+                    <label for="delivery_address">Delivery Address:</label>
+                    <input id="delivery_address" name="delivery_address" type="text">
+                </div>
+
+            </span>
+            <span>
+                <!-- Button to Get Shipping Rates -->
+                <button type="button" name="get_rates" id="get_rates">Get Rates</button>
+
+                <!-- Shipping Options Section (AJAX will populate this) -->
+                <div id="shipping_options" style="display:none;">
+                    <h4>Shipping Options</h4>
+                    <ul id="shipping_list"></ul>
+                </div>
+                <div id="courier-rates"></div>
+        </section>
+        <section class="sec">
+            <div style="margin-bottom: 1rem;">
+                <button type="submit">Place Order</button>
+            </div>
+        </section>
+    </form>
+</body>
+</html>

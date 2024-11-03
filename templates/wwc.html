@@ -1,0 +1,622 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WWC 2024  - The GodHouse Center</title>
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'core/assests/bootstrap-icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'core/assests/remixicon/remixicon.css' %}">
+    <link rel="stylesheet" href="{% static 'core/assests/boxicons/css/boxicons.css' %}">
+    <link rel="shortcut icon" href="{% static 'core/images/logo.jpg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <link rel="stylesheet" href="{% static 'core/css/wwc.css' %}">
+    <style>
+        .forthMain{
+            width: 100vw;
+            margin: 0;
+            height: fit-content;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5rem 0px 7rem;
+            background-color: #a6a6a6 !important;
+        }
+        
+        .forthMain h2{
+            font-size: 3rem;
+            color: #FF0000;
+        }
+        
+        .forthMain form{
+            width: 95vw;
+            padding: 1rem;
+            position: relative;
+            height: fit-content;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background-color: white;
+            opacity: 60%;
+        }
+        
+        .forthMain form section{
+            height: fit-content;
+            width: 47%;
+        }
+        
+        .forthMain form section div{
+            width: 100%;
+            height: fit-content;
+            margin: 2rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .forthMain form section div label{
+            font-size: 1.7rem;
+            color: black;
+            font-weight: 900;
+            margin: 0;
+        }
+        
+        .forthMain form section div input{
+            width: 100%;
+            height: 2rem;
+            border: none;
+            border-bottom: 1px solid black;
+        }
+        
+        .forthMain form section div input:active{
+            border: none;
+            border-bottom: 1px solid black;
+        }
+        
+        .forthMain form section div select:active{
+            border: none;
+            border-bottom: 1px solid black;
+        }
+        
+        .forthMain form section div select{
+            width: 100%;
+            height: fit-content;
+            margin-top: 0.2rem;
+            font-size: 1.3rem;
+            padding: 0.5rem 0;
+            border: none;
+            border-bottom: 1px solid black;
+        }
+        
+        .forthMain form section div select option{
+            border: none;
+            border-bottom: 1px solid black;
+        }
+        
+        .forthMain form button{
+            padding: 1rem 3rem;
+            position: absolute;
+            bottom: -5rem;
+            left: 44%;
+            border: none;
+            background-color: #FF0000;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        @media all and (max-width:450px){
+            .forthMain{
+                width: 100vw;
+                margin: 0;
+                height: fit-content;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 1rem 0px 6rem;
+                background-color: #a6a6a6;
+            }
+            
+            .forthMain h2{
+                width: 97%;
+                margin: auto;
+                margin-bottom: 1rem;
+                text-align: center;
+                font-size: 1.7rem;
+                color: #FF0000;
+            }
+        
+            .forthMain form{
+                width: 95vw;
+                margin: 0;
+                padding: 1rem;
+                position: relative;
+                height: fit-content;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                background-color: white;
+                opacity: 60%;
+            }
+            
+            .forthMain form section{
+                height: fit-content;
+                width: 49%;
+            }
+        
+            .forthMain form section div{
+                width: 100%;
+                height: fit-content;
+                margin: 2rem 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+        
+            .forthMain form section div label{
+                font-size: 1.2rem;
+                color: black;
+                font-weight: 900;
+            }
+        
+            .forthMain form section div input{
+                width: 100%;
+                height: 2rem;
+                border: none;
+                border-bottom: 1px solid black;
+            }
+        
+            .forthMain form section div select{
+                width: 100%;
+                height: fit-content;
+                margin-top: 1.2rem;
+                font-size: 1+-rem;
+                padding: 0.5rem 0;
+                border: none;
+                border-bottom: 1px solid black;
+            }
+            
+            .forthMain form button{
+                padding: 1rem 3rem;
+                position: absolute;
+                bottom: -5rem;
+                left: 25%;
+                border: none;
+                background-color: #FF0000;
+                color: white;
+                font-size: 1.2rem;
+            }
+            
+        }
+    </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-297C7ZR3QW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-297C7ZR3QW');
+</script>
+<body>
+    <!--WRAPPER START-->
+    <div class="wrapper">
+        <section class="first_section">
+        <!--HEADER-->
+        <div class="header_container" style="background-color:white;">
+            <div class="left">
+                <a href="/">
+                    <img src="https://i0.wp.com/godhouse.org/wp-content/uploads/2021/01/godhouseLogoWhite.png?resize=145%2C79&ssl=1" alt="church-logo">
+                </a>
+            </div>
+    
+            <div class="right">
+                <div class="give_btn">
+                    <a href="/give/"><button>Give</button></a>
+                </div>
+
+                <button class="menu_bar">
+                    <div id="menu-btn" class="fas fa-bars"></div>
+                    <div><span class="menu_span">Menu</span></div>
+                </button>
+            </div>
+
+            <!--NAVBAR ACCORDION START-->
+            <ul class="accordion_menu">    
+                <li><a class="dropdown_text" href="/">Home</a></li>
+                <li class="link">
+                    <div class="dropdown">
+                        About
+                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="/about/">Who We Are</a></li>
+                        <li><a href="/belief/">Our Belief</a></li>
+                        <li><a href="/leaders/">Leadership</a></li> 
+                    </ul>
+                </li>
+                <li><a class="dropdown_text" href="/locations/">Our Centers</a></li>
+                <li class="link">
+                    <div class="dropdown">
+                        Resources
+                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="/testimony/">Testimonies</a></li>
+                        <li><a href="/store/">Book & Merch</a></li>
+                        <li><a href="https://blog.godhouse.org" target="_blank">Blog</a></li> 
+                    </ul>
+                </li>
+                <li><a class="dropdown_text" href="/events/">Event</a></li>
+                <li class="link">
+                    <div class="dropdown">
+                        Watch & Listen
+                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="/churchMessages/#videomessages">Video</a></li>
+                        <li><a href="/churchMessages/">Audio</a></li>
+                        <li><a href="wholewordtv/">Live TV</a></li>
+                    </ul>
+                </li>
+                <li><a class="dropdown_text" href="/give/">Give</a></li>
+                <li><a class="dropdown_text" href="/contact/">Contact</a></li>
+            </ul>
+            <!--NAVBAR ACCORDION END-->
+        </div>
+    <section class="header">
+        <div class="first">
+            
+        </div>
+        <div class="second">
+            <h1>Whole Word Conference 2024</h1>
+            <p class="">THEME: He Gave Gifts Unto Men.</p>
+            <!-- countdown to event day -->
+            <h2 class="countdown"  id="countdown" style="font-size: 1rem;"></h2>
+            <a href="/events/" class="a">Events!</a>
+        </div>
+    </section>
+    <section class="firstMain">
+        <div class="one">
+            {% for f in files %}
+                {% if f.fileType == "image" %}
+                    <img src="{{ f.file.url }}" alt="">
+                {% else %}
+                    <video src="{{ f.file.url }}"  autoplay loop controls></video>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="two">
+            <h2>Whole Word Conference 2024</h2>
+            <p>
+                This year's conference will be a school of ministry, with emphasis on the <b>GIFTS AND CALLING</b> of God, its bearing on the gospel commission, and its implications on the local church ministry.
+                <br>
+                <br>We shall examine the apostolic precepts and examples - its discovery, recovery, development, exercise, application, transference, accountability, multiplicity, mentorship and mastery of the gifts and calling of God.
+               <br>
+               <br>Get ready for a time of teaching and supernatural ministries, with indelible activations and Impartations,
+                and the right hand of fellowship.
+                <br>
+                <br><b>The Spirit says COME!</b>
+            </p>
+        </div>
+    </section>
+    <section class="secondMain">
+        <h3>EVENT SCHEDULE</h3>
+        <p>Click each day to see the schedule</p>
+        <div class="tabs">
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'London')">Day 1</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')">Day 2</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo')">Day 3</button>
+                <button class="tablinks" onclick="openCity(event, 'London1')">Day 4</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris1')">Day 5</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo1')">Day 6</button>
+            </div>
+            
+            <div id="London" class="tabcontent">
+                <div class="flex">
+                    <h3>
+                        <b>27-03-2023</b><br>
+                        <small>4:00 pm</small>
+                    </h3>
+                    <p>Opening Session</p>
+                </div>
+            </div>
+            
+            <div id="Paris" class="tabcontent">
+                <div class="flex">
+                    <h3>
+                        <b>28-03-2023</b><br>
+                        <small>9:00 am</small>
+                    </h3>
+                    <p>Morning Session</p>
+                </div>
+                <div class="flex">
+                    <h3>
+                        <b>28-03-2023</b><br>
+                        <small>4:00 pm</small>
+                    </h3>
+                    <p>Evening Session</p>
+                </div>
+            </div>
+            
+            <div id="Tokyo" class="tabcontent">
+                <div class="flex">
+                    <h3>
+                        <b>29-03-2023</b><br>
+                        <small>9:00 am</small>
+                    </h3>
+                    <p>Morning Session</p>
+                </div>
+                <div class="flex">
+                    <h3>
+                        <b>29-03-2023</b><br>
+                        <small>9:00 pm</small>
+                    </h3>
+                    <p>Evening Session</p>
+                </div>
+            </div>
+            
+            <div id="London1" class="tabcontent">
+                <div class="flex">
+                    <h3>
+                        <b>30-03-2023</b><br>
+                        <small>9:00 am</small>
+                    </h3>
+                    <p>Morning Session</p>
+                </div>
+                <div class="flex">
+                    <h3>
+                        <b>30-03-2023</b><br>
+                        <small>4:00 pm</small>
+                    </h3>
+                    <p>Evening Session</p>
+                </div>
+            </div>
+            
+            <div id="Paris1" class="tabcontent">
+                <div class="flex">
+                    <h3>
+                        <b>31-03-2023</b><br>
+                        <small>9:00 am</small>
+                    </h3>
+                    <p>Morning Session</p>
+                </div>
+                <div class="flex">
+                    <h3>
+                        <b>31-03-2023</b><br>
+                        <small>4:00 pm</small>
+                    </h3>
+                    <p>Evening Session</p>
+                </div>
+            </div>
+            
+            <div id="Tokyo1" class="tabcontent">
+                <div class="flex">
+                    <h3>
+                        <b>1-04-2023</b><br>
+                        <small>9:00 am</small>
+                    </h3>
+                    <p>A walk for Jesus</p>
+                </div>
+            </div>
+        </div>
+        <a href="">Download Schedule</a>
+    </section>
+    <section class="thirdMain">
+        <h3>Pictures From past WWC</h3>
+<!--        <div class="slideshow-container">
+                <h2>&larr;</h2>
+                {% for i in testimg %}
+                <div class="mySlides fade">
+                    <img src="{{ i.image.url }}" style="width:80vw; height:60vh">
+                    <div class="text">{{ i.caption }}</div>
+                </div>
+                {% endfor %}
+                <h2>&rarr;</h2>
+            </div>
+            <br> -->
+
+            <!--<div style="text-align:center">
+                {% for i in testimg %}
+                    <span class="dot"></span>
+                {% endfor %}
+            </div> -->
+        <div class="slider slideshow-container">
+            <div class="slide-items mySlides fade">
+                <!--{% for i in testimg %} -->
+                <img src="{% static 'core/image/C.jpg' %}" alt="">
+                <img src="{% static 'core/image/first.jpg' %}" alt="">
+                <img src="{% static 'core/image/C.jpg' %}" alt="">
+                <!--{% endfor %} -->
+            </div>
+            <br>
+            <div style="text-align:center">
+                <!--{% for i in testimg %} -->
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                <!--{% endfor %} -->
+            </div>
+        </div>
+    </section>
+    <section class="forthMain" id="register">
+        <h2>Event Registration</h2>
+        {% if messages %}
+            <p class="success">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </p>
+        {% endif %}
+
+        <form action="{% url 'wwc2024:register' %}" method="post">
+        {% csrf_token %}
+            <section>
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+                <div>
+                    <label for="phone">Phone No:</label>
+                    <input type="tel" name="phone" id="phone" required>
+                </div>
+                <div>
+                    <label for="ministry">Local Church</label>
+                    <input type="text" name="ministry" id="ministry">
+                </div>
+                <div>
+                    <label for="know">How did you know about WWC'24</label>
+                    <select name="know" id="know">
+                        <option value=""></option>
+                        <option value="Godhouse">Godhouse</option>
+                        <option value="Social media">Social media</option>
+                        <option value="Friend">Friend</option>
+                        <option value="Banner/Poster">Banner/Poster</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="attending">How will you be attending</label>
+                    <select name="attending" id="attending">
+                        <option value=""></option>
+                        <option value="Physical attendance">Physical attendance</option>
+                        <option value="Physical attendance">Online attendance</option>
+                    </select>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div>
+                    <label for="godhouse-location">Godhouse Location</label>
+                    <input type="text" name="godhouse-location" id="godhouse-location">
+                </div>
+                <div>
+                    <label for="ministry-status">Ministry Status</label>
+                    <select name="ministry-status" id="ministry-status">
+                        <option value=""></option>
+                        <option value="Member">Member</option>
+                        <option value="Worker">Worker</option>
+                        <option value="Minister/Leader">Minister/Leader</option>
+                        <option value="Pastor">Pastor</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="need">Do you need accommodation?</label>
+                    <select name="need" id="need">
+                        <option value=""></option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+            </section>
+            <button type="submit">Register</button>
+        </form>
+    </section>
+        <footer style="width:100vw;">
+            <span>
+                <img src="{% static 'core/images/logo-white.png' %}" alt="">
+            </span>
+            <span>
+                <h1><a href="/about/">About</a></h1>
+                <a href="/about/">Vision</a>
+                <a href="/about/">Who are we</a>
+                <a href="/leaders/">Leadership</a>
+                <a href="/locations/">Location</a>
+            </span>
+            <span>
+                <h1><a href="/community/">Get Involved</a></h1>
+                <a href="https://www.godhouse.org/community/men/">Godhouse Men</a>
+                <a href="https://www.godhouse.org/community/women/">Godhouse Women</a>
+                <a href="https://www.godhouse.org/community/christtribe/">Christ tribe</a>
+                <a href="/community/unit">Serve</a>
+                <a href="/give/">Give</a>
+            </span>
+            <span>
+                <span>
+                    <i class="ri-map-pin-2-fill"></i>
+                    <p>2 Indian Street, beside Mansal hotel off Japka Road, Effurun, Warri, Delta State, Nigeria</p>
+                </span>
+                <span>
+                    <i class="bi bi-telephone-fill"></i>
+                    <p>+2349071511079</p>
+                </span>
+                <span>
+                    <i class="bi bi-envelope-fill"></i>
+                    <p><a href="mailto:info@godhouse.org" style='width: 100%'>Click here to send us a mail</a></p>
+                </span>
+
+                <div class="social">
+                    <h5>Social Media</h5>
+                    <a href="https://w.facebook.com/theGodHouseCentre">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/godhousecentre">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/thegodhousecentre"/>
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@TheGodHouseCentre">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                    <!-- for tiktok -->
+                    <a href="https://www.tiktok.com/@the_god_house_center">
+                        <i class="bx bxl-tiktok"></i>
+                    </a>
+                </div>
+                
+            </span>
+        </footer>
+    </div>
+    
+    <!--Javascript Link-->
+    <script src="{% static 'core/js/scripts.js' %}"></script> 
+    <script src="{% static 'core/js/home.js' %}"></script>
+    <script>
+        // Set the event date and time (replace with your event details)
+        const eventDate = new Date('March 27, 2024 17:00:00 GMT+00:00').getTime();
+        
+        // Update the countdown every second
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        
+        function updateCountdown() {
+            const currentDate = new Date().getTime();
+            const timeDifference = eventDate - currentDate;
+        
+            if (timeDifference <= 0) {
+                // Event has already occurred, display a message
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').innerHTML = 'Event is over! Checkout other upcoming event!';
+            } else {
+                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+                document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+        }
+    </script>
+    <script src="{% static 'core/js/testimony.js' %}"></script>
+    <!--Javascript link End-->
+    
+    <!--Ionicon Link Start-->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!--Ionicon Link End-->
+    
+</body>
+</html>
