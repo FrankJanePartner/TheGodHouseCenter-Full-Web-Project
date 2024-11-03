@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ testimony.Testifer_names }}</title>
+    <link rel="stylesheet" href="{% static 'core/css/giving.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'core/images/logo.jpg' %}" type="image/x-icon">
+    <style>
+        p{
+            margin: 1.5rem 0rem;
+        }
+        
+        .top{
+            width: 90vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /*@media screen and (max-width: 450px){
+            .right{
+                display: none;
+            }
+            
+            .left{
+                width: 100%;
+            }
+            
+        }*/
+    </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-297C7ZR3QW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-297C7ZR3QW');
+</script>
+<body>
+
+    <div class='top'>
+        <div class="back_icon">
+            <a href="/testimony/"><ion-icon class="arrow_icon" name="arrow-back-outline"></ion-icon></a>
+        </div>
+        <div class="right"  style="margin-top: 3rem;">
+            <img src="{% static 'core/images/logo.jpg' %}" style="width: 10rem;">
+        </div>
+    </div>
+
+    <div class="container"  style="display: flex; justify-content:center; align-items: flex-start; width:100vw; height: fit-content;">
+        <div class="giving_container" style="width:90vw;">
+            <div class="left">
+                <div class="left_content"  style="padding:1rem;">
+                <p class="child_content">{{ testimony.content|safe }}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+     <!--Ionicon Link Start-->
+     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+     <!--Ionicon Link End-->
+</body>
+</html>

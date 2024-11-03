@@ -7,6 +7,7 @@ def churches(request, slug):
     context = {
         'churches': churches,
     }
+    
     return render(request, 'men.html', context)
 
 def units(request):

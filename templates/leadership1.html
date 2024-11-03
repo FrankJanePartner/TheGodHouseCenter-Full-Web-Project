@@ -1,217 +1,53 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/leadership.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
-    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>{{ leader.bio }}</title>
+    <link rel="shortcut icon" href="{% static 'core/images/logo.jpg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'core/css/papa.css' %}">
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-297C7ZR3QW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-297C7ZR3QW');
+</script>
 <body>
-    <!--WRAPPER START-->
-     <div class="wrapper">
-        <!--FIRST - HEADER-->
-            <div class="header_container">
-              <div class="left">
-                  <img src="https://i0.wp.com/godhouse.org/wp-content/uploads/2021/01/godhouseLogoWhite.png?resize=145%2C79&ssl=1" alt="church-logo">
-              </div>
-      
-              <div class="right">
-                  <div class="give_btn">
-                      <a href="./give.html"><button>Give</button></a>
-                  </div>
-      
-                  <button class="menu_bar">
-                      <div id="menu-btn" class="fas fa-bars"></div>
-                      <span class="menu_span">Menu</span>
-                  </button>
-              </div>
-      
-             <!--NAVBAR ACCORDION START-->
-            <ul class="accordion_menu">    
-                <li><a class="dropdown_text" href="home.html">Home</a></li>
-                <li class="link">
-                    <div class="dropdown">
-                        About
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                    <ul class="submenuItems">
-                        <li><a href="about.html">WHO WE ARE</a></li>
-                        <li><a href="our-beliefs.html">OUR BELIEF</a></li>
-                        <li><a href="leadership.html">LEADERSHIP</a></li>
-                    </ul>
-                </li>
-                <li><a class="dropdown_text" href="location.html">Our Centers</a></li>
-                <li class="link">
-                    <div class="dropdown">
-                        RESOURCES
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                    <ul class="submenuItems">
-                        <li><a href="#">TESTIMONIES</a></li>
-                        <li><a href="#">BOOK & MERCH</a></li>
-                        <li><a href="#">BLOG</a></li> 
-                    </ul>
-                </li>
-                <li><a class="dropdown_text" href="#">EVENT</a></li>
-                <li class="link">
-                    <div class="dropdown">
-                        WATCH & LISTEN
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                    <ul class="submenuItems">
-                        <li><a href="#">VIDEO</a></li>
-                        <li><a href="#">AUDIO</a></li>
-                    </ul>
-                </li>
-                <li><a class="dropdown_text" href="giving.html">GIVE</a></li>
-                <li><a class="dropdown_text" href="contact.html">CONTACT</a></li>
-            </ul>
-             <!--NAVBAR ACCORDION END-->
-           
-           </div>
-           <!--FIRST-HEADER-->
+    <div class="first_container">
 
-           <!--FIRST-HEADER-START-->
-           <div class="second_header">
-            <div class="second_header_left">About Us</div>
-            <div class="second_header_right">
-                <a href="about.html">Who we are</a>
-                <a href="our-beliefs.html">Our Beliefs</a>
-                <a href="leadership.html">Leadership</a>
-                <div class="pointer"></div>
-            </div>
-           </div>
-           <!--SECOND-HEADER-END-->
-              
-           <!--SECOND SECTION START-->
-           <div class="second_section">
-            <div class="second_section_content">
-                <div class="our_story_text">Our Story</div>
-                <div class="our_story_text_two">We began as a student fellowship on a Nigerian university campus has since grown into <br> a global community with numerous centers spread across three continents.</div>
-            </div>
-           </div>
-           <!--SECOND SECTION END-->
+        <div class="header">
+           <a href="/leaders/">
+             <div class="go_back">Go Back</div>
+           </a>
+            
+            <a class="header_image" href="/" style="width:20%; height:100%; display: flex; justify-content: flex-end; align-items: flex-end;">
+                <img src="{% static 'core/images/logo.jpg' %}" alt="church logo" style="width:70%; height:100%; object-fit: contain;">
+            </a>
+        </div>
 
-           <!--THIRD SECTION START-->
-           <div class="third_section">
-            <div class="third_section_container">
-                <div class="how_it_started">How It Started</div>
-                <div class="how_it_started_text">What began as a student fellowship on a Nigerian university campus has since grown into a global community with numerous centers spread across three continents. As a church, we are dedicated to the ministry of the gospel of Christ and are focused on reaching out to people through evangelism, church planting, and charitable causes. We believe in the transformative power of the gospel and strive to turn people into true disciples of Christ by sharing the message of His love and salvation. 
-                    We are committed to building a community of believers who are passionate about serving God, growing in their faith, and reaching out to others with the same love and compassion that Christ showed us. Our goal is to make a positive impact on the world by spreading the message of the gospel and demonstrating His love through our actions.
+        <div class="content_container">
+            <div class="left_image">
+                <img src="{{ audio.images.url }}" alt="mama-image">
+            </div>
+
+            <div class="right_content">
+                <p>{{ audio.description }}</p>
+
+                <div class="icons">
+                    <a href="{{ audio.link }}">Dowload</a>
                 </div>
             </div>
-           </div>
-           <!--THIRD SECTION END-->
-
-           <!--FORTH SECTION START-->
-           <div class="forth_section">
-            <div class="forth_section_container">
-                <div class="forth_section_leadership_text">Our Leadership</div>
-                <div class="forth_section_leadership_info">
-                    <div class="leadership_one l-one popup">
-                        <div class="leadership_one_image"><img src="asset/leadership1.png" alt="Apostle-image"></div>
-                        <div class="leadership_content">
-                            <div class="leadership_one_name">Apostle TD Philips</div>
-                            <div class="leadership_one_position">Senior Pastor</div>
-                            <div class="about_leadership_one">About TD Philips</div>
-                        </div>
-                    </div>
-
-                    <div class="leadership_one l-two popup">
-                        <div class="leadership_one_image"><img src="asset/leadership2.png" alt="pastor pistis"></div>
-                        <div class="leadership_content">
-                            <div class="leadership_one_name">Pastor Pistis</div>
-                            <div class="leadership_one_position">Senior Pastor</div>
-                            <div class="about_leadership_one">Pastor Pistis</div>
-                        </div>
-                    </div>
-
-                    <div class="leadership_one l-three popup">
-                        <div class="leadership_one_image"><img src="asset/leadership3.png" alt="Pastor Johnson"></div>
-                        <div class="leadership_content">
-                            <div class="leadership_one_name">Pastor Johnson</div>
-                            <div class="leadership_one_position">Senior Pastor</div>
-                            <div class="about_leadership_one">Pastor Johnson</div>
-                        </div>
-                    </div>
-
-                    <div class="leadership_one l-four popup" id="popup-1">
-                        <div class="leadership_one_image"><img src="asset/leadership1.png" alt="Apostle-image"></div>
-                        <div class="leadership_content">
-                            <div class="leadership_one_name">Apostle TD Philips</div>
-                            <div class="leadership_one_position">Senior Pastor</div>
-                            <div class="about_leadership_one">About TD Philips</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-           </div>
-           <!--FORTH SECTION END-->
-
-        <!--Footer start-->
-        <footer>
-            <span>
-                <img src="asset/church-logo.png" alt="">
-            </span>
-            <span>
-                <h1><a href="">About</a></h1>
-                <a href="">Vision</a>
-                <a href="">Who are we</a>
-                <a href="">Leadership</a>
-                <a href="">Location</a>
-            </span>
-            <span>
-                <h1><a href="">Get Involved</a></h1>
-                <a href="">Godhouse Men</a>
-                <a href="">Godhouse Women</a>
-                <a href="">Christ Tribe</a>
-                <a href="">Serve</a>
-                <a href="">Give</a>
-            </span>
-            <span>
-                <span>
-                    <i class="ri-map-pin-2-fill"></i>
-                    <p>2 Indian Street, beside Mansal hotel off Japka Road, Effurun, Warri, Delta State, Nigeria</p>
-                </span>
-                <span>
-                    <ion-icon name="call-outline"></ion-icon>
-                    <p>+2349012345678</p>
-                </span>
-                <span>
-                    <ion-icon name="mail-outline"></ion-icon>
-                    <p>Click here to send us a mail</p>
-                </span>
-    
-                <div class="social">
-                    <h5>Social Media</h5>
-                    <a href="">
-                        <ion-icon name="logo-facebook"></ion-icon>
-                    </a>
-                    <a href="">
-                        <ion-icon name="logo-twitter"></ion-icon>
-                    </a>
-                    <a href="">
-                        <ion-icon name="logo-instagram"></ion-icon>
-                    </a>
-                </div>
-            </span>
-        </footer>
-    
-        <!--Footer End-->
-
+        </div>
     </div>
-    <!--WRAPPER END-->
 
-    <!--Ionicon Link Start-->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <!--Ionicon Link End-->
-     
-    <!--Javascript Link-->
-    <script src="js/leadership.js"></script>
-    <!--Javascript link End-->
+     <!--Ionicon Link Start-->
+     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+     <!--Ionicon Link End-->
 </body>
 </html>

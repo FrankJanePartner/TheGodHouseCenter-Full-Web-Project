@@ -9,7 +9,7 @@
 <div class="second_header_left">About Us</div>
 <div class="second_header_right">
     <a href="/about/">Who we are</a>
-    <a href="/beliefs/">Our Beliefs</a>
+    <a href="/belief/">Our Beliefs</a>
     <a href="/leaders/">Leadership</a>
     <div class="pointer"></div>
 </div>
@@ -20,7 +20,8 @@
 <div class="second_section">
 <div class="second_section_content">
     <div class="our_story_text">Our Story</div>
-    <div class="our_story_text_two">We began as a student fellowship on a Nigerian university campus has since grown into <br> a global community with numerous centers spread across three continents.</div>
+    <div class="our_story_text_two">We began as a student fellowship on a Nigerian university campus. We have since grown into <br> a global community with numerous centers spread across three continents.
+    </div>
 </div>
 </div>
 <!--SECOND SECTION END-->
@@ -29,8 +30,16 @@
 <div class="third_section">
 <div class="third_section_container">
     <div class="how_it_started">How It Started</div>
-    <div class="how_it_started_text">What began as a student fellowship on a Nigerian university campus has since grown into a global community with numerous centers spread across three continents. As a church, we are dedicated to the ministry of the gospel of Christ and are focused on reaching out to people through evangelism, church planting, and charitable causes. We believe in the transformative power of the gospel and strive to turn people into true disciples of Christ by sharing the message of His love and salvation. 
-        We are committed to building a community of believers who are passionate about serving God, growing in their faith, and reaching out to others with the same love and compassion that Christ showed us. Our goal is to make a positive impact on the world by spreading the message of the gospel and demonstrating His love through our actions.
+    <div class="how_it_started_text">
+            What began as a student fellowship on a Nigerian university campus has since grown into a global community with numerous centers spread across three continents.<br> 
+        <br> 
+        
+        <br> As a church, we are dedicated to the ministry of the gospel of Christ and are focused on reaching out to people through evangelism, church planting, and charitable causes. We believe in the transformative power of the gospel and strive to turn people into true disciples of Christ by sharing the message of His love and salvation. <br>
+        
+        <br> 
+        <br> We are committed to building a community of believers who are passionate about serving God, growing in their faith, and reaching out to others with the same love and compassion that Christ showed us.<br> 
+        <br> 
+        <br> Our goal is to make a positive impact on the world by spreading the message of the gospel and demonstrating His love through our actions.
     </div>
 </div>
 </div>
@@ -44,11 +53,11 @@
         {% for l in leader %}
         <div class="leadership_one" id="popup-1">
             <div class="overlay"></div>
-            <div class="leadership_one_image"><img src="{{ l.images }}" alt="Apostle-image"></div>
+            <div class="leadership_one_image"><img src="{{ l.images.url }}" alt="Apostle-image"></div>
             <div class="leadership_content">
                 <div class="leadership_one_name">{{ l.name }}</div>
                 <div class="leadership_one_position">{{ l.position }}</div>
-                <div class="about_leadership_one"><a href='{{ l.get_absolute_url }}'>About{{ l.name }} &rarr;</a></div>
+                <div class="about_leadership_one"><a href='{{ l.get_absolute_url }}'>About {{ l.name }} &rarr;</a></div>
             </div>
         </div>
         {% endfor %}

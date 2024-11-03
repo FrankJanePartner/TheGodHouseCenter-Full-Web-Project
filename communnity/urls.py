@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import churches, units
+from .views import units, churches
 
 app_name = 'community'
 urlpatterns = [
-    path('', churches, name='churches'),
+    path('<slug:slug>/', churches, name='churches'),
     path('unit', units, name='units'),
 ]

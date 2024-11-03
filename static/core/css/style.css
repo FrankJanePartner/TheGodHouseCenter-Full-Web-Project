@@ -28,6 +28,7 @@ header{
 header .logo img{
     width: 7rem;
     margin-left: 3rem;
+    object-fit: cover;
 }
 
 header .btn{
@@ -70,8 +71,12 @@ header .btn .whitebtn i{
 
 main{
     flex-direction: column;
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-bottom: 5rem;
+    background-color: white;
+    height: fit-content !important;
+    padding: 0.5rem;
+    padding-top: 0px;
 }
 
 footer{
@@ -109,6 +114,7 @@ footer span a{
 
 footer span img{
     width: 7rem;
+    object-fit: cover;
 }
 
 footer span span{
@@ -142,7 +148,8 @@ footer span span p{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 20rem;
+    height: fit-content;
+    padding: 1rem;
     border-radius: 1rem;
     margin: 3rem 0rem;
     box-shadow: 0px 0px 15px 10px rgb(209, 208, 208);
@@ -201,6 +208,8 @@ footer span span p{
 }
 .eventPage main section .grid-container .grid-item img{
     width: 100%;
+    height: 20rem;
+    object-fit: cover;
 }
 
 .eventPage main section .grid-container .grid-item .text{
@@ -213,7 +222,7 @@ footer span span p{
 }
 
 .eventPage main section .grid-container .grid-item .text h3{
-    font-size: 2rem;
+    font-size: 1.4rem;
     margin: 0px;
     color: black;
 }
@@ -350,12 +359,13 @@ footer span span p{
     position: absolute;
     right: 0;
     bottom: 0;
+    object-fit: cover;
 }
 
 .blogPage main section .grid-container{
     width: 100%;
     display: grid;
-    grid-template-columns:  1fr 1fr;
+    grid-template-columns:  1fr 1fr !important;
     gap: 2rem;
 }
 
@@ -367,6 +377,7 @@ footer span span p{
 .blogPage main section .grid-container .grid-item img{
     width: 100%;
     border-radius: 1rem;
+    object-fit: cover;
 }
 
 .blogPage main section .grid-container .grid-item p{
@@ -435,6 +446,7 @@ footer span span p{
     width: 8rem;
     height: 12rem;
     margin-right: 2rem;
+    object-fit: cover;
 }
 
 .books .sectionTitle{
@@ -501,6 +513,7 @@ footer span span p{
     width: 6rem;
     top: 1.5rem;
     left: -3rem;
+    object-fit: cover;
 }
 
 .books section .grid-container-one .merch{
@@ -510,6 +523,7 @@ footer span span p{
 .books section .grid-container-one .merch img{
     width: 100% !important;
     height: 20rem;
+    object-fit: cover;
 }
 
 .books section .grid-container-one .merch button{
@@ -570,6 +584,7 @@ footer span span p{
 .servePage .serveIntro p{
     width: 50%;
     text-align: center;
+    margin-bottom: 1rem;
 }
 
 .servePage .serveIntro h6{
@@ -585,12 +600,16 @@ footer span span p{
 }
 
 .servePage .grid-container .serve img{
+    width: 100%;
     border-radius: 1rem;
+    object-fit: cover;
 }
 
 .servePage .grid-container .serve .text{
     padding: 0 !important;
     margin: 0px !important;
+    font-size: 1rem;
+    
 }
 
 .servePage .grid-container .serve .text a{
@@ -602,10 +621,14 @@ footer span span p{
     margin-top: 5rem;
 }
 
+.servePage .unitInfo{
+    text-align: center;
+}
+
 /* testimony Page */
 .testimonies .testimonyIntro{
     text-align: center !important;
-    margin: 3rem 0rem;
+    margin: 1rem 0rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -613,8 +636,8 @@ footer span span p{
 }
 
 .testimonies .testimonyIntro h1{
-    font-size: 2.5rem;
-    width: 40%;
+    font-size: 3rem;
+    width: 90% !important;
     margin: 0.2rem;
 }
 
@@ -636,8 +659,9 @@ footer span span p{
 }
 
 .testimonies section .grid-container .grid-item{
+    width: 100%;
     border-radius: 1rem;
-    height: 16rem !important;
+    height: fit-content;
     padding: 1rem;
     box-shadow: 0px 0px 10px 5px gray;
     position: relative;
@@ -666,12 +690,13 @@ footer span span p{
     position: absolute !important;
     bottom: 2rem;
     left: 1rem;
+    object-fit: cover;
 }
 
 .testimonies section .grid-container .testimonies-grid .userProfile{
     position: absolute;
-    bottom: 2rem;
-    right: 8rem;
+    bottom: 3rem;
+    right: 3rem;
     text-align: left !important;
 }
 
@@ -684,8 +709,8 @@ footer span span p{
 }
 
 .testimonies .sectionTitle{
-    margin-top: 3rem;
-    font-size: 2rem;
+    margin-top: 1rem;
+    font-size: 3rem;
     text-align: center !important;
 }
 
@@ -787,6 +812,7 @@ footer span span p{
     header .logo img{
         width: 4rem;
         margin-left: 1rem;
+        object-fit: cover;
     }
 
     header .btn{
@@ -826,6 +852,7 @@ footer span span p{
 
     footer span img{
         width: 7rem;
+        object-fit: cover;
     }
 
     footer span a{
@@ -908,15 +935,16 @@ footer span span p{
     .blogPage main .introSection div img{
         width: 15rem;
         height: 10rem;
+        object-fit: cover;
     }
 
     .blogPage main section .grid-container{
-        grid-template-columns:  1fr 1fr;
+        grid-template-columns:  1fr 1fr !important;
     }
 
     /* Books and Merchant design */
     .books section .grid-container-one{
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr !important;
     }
     
     /* Serve Page */
@@ -989,6 +1017,10 @@ footer span span p{
     .eventPage main section .grid-container{
         grid-template-columns:  1fr;
     }
+    
+    .eventPage main section .grid-container .grid-item .text p{
+        font-size: 0.95rem;
+    }
 
     /* Blog Page */
     .blogPage main{
@@ -1057,6 +1089,7 @@ footer span span p{
         height: 7rem;
         bottom: 2rem;
         right: -2rem;
+        object-fit: cover;
     }
 
     .blogPage main section .grid-container{
@@ -1065,7 +1098,7 @@ footer span span p{
 
     /* Books and Merchant design */
     .books section .grid-container-one{
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
     
     /* Serve Page */
@@ -1073,5 +1106,32 @@ footer span span p{
         top: 10rem;
         text-align: center;
         left: 3rem;
+    }
+    
+    .servePage .serveIntro p{
+        width: 80% !important;
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+    }
+    
+    .testimonies .testimonyIntro h1{
+        font-size: 1.35rem;
+    }
+    
+    .testimonies .sectionTitle{
+        font-size: 1.35rem;
+    }
+    .blogPage main .greySection div{
+        display: none ;
+    }
+    
+    .servePage .serveIntro h2{
+        font-size: 2rem;
+        margin: 0.5rem;
+    }
+    
+    .servePage .unitInfo h2{
+        text-align: center;
+        font-size: 0.95;
     }
 }

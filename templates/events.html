@@ -12,6 +12,9 @@
                 <p>Choose your center below to find recent and upconiming events that are specific to you!</p>
                 <select name="" id="">
                     <option value="">Select Center</option>
+                    {% for event in events %}
+                        <option value="">{{ event.location }}</option>
+                    {% endfor %}
                 </select>
                 <button>Find Events</button>
             </section>
@@ -22,15 +25,15 @@
                         <div class="grid-item">
                             <span>
                                 <span>
-                                    <h4>{{ event.date.Date}}</h4>
+                                    <h4>{{ event.date|date:"F d, Y" }}</h4>
                                     <img src="{{ event.image.url }}" alt="">
                                 </span>
                                 <span class="text">
                                     <h3>{{ event.name }}</h3>
                                     <p><span>THE GODHOUSE CENTER - {{ event.location}}</span></p>
-                                    <p><span>{{ event.date.Time }}</span> GMT+1</p>
+                                    <p><span>{{ event.date|time:"g:i A" }}</span> GMT+1</p>
                                     <p>{{ event.description }}</p>
-                                    <button style='background-color:gray;'><a href='' style='text-decoration:none'>Find Out More</a></button>
+                                    <button><a href='{{ event.register_link }}' style='text-decoration:none; color:white;'>{{ event.button_text }}</a></button>
                                 </span>
                             </span>
                         </div>
@@ -38,15 +41,15 @@
                         <div class="grid-item">
                             <span>
                                 <span>
-                                    <h4>{{ event.date.Date}}</h4>
+                                    <h4>{{ event.date|date:"F d, Y" }}</h4>
                                     <img src="{{ event.image.url }}" alt="">
                                 </span>
                                 <span class="text">
                                     <h3>{{ event.name }}</h3>
                                     <p><span>THE GODHOUSE CENTER - {{ event.location}}</span></p>
-                                    <p><span>{{ event.date.Time }}</span> GMT+1</p>
+                                    <p><span>{{ event.date|time:"g:i A" }}</span> GMT+1</p>
                                     <p>{{ event.description }}</p>
-                                    <button><a href='' style='text-decoration:none'>Find Out More</a></button>
+                                    <button style='background-color:gray;'>{{ event.button_text }}</button>
                                 </span>
                             </span>
                         </div>

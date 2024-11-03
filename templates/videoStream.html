@@ -1,15 +1,69 @@
-{% extends "base.html" %}
 {% load static %}
-{% block title %}Video{% endblock %}
-{% block content %}
-    <div class="eventPage VideoPage">
-        <main>
-            <section class="intro">
-                <h1>Video Title</h1>
-            </section>
-            <section class="Video">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video.video_id }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </section>
-        </main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ video.name }}</title>
+    <link rel="shortcut icon" href="{% static 'core/images/logo.jpg' %}" type="image/x-icon">
+    <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'core/css/channel.css' %}">
+    <style>
+        .wrapper{
+            width: 100%;
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section{
+            width: 95%;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        section{
+            margin: 0px;
+        }
+        header{
+            width: 95%;
+            height: 5rem;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        a{
+            text-decoration: none;
+            color: #ff0000;
+        }
+    </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-297C7ZR3QW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-297C7ZR3QW');
+</script>
+<body>
+    <!--WRAPPER START-->
+    <div class="wrapper" style="position: relative;">
+        <header>
+            <a href="/churchMessages/">&larr; Go Back</a>
+            <a href="/">
+                <img src="https://i0.wp.com/godhouse.org/wp-content/uploads/2021/01/godhouseLogoWhite.png?resize=145%2C79&ssl=1" alt="church logo">
+            </a>
+        </header>
+        <section class="Video">
+            <iframe width="800" height="500" src="{{ video.link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
     </div>
-{% endblock %}
+    <!--WRAPPER END-->
+</body>
+</html>

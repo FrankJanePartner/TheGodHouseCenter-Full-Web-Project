@@ -118,17 +118,15 @@ body {
     cursor: pointer;
     display: block;
     font-family: "Poppins", sans-serif;
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 34px;
-    padding: 1.16rem 1.5rem; /* 1rem 1.5rem*/
+    font-size: 20px;
+    font-weight: 600;
+    padding: 1rem; /* 1rem 1.5rem*/
     border-bottom: 1px solid white;
     color: black;
     position: relative;
-    border-width: 2px;
     transition: 0.3s;
-    margin-left: 17px;
-    margin-right: 17px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .dropdown:hover {
@@ -160,16 +158,15 @@ body {
     display: block;
     cursor: pointer;
     font-family: "Poppins", sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 23px;
+    font-size: 17.5px;
+    font-weight: 300;
     padding: 1rem 1.5rem; /* 1rem 1.5rem*/
     border-bottom: 1px solid black;
     color: #fff;
-    border-width: 2px;
+    border-width: 1px;
     transition: 0.3s;
-    margin-left: 17px;
-    margin-right: 17px;
+    margin-left: 15px;
+    margin-right: 15px;
     text-decoration: none;
 }
 
@@ -181,15 +178,19 @@ body {
 
 /* FIRST SECTION CONTENT*/
 .first_section {
-    background-image: url('../asset/men-group.png');
+    width: 100%;
+    background-image: url(../images/backg.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     height: 313px;
+    object-fit: cover;
 }
 
 .first_section_content {
     padding: 40px;
     padding-left: 16rem;
+    padding-top: 7rem;
+
 }
 
 .first_content_first_text {
@@ -203,6 +204,7 @@ body {
     font-family: "Poppins", sans-serif;
     font-size: 24px;
     font-weight: 300;
+    line-height: 20px;
     color: rgba(255, 255, 255, 1);
 }
 /* FIRST SECTION CONTENT END*/
@@ -217,10 +219,10 @@ body {
     font-family: "Poppins", sans-serif;
     font-size: 25px;
     font-weight: 500;
-    line-height: 36.17px;
     text-align: center;
     color: rgba(75, 76, 77, 1);
 }
+
 /*SECOND SECTION END */
 
 /*THIRD SECTION START */
@@ -237,8 +239,9 @@ body {
 }
 
 .men_group2 {
-    width: 1106px;
+    width: 80%;
     height: 484px;
+    object-fit: cover;
 }
 
 .third_section_text_container {
@@ -270,22 +273,21 @@ body {
 /*FORTH SECTION START*/
 .fourth_section {
     padding-left: 18rem;
-    margin-top: 10rem;
+    margin-top: 3rem;
 }
 
 .join_community {
     font-family: "Poppins", sans-serif;
     font-size: 48px;
+    line-height: 50px;
     font-weight: 700;
-    line-height: 54px;
     color: rgba(0, 0, 0, 1);
-    padding-bottom: 2.7rem;
+    padding-bottom: 3rem;
 }
 
 .join_text {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
-    line-height: 22px;
     color: rgba(0, 0, 0, 1);
     width: 817px;
     height: 88px;
@@ -294,14 +296,13 @@ body {
 
 /* FIFTH SECTION START*/
 .fifth_section {
-    margin-top: 3.5rem;
+    margin-top: 1rem;
 }
 
 .enquiry {
     font-family: "Poppins", sans-serif;
     font-size: 24px;
     font-weight: 600;
-    line-height: 27pX;
     padding-left: 18rem;
 }
 
@@ -310,74 +311,498 @@ body {
 
 /* footer start */
 footer {
-    margin-top: 90px;
-    height: 400px;
-    background: #000000;
-}
-
-footer a {
-    text-decoration: none;
-    color: white;
-}
-
-.footer_content {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding-top: 80px;
-    gap: 190px;
     font-family: sans-serif;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 3rem;
+    margin-top: 3.5rem;
+    height: 17rem;
+    background-color: black;
 }
 
-.footer_first_content .identification {
+footer span{
+    width: 23%;
+    margin: 0px;
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: white;
 }
 
-.footer_first_content .identification a {
-    margin-bottom: 5px;
+footer span h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0px 0px 10px;
 }
 
-.footer_second_content .identification {
+footer span a{
+    margin: 0px 0px 10px;
+    font-weight: 100;
+}
+
+footer span img{
+    width: 7rem;
+}
+
+footer span a{
+    color: white;
+    text-decoration: none;
+}
+
+footer span span{
+    width: 100%;
+    margin-bottom: 1rem;
     display: flex;
-    flex-direction: column;
-    margin-top: 20px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
-.footer_second_content .identification a {
-    margin-bottom: 5px;
+footer span span ion-icon, i{
+    margin-right: 12px;
 }
 
-.footer_third_content {
-    color: white;
-    font-size: 16px;
-    font-weight: 400;
+footer span span p{
+    margin: 0px;
 }
 
-.footer_third_content .third_sub_container {
-    margin-top: 35px;
-}
-
-.footer_third_content .third_sub_container .call {
-    margin-top: 24px;
-}
-
-ion-icon {
-    color: white;
-}
-
-.social_media {
-    font-family: sans-serif;
-    font-size: 18px;
-    color: white;
-    margin-top: 70px;
-    text-align: center;
-}
-
-.social_media ion-icon {
-    margin-top: 10px;
-    font-size: 25px;
+footer .social a ion-icon {
+    gap: 10px;
 }
 /* footer end */
+
+
+@media screen and (max-width: 767px) {
+    /* Styles for phone */
+    /* HEADER START */
+    .header_container {
+        position: fixed;
+        background-color: #f9f9f9;
+        width: 100%;
+        height: 60px;
+        padding: none;   
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    
+    
+    .left img {
+        margin-left: 7px;
+        }
+    
+        .left img {
+            width: 5rem;
+        }
+    
+        .give_btn {
+            display: none;
+        }
+    
+        .right .menu_bar {
+            width: 0;
+            border: none;
+        }
+        
+        .right .menu_bar .menu_span {
+            display: none;
+        }
+    
+         /* NAVBAR ACCORDION START */
+         .accordion_menu {
+            width: 100%;
+            height: 100vh;
+            background-color: grey;
+        }
+    
+        .dropdown, .dropdown_text {
+            font-size: 18px;
+            font-weight: 500;
+            border-width: 1.5px;
+        }    
+    
+        .dropdown .fa-chevron-down {
+            font-size: 1rem;
+        }
+    
+        .submenuItems a {
+            font-size: 17px;
+            font-weight: 300;
+            border-width: 1px;
+        }
+    
+    
+        /* NAVBAR ACCORDION END */
+    
+        .second_header {
+            display: none;
+        }
+    
+    /* HEADER END */ 
+    
+    /* FIRST SECTION CONTENT*/
+    .first_section {
+        background-image: url('../asset/men-group.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 313px;
+    }
+
+    .break {
+        display: none;
+    }
+
+    .first_section_content {
+        padding: 0px;
+        padding-left: 0rem;
+        text-align: center;
+    }
+
+    .first_content_first_text {
+        font-size: 24px;
+        font-weight: 500;
+        padding-top: 10rem;
+    }
+    
+    .first_content_second_text {
+        font-family: "Poppins", sans-serif;
+        font-size: 20px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 1);
+    }
+    /* FIRST SECTION CONTENT END*/
+
+    /*SECOND SECTION START */
+    .second_section_content {
+        font-size: 18px;
+    }
+    /*SECOND SECTION END */
+
+    /*THIRD SECTION START */
+    .third_section_image {
+        padding-top: 5rem;
+    }
+    
+    .men_group2 {
+        width: 267px;
+        height: 200px;
+    }
+    
+    .third_section_text_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 0rem;
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+    }
+    
+    .third_section_text_one {
+        font-size: 24px;
+        text-align: center;
+    }
+    
+    .third_section_text_two {
+        font-size: 16px;
+        font-weight: 200;
+        width: 270px;
+        height: 300px;
+        text-align: center;
+        margin-top: 2rem;
+    }
+    /*THIRD SECTION END */
+
+    /*FORTH SECTION START*/
+    .fourth_section {
+        padding-left: 0rem;
+        margin-top: 3rem;
+        text-align: center;
+    }
+    
+    .join_community {
+        font-size: 18px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 1);
+        padding-bottom: 0rem;
+    }
+    
+    .join_text {
+        display: none;
+    }
+    /*FORTH SECTION END*/
+
+    /* FIFTH SECTION START*/
+    .fifth_section {
+        padding-top: 0rem;
+    }
+    
+    .enquiry {
+        font-size: 16px;
+        font-weight: 250;
+        padding-left: 0rem;
+        text-align: center;
+    }
+    
+    /* FIFTH SECTION END*/  
+    
+    /* footer start */
+    footer{
+        flex-direction: column;
+        height: fit-content;
+    }
+    
+    footer span h1{
+        font-size: 1rem;
+    }
+    
+    
+    footer span{
+        width: 90%;
+        margin-bottom: 2rem;
+    }
+    
+    /* footer end */ 
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Styles for phone */
+    /* HEADER START */
+    .header_container {
+        position: fixed;
+        background-color: #f9f9f9;
+        width: 100%;
+        height: 60px;
+        padding: none;   
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    
+    
+    .left img {
+        margin-left: 7px;
+        }
+    
+        .left img {
+            width: 5rem;
+        }
+    
+        .give_btn {
+            display: none;
+        }
+    
+        .right .menu_bar {
+            width: 0;
+            border: none;
+        }
+        
+        .right .menu_bar .menu_span {
+            display: none;
+        }
+    
+         /* NAVBAR ACCORDION START */
+         .accordion_menu {
+            width: 100%;
+            height: 100vh;
+            background-color: grey;
+        }
+    
+        .dropdown, .dropdown_text {
+            font-size: 27px;
+            font-weight: 300;
+            line-height: 34px;
+            border-width: 1.5px;
+        }
+    
+        .dropdown .fa-chevron-down {
+            font-size: 1rem;
+        }
+    
+        .submenuItems a {
+            font-size: 17px;
+            font-weight: 300;
+            line-height: 23px;
+            border-width: 1px;
+        }
+    
+        /* NAVBAR ACCORDION END */
+    
+        .second_header {
+            display: none;
+        }
+    
+    /* HEADER END */ 
+    
+    /* FIRST SECTION CONTENT*/
+    .first_section {
+        background-image: url('../asset/men-group.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 313px;
+    }
+
+    .break {
+        display: none;
+    }
+
+    .first_section_content {
+        padding: 0px;
+        padding-left: 0rem;
+        text-align: center;
+    }
+
+    .first_content_first_text {
+        font-size: 32px;
+        font-weight: 500;
+        padding-top: 10rem;
+    }
+    
+    .first_content_second_text {
+        font-size: 25px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 1);
+    }
+    /* FIRST SECTION CONTENT END*/
+
+    /*SECOND SECTION START */
+    .second_section_content {
+        font-size: 22px;
+    }
+    /*SECOND SECTION END */
+
+    /*THIRD SECTION START */
+    .third_section_image {
+        padding-top: 5rem;
+    }
+    
+    .men_group2 {
+        width: 500px;
+        height: 250px;
+    }
+    
+    .third_section_text_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 0rem;
+        padding-top: 7rem;
+        padding-bottom: 23rem;
+    }
+    
+    .third_section_text_one {
+        font-size: 30px;
+        text-align: center;
+    }
+    
+    .third_section_text_two {
+        font-size: 25px;
+        font-weight: 200;
+        width: 450px;
+        height: 300px;
+        text-align: center;
+        margin-top: 2rem;
+    }
+    /*THIRD SECTION END */
+
+    /*FORTH SECTION START*/
+    .fourth_section {
+        padding-left: 0rem;
+        margin-top: 3rem;
+        text-align: center;
+    }
+    
+    .join_community {
+        font-size: 30px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 1);
+        padding-bottom: 0rem;
+    }
+    
+    .join_text {
+        display: none;
+    }
+    /*FORTH SECTION END*/
+
+    /* FIFTH SECTION START*/
+    .fifth_section {
+        padding-top: 0rem;
+    }
+    
+    .enquiry {
+        font-size: 26px;
+        font-weight: 250 !important;
+        padding-left: 0rem;
+        text-align: center;
+    }
+    
+    /* FIFTH SECTION END*/ 
+    
+    /* footer start */
+    footer {
+        height: 24rem;
+    }
+
+    /* footer end */
+}
+
+@media screen and (min-width: 1280px) {
+    .second_section {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.second_section_content {
+    font-family: "Poppins", sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    width: 480px;
+    color: rgba(75, 76, 77, 1);
+}
+
+/*THIRD SECTION START */
+.third_section {
+   background:rgba(0, 0, 0, 1);
+   margin-top: 4rem;
+}
+
+.third_section_text_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5rem;
+        padding-top: 4rem;
+        padding-bottom: 3rem;
+    }
+    
+    .third_section_text_one {
+        font-size: 25px;
+        width: 350px;
+        text-align: center;
+    }
+    
+    .third_section_text_two {
+        font-size: 19px;
+        font-weight: 200;
+        width: 450px;
+        height: 300px;
+        text-align: center;
+        margin-top: 2rem;
+    }
+    /*THIRD SECTION END */
+
+
+
+
+}
+
 

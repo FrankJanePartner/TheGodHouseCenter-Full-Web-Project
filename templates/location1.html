@@ -24,7 +24,7 @@
                 <div class="second_section_content_one">
                     <h3 class="center_location">Center Information</h3>
                     <div class="center_address c-1">
-                        <ion-icon class="ic" name="location-outline"></ion-icon> <a href="#">{{ location.name }}</a>
+                        <ion-icon class="ic" name="location-outline"></ion-icon> <a href="#">{{ location.address|linebreaks }}</a>
                     </div>
 
                     <div class="center_call c-1">
@@ -34,10 +34,14 @@
                     <div class="center_mail c-1">
                         <ion-icon class="ic" name="mail-outline"></ion-icon> <a href="#">{{ location.email }}</a>
                     </div>
-
+                    {% for s in service %}
                     <div class="center_time c-1">
-                        <ion-icon class="ic" name="time-outline"></ion-icon> <span>{{ service.days }}</span>
+                        <ion-icon class="ic" name="time-outline"></ion-icon
+                            <span style="display:block;">  
+                            {{ s.day }} {{ s.time }}
+                            </span>
                     </div>
+                    {% endfor %}
                 </div>
 
                 <div class="second_section_content_two">

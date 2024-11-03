@@ -3,7 +3,14 @@
 {% block title %}HOME{% endblock %}
 {% block link %}<link rel="stylesheet" href="{% static 'core/css/home.css' %}">{% endblock %}
 {% block content %}
-<div class="wrapper">
+
+<div class="live_header">
+        {% for h in header %}
+        <a href="{{ h.link }}">
+            <div class="live_header_one">{{ h.display_text }}</div>
+        </a>
+        {% endfor %}
+</div>
 <section class="first_section">
     <!--FIRST SECTION CONTENT START-->
     <div class="first_section_content">
@@ -25,6 +32,11 @@
     <div class="second_section_sub_container">
         <div class="second_container_one">
             <img src="{% static 'core/asset/bg.png' %}" alt="background-image">
+        </div>
+        <div class="second_container_two">
+            <a href="/locations/">
+                <img class="blink_image" src="{% static 'core/asset/Location-2.png' %}" alt="location-image">
+            </a>
         </div>
     </div>
 
@@ -50,16 +62,19 @@
 </section>
 <!--Second section end-->
 
-
 <!--Third Section Start-->
 <div class="third_section">
     <div class="third_section_sub">
         <div class="third_image">
-            <img class="play_popup" src="{% static 'core/asset/youtube popup.png' %}" alt="youtube">
+            <img class="play_popup" src="{% static 'core/asset/youtube-popup.png' %}" alt="youtube">
         </div>
-        <div class="third_section_content">Livestream our service online</div>
-        <a href="#">
-            <div class="join_now">Join Now <span>&rarr;</span> </div>
+        <div class="third_section_content">
+            Watch Whole Word TV 24/7
+        </div>
+        <a href="wholewordtv/">
+            <div class="join_now">
+                Watch Live <span>&rarr;</span>
+            </div>
         </a>
     </div>
 </div>
@@ -70,7 +85,7 @@
     <div class="fourth_section_sub">
         <div class="fourth_testimony_content">
             <div class="first_tc">Jesus is not an</div>
-            <div class="second_tc">ex-miracle</div>
+            <div class="second_tc">ex-miracle worker</div>
             <div class="third_tc">See testimonies of what God is doing</div>
         </div>
 
@@ -80,10 +95,9 @@
                     <img class="merge merge_image" src="{% static 'core/asset/quotation.png' %}" alt="quotation">
                 </div>
                 <p class="testimony_text merge">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                    Lorem Ipsum has been the industry's standard dummy text ever
+                    I kept on believing that my SS would turn into AA, and God did it through the ministry of Apostle T. D. Philips.
                 </p>
-                <div class="testifier merge">Bro Chuks</div>
+                <div class="testifier merge">Bro. Yerhowo</div>
             </div>
 
             <div class="thg_1">
@@ -91,23 +105,27 @@
                     <img class="merge merge_image" src="{% static 'core/asset/quotation.png' %}" alt="quotation">
                 </div>
                 <p class="testimony_text merge">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                    Lorem Ipsum has been the industry's standard dummy text ever
+                    I  had decided that I would attend RVC 2023 on-site from the US. Instead of my emergency 
+                    Advanced Parole being approved, my Green Card was miraculously issued.
                 </p>
-                <div class="testifier merge">Sister Favour</div>
+                <div class="testifier merge">Min. Olajesu</div>
             </div>
 
             <div class="thg_1">
                 <div class="merge_div">
                     <img class="merge merge_image" src="{% static 'core/asset/quotation.png' %}" alt="quotation">
                 </div>
-                <p class="testimony_text merge">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p>
-                <div class="testifier merge">Sister Mimi</div>
+                <p class="testimony_text merge">
+                    We were in church one Saturday evening preparing for Sunday service, and a man walked in that he had a testimony to share.
+                </p>
+                <div class="testifier merge">Pst. Benedicta</div>
             </div>
         </div>
     </div>
     <div class="testimony_btn_container">
-        <div class="testimony_btn">See More Testimonies</div>
+        <a href='/testimony/'>
+            <div class="testimony_btn">See More Testimonies</div>
+        </a>
     </div>
 </div>
 <!--Fourth Section End-->
@@ -132,7 +150,6 @@
                 <div class="fifth_section_btn">Find Message <span>&rarr;</span></div>
             </a>
         </div>
-%
         <div class="message_content2"><img src="{% static 'core/asset/apostle-message-home-page.png' %}" alt="apostle-message-home-page"></div>
     </div>
 </div>
@@ -188,7 +205,7 @@
             <div class="home_community_small_text">Serve with a unit in one of our centres or  </div>
             <div class="home_community_small_text">partner with a community outreach.</div>
 
-            <a href="/community/">
+            <a class="known_container" href="/community/unit">
                 <div class="know_more">Know More <span class="know_more_span">&rarr;</span></div>
             </a>
         </div>
@@ -211,38 +228,6 @@
         <div class="blog_header_content_one">Articles and Blog</div>
         <div class="blog_header_content_two">Learn more about how to live like Christ and experience true fulfillment.</div>
     </div>
-
-    <div class="blog_section_content">
-        {% for b in blog|slice:'0:-1' %}
-            <div class="blog_section_table_one">
-                <div class="section_table_one_image"><img src="{{ b.image.url }}"></div>
-                <div class="section_table_one_image_content_one">{{ b.name }}</div>
-                {% with sliced_content=b.content|slice:'0:30' %}
-                    <div class="section_table_one_image_content_two">{{ sliced_content }}...</div>
-                {% endwith %}
-                <a class="blog_read_more" href="{{ b.get_absolute_url }}">Read More</a>
-            </div>
-        {% endfor %}
-        
-        <div class="blog_section_table_two">
-            {% for b in blog|slice:'-3:-1' %}
-                <div class="blog_section_table_two_content">
-                    <div class="blog_section_ttimg"><img src="{{ b.image.url }}"></div>
-                    <div class="blog_section_table_two_separate">
-                        <div class="blog_section_ttimg_one_content">{{ b.name }}</div>
-                        {% with sliced_content=b.content|slice:'0:30' %}
-                            <div class="section_table_one_image_content_two">{{ sliced_content }}...</div>
-                        {% endwith %}
-                        <a class="blog_read_more" href="{{ b.get_absolute_url }}">Read More</a>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-    
-    
-
-    <a class="blog_link" href="/blog/"><div class="blog_btn">Go to Blog <span>&rarr;</span></div></a>
-</div>
+    <a class="blog_link" href="https://blog.godhouse.org" target="_blank"><div class="blog_btn">Go to Blog <span>&rarr;</span></div></a>
 <!--blog-section-End-->
 {% endblock  %}

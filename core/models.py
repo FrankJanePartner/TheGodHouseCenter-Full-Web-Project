@@ -34,10 +34,10 @@ class Category(CommonInfo):
 
 class Location(CommonInfo):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    address = models.TextField()
+    address = models.TextField(null=True, blank=True)
     description = models.TextField(blank=True)
-    thumbnail = models.ImageField(upload_to='Locations_thumbmail')
-    image = models.ImageField(upload_to='Locations_images')
+    thumbnail = models.FileField(upload_to='Locations_thumbmail')
+    directions = models.URLField(blank=True)
     tel = models.CharField(blank=True, max_length=20)
     email = models.EmailField(max_length=255)
 
@@ -52,7 +52,7 @@ class Location(CommonInfo):
 
 
 class Leader(CommonInfo):
-    images = models.ImageField(upload_to="media/leader", height_field=None, width_field=None, max_length=None)
+    images = models.FileField(upload_to="media/leader")
     position = models.TextField()
     bio = models.TextField()
 
@@ -65,13 +65,38 @@ class Leader(CommonInfo):
     class Meta:
         verbose_name_plural = "Leaders"
 
+        
+class LeaderSocialMedia(models.Model):
+    leader = models.ForeignKey(Leader, on_delete=models.CASCADE, related_name='leadersocialmedias')
+    socialMediaName = models.CharField(max_length=255)
+    link = models.URLField()
+    
+    def __str__(self):
+        return f'{self.socialMediaName}'
+        
+    class Meta:
+        verbose_name_plural = "LeaderSocialMedias"
+        
+    
+class HeaderInfo(models.Model):
+    display_text = models.CharField(max_length=255)
+    link = models.URLField(blank=True)
+    
+
+    def __str__(self):
+        return f'{self.display_text}'
+
+    class Meta:
+        verbose_name_plural = "HeaderInfos"
+
 
 class ServiceDay(models.Model):
-    center = models.ForeignKey(Location, on_delete=models.CASCADE)
+    center = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='service_days')
     day = models.CharField(max_length=255)
     time = models.CharField(max_length=255)
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.center} - {self.day}'
+        
     class Meta:
         verbose_name_plural = "ServiceDays"

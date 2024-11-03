@@ -1,216 +1,411 @@
- /* GOGGLE FONTS */
- @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Montserrat:wght@100;200;300;400;500&family=Poppins:wght@100;200;300;400;500;600&display=swap');
-
- /* BASE */ 
-
- * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-/*::-webkit-scrollbar { width: 10px; } /* 8px*/
-
-/*::-webkit-scrollbar-track { background-color: red; }*
-
-::-webkit-scrollbar-thumb { background-color: red; }
-
-*/
 body {
-     /*background-color: rgba(255, 188, 14, 0.05);*/
-     background: rgba(255, 255, 255, 1);
-}
-
-.header_container {
-    position: sticky;
-    top: 0;
-    left: 0;
     background: rgba(255, 255, 255, 1);
-    backdrop-filter: blur(40px);
+}
+
+.container {
     width: 100%;
-    height: 110px; /* 229px */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 11px;
-    padding-right: 11px;
+    height: 100vh;
 }
 
-.menu_bar {
-    width: 241px;
-    height: 79px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    border-radius: 16px;
-    cursor: pointer;
+div, span {
+    font-family: sans-serif;
 }
 
-#menu-btn, .fa-times { /* cancel and Menu Navbar*/
-    font-size: 1.5rem;
-    transform: rotate(180deg);
+/* .back_icon {
+    margin-left: 30px;
+    margin-top: 30px;
 }
 
-
-.right .menu_bar .menu_span {
-    font-family: "Montserrat", sans-serif;
-    font-size: 27px;
-    font-weight: 500;
-    line-height: 23px;
-    letter-spacing: 0px;
-}
-
-/* NavBar Style Start*/
-.accordion_menu {
-    position: absolute;
-    top: 100%;
-    left: 5;
-    right: 0;
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    width: 515px;
-    height: 658px;
-    background: rgba(213, 166, 25, 1);
-    transition:  2 ease-in-out;
-}
-
-.accordion_menu.active {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-
-
-.accordion_menu li.active .dropdown {
-    color: #fff;
-}
-.accordion_menu li.active .dropdown  .fa-chevron-down {
-    transform: rotate(180deg);
-}
-.dropdown, .dropdown_text {
-    cursor: pointer;
-    display: block;
-    font-family: "Poppins", sans-serif;
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 34px;
-    padding: 1.50rem 1.5rem; /* 1rem 1.5rem*/
-    border-bottom: 1px solid white;
+.arrow_icon {
     color: black;
-    position: relative;
-    border-width: 2px;
-    transition: 0.3s;
-    margin-left: 17px;
-    margin-right: 17px;
-}
+    font-size: 30px;
+}*/
 
-.dropdown:hover {
-    color: #fff;
-}
-
-.dropdown_text:hover {
-    color: #fff;
-}
-  
-.dropdown .fa-chevron-down {
-    position: absolute;
-    right: 12px;
-    left: auto;
-    transition: transform 0.2s ease-in-out;
-    font-size: 1.5rem;
-}
-
-.submenuItems {
-    display: none;
-    transition: all 2s ease-in-out;
-}
-
-.accordion_menu li.active .submenuItems{
-    display: block;
-}
-
-.submenuItems a {
-    display: block;
-    cursor: pointer;
-    font-family: "Poppins", sans-serif;
-    font-size: 20PX;
-    font-weight: 600;
-    line-height: 23px;
-    padding: 1.50rem 1.5rem; /* 1rem 1.5rem*/
-    border-bottom: 1px solid black;
-    color: #fff;
-    border-width: 2px;
-    transition: 0.3s;
-    margin-left: 17px;
-    margin-right: 17px;
-    text-decoration: none;
-}
-
-.submenuItems a:hover {
-    color: #fff;
-    transition:  2 ease-in-out;
-}
-/* NavBar Style End*/
-
-div .giving_image {
-    width: 100%;
-    height: 84vh;
-    background-image: url("../asset/giving_background.png");
-    background-size: cover;
-    background-position: center center;
-}
-
-.giving_center_content {
-    color: #fff;
-    text-align: center;
-    padding-top: 15%;
-}
-
-.first_main_content {
-    font-family: 'poppins', sans-serif;
-    font-size: 52px;
-    font-weight: 600;
-    line-height: 59px;
-    letter-spacing: 0em;
-}
-
-.second_main_content {
-    padding: 30px;
-    font-family: 'Inter', sans-serif;
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 36px;
-    letter-spacing: 0em;
-}
-
-.second_main_content {
-    margin-top: 5px;
-}
-
-section {
-    display: flex;
-    justify-content: center;
-}
-
-.gateway_container {
-    border: 1px solid black;
+.giving_container {
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    width: 800px;
-    height: 80vh;
-    margin-top: 100px;
-    border-radius: 20px;
+    min-height: 70vh;
+    gap: 4rem; 
+}
+
+/* LEFT */
+.giving_svg {
+    padding-left: 3.5rem;
+}
+
+.left_content {
+    padding-top: 40px;
+    color: #6c757d;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 400;
+}
+
+/*LEFT END */
+
+/* RIGHT START */
+.bank_logo {
+    padding: 30px;
     box-shadow: 0px 4px 80px 47px rgba(0, 0, 0, 0.07);
 }
 
-label, input, select {
+.banks-content {
+    display: flex;
+    align-items: center;
+    font-family: sans-serif;
+    gap: 10px;
+}
+
+.banks_details {
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 4px 80px 47px rgba(0, 0, 0, 0.07);
+    padding: 30px;
+
+}
+
+.same {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3.5rem;
+    padding: 7px;
+}
+
+.bank_logo2 {
+    padding: 30px;
+    box-shadow: 0px 4px 80px 47px rgba(0, 0, 0, 0.07);
+}
+
+.bank_logo2_container {
+    padding-top: 10px;
+}
+
+.right_left {
+    margin-top: 20px;
+}
+
+.banks_details2 {
     padding: 30px;
 }
+/* RIGHT END */
+
+/* footer start */
+footer {
+    display: flex;
+    align-items: center;
+    font-family: sans-serif;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 3rem;
+    margin-top: 3.5rem;
+    height: 18rem;
+    background-color: black;
+}
+
+footer span{
+    width: 23%;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: white;
+}
+
+footer span h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0px 0px 10px;
+}
+
+footer span a{
+    margin: 0px 0px 10px;
+    font-weight: 100;
+}
+
+footer span img{
+    width: 7rem;
+}
+
+footer span a{
+    color: white;
+    text-decoration: none;
+}
+
+footer span span{
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+footer span span ion-icon, i{
+    margin-right: 12px;
+}
+
+footer span span p{
+    margin: 0px;
+}
+
+footer .social a ion-icon {
+    gap: 10px;
+}
+/* footer end */
+
+
+@media screen and (max-width: 767px) {
+    
+.giving_container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; 
+}
+
+/* LEFT */
+.giving_svg {
+    display: flex;
+    justify-content: center;
+}
+
+.left_content {
+    padding-top: 40px;
+    color: #6c757d;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 400;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+/*LEFT END */
+
+/* RIGHT START */
+.bank_logo {
+    padding: 20px;
+    box-shadow: 0px 4px 80px 47px rgba(0, 0, 0, 0.07);
+}
+
+.banks-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    gap: 1px;
+}
+
+.banks_details {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 80px 47px rgba(0, 0, 0, 0.07);
+    padding: 10px;
+
+}
+
+.same {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3.5rem;
+    padding: 7px;
+}
+
+.bank_logo2 {
+    padding: 2px;
+    box-shadow: 0px 4px 80px 47px rgba(0, 0, 0, 0.07);
+}
+
+.bank_logo2_container {
+    padding-top: 10px;
+}
+
+.right_left {
+    margin-top: 20px;
+}
+
+.banks_details2 {
+    padding: 10px;
+}
+/* RIGHT END */
+
+/* footer start */
+
+footer{
+    flex-direction: column;
+    height: fit-content;
+}
+
+footer span h1{
+    font-size: 1rem;
+}
+
+
+footer span{
+    width: 90%;
+    margin-bottom: 2rem;
+}
+
+ /* footer end */ 
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    div, span {
+        font-size: 18px;
+    }
+    .giving_container {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        min-height: 70vh;
+        gap: 2rem; 
+    }
+    
+    /* LEFT */
+    .giving_svg {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .left_content {
+        padding-top: 40px;
+        color: #6c757d;
+        font-size: 20px;
+        line-height: 26px;
+        font-weight: 400;
+    }
+    
+    /*LEFT END */
+    
+    /* RIGHT START */
+    .bank_logo {
+        padding: 20px;
+        box-shadow: 0px 4px 80px 47px rgba(0, 0, 0, 0.07);
+    }
+    
+    .banks-content {
+        display: flex;
+        align-items: center;
+        font-family: sans-serif;
+        gap: 7px;
+    }
+    
+    .banks_details {
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 4px 80px 47px rgba(0, 0, 0, 0.07);
+        padding: 30px;
+    
+    }
+    
+    .same {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 3.5rem;
+        padding: 7px;
+    }
+    
+    .bank_logo2 {
+        padding: 30px;
+        box-shadow: 0px 4px 80px 47px rgba(0, 0, 0, 0.07);
+    }
+    
+    .bank_logo2_container {
+        padding-top: 10px;
+    }
+    
+    .right_left {
+        margin-top: 20px;
+    }
+    
+    .banks_details2 {
+        padding: 30px;
+    }
+    /* RIGHT END */
+
+     /* footer start */
+     footer {
+        display: flex;
+        align-items: center;
+        font-family: sans-serif;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        padding: 3rem;
+        margin-top: 3.5rem;
+        height: 23rem;
+        background-color: black;
+    }
+    
+    footer span{
+        width: 23%;
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        color: white;
+    }
+    
+    footer span h1{
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0px 0px 10px;
+    }
+    
+    footer span a{
+        margin: 0px 0px 10px;
+        font-weight: 100;
+    }
+    
+    footer span img{
+        width: 7rem;
+    }
+    
+    footer span a{
+        color: white;
+        text-decoration: none;
+    }
+    
+    footer span span{
+        width: 100%;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    
+    footer span span ion-icon, i{
+        margin-right: 12px;
+    }
+    
+    footer span span p{
+        margin: 0px;
+    }
+    
+    footer .social a ion-icon {
+        gap: 10px;
+    }    
+    /* footer end */
+    
+}
+
+
 
 

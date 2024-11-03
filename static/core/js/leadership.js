@@ -7,7 +7,7 @@ menu.onclick = () => {
     navbar.classList.toggle('active');
 }
 
-window.onscroll = () => {
+/*window.onscroll = () => {
     menu.classList.remove('fa-times');
     navbar.classList.remove('active');
 }
@@ -29,9 +29,3 @@ listElements.forEach(listElement => {
     })
 });
 //ACCORDION END
-
-//POPUP
-function togglePopup() {
-    document.getElementById("popup-1").classList.toggle("active")
-}
-//POPUP END

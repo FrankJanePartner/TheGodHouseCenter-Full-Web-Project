@@ -11,7 +11,7 @@
 
             <div class="location_center">
                 <div class="location_image">
-                    <img class="blink_image" src="{% static 'core/asset/Location.png' %}" alt="location-image">
+                    <img class="blink_image" src="{% static 'core/asset/Location.png' %}" alt="location-image" style="object-fit: contain;">
                 </div><br><br>
     
                 <div class="content">
@@ -29,14 +29,14 @@
             <div class="first_location_gallery">
                 {% for l in location %}
                     {% if l.category.name == 'onsite' %}
-                    <div class="church first_church">
+                    <div class="church first_church" style="border: 1px solid black; padding: 5px; border-radius: 5px; box-sizing: border-box;">
                         <div class="location_image center_image">
-                            <img src="{{ l.thumbnail.url }}" alt="warri-location-image">
+                            <img src="{% static 'core/asset/Location.png' %}" alt="warri-location-image" style="object-fit: contain;">
                         </div>
         
-                        <div class="center_address">The Godhouse Center - {{l.center}}</div>
+                        <div class="center_address">{{ l.name }}</div>
         
-                        <div class="get_location">Get Direction</div>
+                        <div class="get_location"><a href="{{ l.directions }}" style='color:black; text-decoration:none;'>Get Direction &rarr;</a></div>
         
                         <div class="location_detatils"><a href="{{ l.get_absolute_url }}">View Location Details</a></div>
                         
@@ -51,14 +51,14 @@
                 <div class="e_ceneters_gallery">
                     {% for l in location %}
                     {% if l.category.name == 'ecenter' %}
-                    <div class="church first_church">
+                    <div class="church first_church" style="border: 1px solid black; padding: 5px; border-radius: 5px; box-sizing: border-box;">
                         <div class="location_image center_image">
-                            <img src="{{ l.image.url }}" alt="warri-location-image">
+                            <img src="{% static 'core/asset/Location.png' %}" alt="warri-location-image" style="object-fit: contain;">
                         </div>
         
-                        <div class="center_address">The Godhouse Center - {{l.center}}</div>
+                        <div class="center_address">{{l.name}}</div>
         
-                        <div class="get_location">Get Direction</div>
+                        <div class="get_location"><a href="{{ l.directions }}" style='color:black; text-decoration:none;'>Get Direction &rarr;</div>
         
                         <div class="location_detatils"><a href="{{ l.get_absolute_url }}">View Location Details</a></div>
                         

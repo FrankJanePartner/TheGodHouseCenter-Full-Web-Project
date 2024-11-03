@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Contact Us{% endblock %}
+{% block title %}Enquiry{% endblock %}
 {% block link %}<link rel="stylesheet" href="{% static 'core/css/enquiry.css' %}">{% endblock %}
 {% block content %}
         <!--FIRST SECTION START-->
@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="map-content">Visit Us:</div>
-                    <div class="map_link"><a href="/locations/">At any of our 19 branches</a></div>
+                    <div class="map_link"><a href="/locations/">At any of our centers</a></div>
                 </div>
 
                 <div class="social_one_content">
@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="map-content">Send us a mail</div>
-                    <div class="map_link"><a href="">contact@Godhouse.com</a></div>
+                    <div class="map_link"><a href="mailto:info@godhouse.org">info@godhouse.org</a></div>
                 </div>
 
                 <div class="social_one_content">
@@ -72,16 +72,16 @@
                    <div class="form_header_one">Enquiry</div>
                 </div>
 
-                <form action="#">
-    
+                <form action="" method='post'>
+                    {% csrf_token %}
                     <div class="form_group">
     
-                        <input type="text" placeholder="Name" class="form_control" required>
-                        <input type="email" placeholder="Email" class="form_control">
-                        <input type="text" placeholder="Phone number" class="form_control" required>
+                        <input type="text" name="name" placeholder="Name" class="form_control" required>
+                        <input type="email" name="email" placeholder="Email" class="form_control">
+                        <input type="text"  name="phone_number" placeholder="Phone number" class="form_control" required>
 
                         <div class="text_area">
-                            <textarea class="text_message" name="Write Your Message" placeholder="Make enquiry..." cols="30" rows="10"></textarea>
+                            <textarea class="text_message" name="message" placeholder="Make enquiry..." cols="30" rows="10"></textarea>
                         </div>
     
                         <div class="button">

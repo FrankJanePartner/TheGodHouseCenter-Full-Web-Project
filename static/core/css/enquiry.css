@@ -118,8 +118,8 @@ body {
     cursor: pointer;
     display: block;
     font-family: "Poppins", sans-serif;
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 20px;
+    font-weight: 600;
     padding: 1rem; /* 1rem 1.5rem*/
     border-bottom: 1px solid white;
     color: black;
@@ -520,11 +520,10 @@ footer .social a ion-icon {
     }
 
     .dropdown, .dropdown_text {
-        font-size: 27px;
-        font-weight: 300;
-        line-height: 34px;
+        font-size: 18px;
+        font-weight: 500;
         border-width: 1.5px;
-    }
+    }    
 
     .dropdown .fa-chevron-down {
         font-size: 1rem;
@@ -533,9 +532,9 @@ footer .social a ion-icon {
     .submenuItems a {
         font-size: 17px;
         font-weight: 300;
-        line-height: 23px;
         border-width: 1px;
     }
+
     
     /* NAVBAR ACCORDION END */
     

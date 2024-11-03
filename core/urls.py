@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import home, about, belief, leaders, locations, leaderdetails, locationdetails 
+from .views import home, about, belief, leaders, locations, leaderdetails, locationdetails, wholewordtv
 
 app_name='core'
 urlpatterns = [
@@ -8,6 +8,7 @@ urlpatterns = [
     path('belief/', belief, name='belief'),
     path('leaders/', leaders, name='leaders'),
     path('locations/', locations, name='locations'),
+    path('wholewordtv/', wholewordtv, name='wholewordtv'),
     path('leader/<slug:slug>', leaderdetails, name='leaderdetails'),
     path('location/<slug:slug>', locationdetails, name='locationdetails'),
 ]
