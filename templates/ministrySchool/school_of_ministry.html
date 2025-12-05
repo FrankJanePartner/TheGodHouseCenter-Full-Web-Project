@@ -1,0 +1,1003 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School of ministry</title>
+    <link rel="stylesheet" href="{% static 'core/css/home.css' %}">
+    <link rel="shortcut icon" href="{% static 'core/images/logo.jpg' %}" type="image/x-icon">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'monteserrat', sans-serif;
+          
+      }
+
+      .first-header {
+        padding-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .middle {
+        /* border: 1px solid black; */
+      }
+
+      .middle img {
+        width: 170px;
+        height: 80px;
+      }
+
+      .first-header a {
+        font-size: 20px;
+        font-family: 'Montserrat', sans-serif;
+        text-decoration: none;
+        color: #000;
+      }
+
+      /* SLIDE CODE */
+      /* Full-screen container for the slider */
+      .slider-container {
+        display: flex;
+        justify-content: center;
+
+      } 
+
+      .slider-container img{
+        width: 55vw;
+        height: 90vh;
+        background-size: cover;
+        background-position: center center;
+      }
+
+      /* SLIDE CODE END */
+      .section-one {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3rem;
+      }
+
+      .ex {
+        margin-top: 10px;
+        width: 650px;
+      }
+
+      .what {
+        font-family: 'poppins', sans-serif;
+        font-size: 22px;
+        font-weight: 600;
+      }
+
+      .section-two {
+        margin-top: 3.6rem;
+        padding-top: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f3f4f5;
+        text-align: center
+      }
+
+      .section-two-img img{
+        width: 400px;
+        height: 400px;
+      }
+
+      .sec-two-txt {
+        margin-top: 10rem;
+      }
+
+      .sec-child, .sec-child-one {
+        font-family: sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .sec-child-one {
+        margin-top: 5px;
+      }
+      .sec-child-two {
+        margin-top: 18px;
+        font-family: monospace;
+        font-size: 18px;
+      }
+
+      /* General styling for RVC section */
+      .ymr-section {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+      }
+
+      /* Styling for the image */
+      .ymr-image {
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        max-width: 30%;
+        margin-right: 30px;
+      }
+
+      .ymr-image img {
+        width: 100%;
+        height: 400px;
+        display: block;
+        border-radius: 10px;
+        transition: transform 0.5s ease;
+      }
+
+      /* Zoom effect on hover for image */
+      .ymr-image:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Styling for the content */
+      .ymr-content {
+        flex: 1;
+        max-width: 500px;
+        padding: 20px;
+      }
+
+      .ymr-title {
+        font-size: 1.5rem;
+        color: #1d1d1d;
+        font-weight: bold;
+        margin-bottom: 15px;
+        animation: fadeIn 1.5s ease;
+      }
+
+      .ymr-bullets {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 20px;
+        animation: fadeInUp 1.5s ease;
+      }
+
+      .ymr-bullets li {
+        font-size: 1rem;
+        color: #1d1d1d;
+        margin-bottom: 10px;
+      }
+
+      .ymr-bullets li::before {
+        content: "— ";
+        color: #007bff;
+      }
+
+      /* Styling for the button */
+      .ymr-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        animation: fadeIn 1.5s ease;
+      }
+
+      /* Button hover effects */
+      .ymr-button:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .ymr-section {
+          flex-direction: column;
+          padding: 20px;
+        }
+        .ymr-image {
+          margin-right: 0;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* Animation keyframes */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /*  */
+
+      /* TIMER START */
+      .timer-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .timer-container {
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 600px;
+        background-color: #246ebd;
+        color: white;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+      }
+
+      .event-info, .event-timer, .event-button {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .event-info {
+        background-color: #007bff;
+        flex: 1 1 100%;
+      }
+
+      .event-info p {
+        font-size: 1rem;
+        margin: 5px 0 0;
+      }
+
+      .event-timer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex: 2;
+        background-color: #006bbf;
+        font-size: 1.5rem;
+      }
+
+      .conference-details {
+        text-decoration: underline;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      .time-box {
+        text-align: center;
+        flex: 1;
+      }
+
+      .time-box p {
+        margin: 5px 0;
+      }
+
+      .time-box span {
+        font-size: 1.2rem;
+        display: block;
+      }
+
+      .event-button {
+        flex: 1;
+        background-color: white;
+        color: #007bff;
+      }
+
+      .event-button a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        padding: 10px 20px;
+        border: 2px solid #007bff;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .event-button a:hover {
+        background-color: #007bff;
+        color: white;
+      }
+
+      /* Responsive styling */
+      @media (max-width: 768px) {
+        .event-info h2 {
+          font-size: 1.5rem;
+        }
+        .event-info p {
+          font-size: 0.9rem;
+        }
+        .event-timer {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .timer-container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .event-info, .event-button, .event-timer {
+          flex: 1 1 100%;
+        }
+      }
+      /* TIMER END */
+
+      .more-info {
+        margin-top: 3rem;
+        text-align: center;
+      }
+
+      .more-info a {
+        text-decoration: none;
+      }
+
+      .how-to-register {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+      }
+
+      .htc {
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      .account-details {
+        margin-top: 1rem;
+      }
+
+      .account-container {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+
+      /* FOOTER START */
+      footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 3rem;
+        height: 20vh;
+        background-color: #d1d3d4;
+      }
+      /* FOOTER END */
+
+      /* BREAK POINT */
+      @media screen and (max-width: 767px) {
+
+        .slider-container img{
+          width: 100vw;
+          height: 45vh;
+        }
+
+        .slide-text-1, .second-text {
+            font-size: 30px; 
+            font-weight: 700;
+            line-height: 40px;
+        }
+        
+        .slide-text-2 {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .section-one {
+            margin-top: 3rem;
+            flex-direction: column;
+        }
+
+        .sec-a {
+            text-align: center;
+        }
+          
+        .what {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .ex {
+            width: 350px;
+            margin-top: 20px;
+            text-align: center;
+        }
+          
+          
+        .register {
+            margin-top: 20px;
+            padding: 10px;
+        }
+
+        .sec-b {
+            border-radius: 5px;
+            padding: 10px;
+          }
+          
+        .sec-b video {
+            width: 300px;
+            height: 200px;
+        }
+
+        .section-two {
+            margin-top: 2px;
+            flex-direction: column;
+            justify-content: center;
+            background: #fff;
+            padding: 1rem;
+        }
+
+        .section-two-img img {
+            width: 280px;
+        }
+          
+
+        .sec-two-txt {
+            margin-top: 1.5rem;
+            width: 200px;
+            text-align: center;
+
+        }
+          
+        .sec-child {
+            font-size: 18px;
+            font-weight: 500;
+        }
+          
+        .sec-child-two {
+            margin-top: 18px;
+            font-size: 16px;
+        }
+
+        .ymr-section {
+            margin-top: 3rem;
+        }
+
+        .ymr-image {
+            flex: 1;
+            min-width: 150px;
+            max-width: 300px;
+        }
+        .ymr-image img {
+            width: 100%;
+        }
+
+        .slide-section-img {
+            display: none;
+        }
+
+        .timer-container {
+          max-width: 330px;
+        }
+
+        .time-box p {
+          margin-left: 10px;
+        }
+        
+        footer{
+            flex-direction: row;
+        }
+
+      }
+
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
+        .section-one {
+            margin-top: 3rem;
+            display: block;
+            gap: 0;
+            text-align: center;
+        }
+
+        .ex {
+            width: 600px;
+        }
+
+        .ex-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .register {
+            margin-top: 25px;
+        }
+
+        .sec-b {
+            border-radius: 5px;
+            padding: 10px;
+          }
+          
+        .sec-b video {
+            width: 500px;
+            height: 300px;
+        }
+        .section-two {
+            margin-top: 3rem;
+            flex-direction: column;
+            justify-content: center;
+            background: #fff;
+        }
+
+        .section-two-img img {
+            width: 500px;
+        }
+          
+
+        .sec-two-txt {
+            margin-top: 1.5rem;
+            width: 350px;
+            text-align: center;
+        }
+          
+        .sec-child {
+            font-size: 30px;
+            font-weight: 600;
+        }
+          
+        .sec-child-two {
+            margin-top: 18px;
+            font-size: 25px;
+        }
+
+        .ymr-section {
+            flex-direction: column;
+            margin-top: 3rem;
+        }
+
+        .ymr-image {
+            max-width: 60%;
+        }
+
+        .ymr-image img {
+            width: 500px;
+            height: 500px;
+        }
+        .ymr-title {
+            margin-top: 2rem;
+            font-size: 2rem;
+        }
+
+        .ymr-description {
+            font-size: 1.7rem;
+        }
+
+        .ymr-bullets li {
+            font-size: 1.4rem;
+        }
+
+        .ymr-button {
+            margin-top: 10px;
+            padding: 15px 25px; 
+            font-size: 1.5rem;
+        }     
+      }
+
+
+      @media screen and (min-width: 1024px) and (max-width: 1279px) {
+        .section-one {
+            gap: 1rem;
+        }
+          
+        .what {
+            font-family: 'poppins', sans-serif;
+            font-size: 25px;
+            line-height: 29px;
+            font-weight: 700;
+        }
+          
+        .register {
+            margin-top: 10px;
+            padding: 15px;
+            border-color: #f3f4f5;
+            outline: none;
+            cursor: pointer;
+        }
+          
+        .register:hover {
+            background: #d1d3d4;
+        }
+
+        .section-two-img img{
+            width: 390px;
+        }
+        
+        .ymr-section {
+            padding: 20px;
+        }
+
+        .ymr-content {
+            padding: 10px;
+        }
+          
+      }
+          
+      @media screen and (min-width: 1280px) {
+
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: rgb(231, 231, 231);
+      }
+      .container {
+        position: relative;
+        max-width: 90dvw;
+        width: 100%;
+        background: #fff;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .registration-image-container {
+          display: flex;
+          justify-content: center;
+      }
+      
+      .registration-image {
+          width: 100px;
+          height: 50px;
+      }
+      
+      .container .form {
+        margin-top: 30px;
+      }
+      .form .input-box {
+        width: 100%;
+        margin-top: 20px;
+        text-align: start !important;
+      }
+      .input-box label {
+        color: #333;
+      }
+      .form :where(.input-box input, .select-box) {
+        position: relative;
+        height: 50px;
+        width: 100%;
+        outline: none;
+        font-size: 1rem;
+        color: #707070;
+        margin-top: 8px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 0 15px;
+      }
+      .input-box input:focus {
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+      }
+      .form .column {
+        display: flex;
+        column-gap: 15px;
+      }
+      .form .gender-box {
+        margin-top: 20px;
+      }
+      .gender-box h3 {
+        color: #333;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-bottom: 8px;
+      }
+      .form :where(.gender-option, .gender) {
+        display: flex;
+        align-items: center;
+        column-gap: 50px;
+        flex-wrap: wrap;
+      }
+      .form .gender {
+        column-gap: 5px;
+      }
+      .gender input {
+        accent-color: rgb(130, 106, 251);
+      }
+      .form :where(.gender input, .gender label) {
+        cursor: pointer;
+      }
+      .gender label {
+        color: #707070;
+      }
+      .address :where(input, .select-box) {
+        margin-top: 15px;
+      }
+      .select-box select {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        border: none;
+        color: #707070;
+        font-size: 1rem;
+      }
+      .form button {
+        height: 55px;
+        width: 100%;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-top: 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background: rgb(250, 101, 56);
+        background: rgb(240, 31, 31);
+      }
+      .form button:hover {
+        background: rgb(218, 144, 121);
+      }
+      /*Responsive*/
+      @media screen and (max-width: 500px) {
+      
+        .form .column {
+          flex-wrap: wrap;
+        }
+        .form :where(.gender-option, .gender) {
+          row-gap: 15px;
+        }
+      }
+      
+      header, .slider-container, .section-one,
+      .section-two, .ymr-section, .timer-wrapper,
+      .container, footer{
+          width: 90dvw;
+      }
+      .how-to-register{
+          width: 85dvw;
+      }
+      
+      form{
+          width: 100%;
+      }
+      
+      .select-box{
+          height: fit-content;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          text-align: start !important;
+          padding: 0;
+          border: none;
+      }
+      
+      .select-box select,
+      .select-box select option{
+            position: relative;
+            height: 50px;
+            width: 100%;
+            outline: none;
+            font-size: 1rem;
+            color: #707070;
+            margin-top: 8px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 0;
+      }
+      
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-297C7ZR3QW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-297C7ZR3QW');
+    </script>
+</head>
+<body>
+    <div style="width: 95dvw; display: flex; flex-direction: column; justify-content: space-between; align-items: center;">
+
+        <div class="rvc-container">
+        
+            <header>
+                <div class="first-header">
+                    <div class="left">
+                        <a href="home.html">Home</a>
+                    </div>
+        
+                    <div class="middle">
+                        <img src="{% static 'core/image/SOM_MARCH_logo.png' %}" class="logo">
+                    </div>
+        
+                    <div class="right">
+                        <a href="/schoolofministry/#register">Register</a>
+                    </div>
+                </div>
+            </header>
+    
+            <div class="slider-container">
+              <img src="{% static 'core/image/SOMMARCH2025.png' %}" alt="">
+            </div>
+    
+            <div class="section-one">
+                <div class="sec-a">
+                    <div class="what">ABOUT SCHOOL OF MINISTRY</div>
+                    <div class="ex-container">
+                      {% for t in text %}
+                          <div class="ex">{{ t.text|safe }}</div>
+                      {% endfor %}
+                    </div>
+                    </div>
+    
+                </div>
+        </div>
+
+        <div class="section-two">
+          <div class="section-two-img">
+            <img id="testimonial-image" src="{% static 'core/asset/apostle.png' %}" alt="Testimonial">
+          </div>
+      
+          <div class="sec-two-txt">
+            <div class="sec-child" id="quote-text">“Receiving ministry is a gift; fulfilling ministry is by training.”</div>
+            <div class="sec-child-two" id="author-info">- Apostle T.D Philips, Convener</div>
+          </div>
+        </div>
+
+        <div class="ymr-section">
+            <!-- Image Section -->
+            <div class="ymr-image">
+              <img src="{% static 'core/image/SOMMARCH2025.png' %}">
+            </div>
+          
+            <!-- Text Content Section -->
+            <div class="ymr-content">
+              <h2 class="ymr-title">WHAT TO EXPECT</h2>
+              <ul class="ymr-bullets">
+                <p>This cohort of School of Ministry will feature 3 sessions across two days, which will cover:</p>
+                <li>The revelation of the Bible</li>
+                <li>The inspiration of the Bible</li>
+                <li>The heart and art of Bible reading </li>
+                <li>The heart and art of Bible study</li>
+                <li>The heart and art of Bible teaching</li>
+              </ul>
+              <a href="/schoolofministry/#register" class="ymr-button">Register</a>
+            </div>
+        </div>
+
+        <div class="timer-wrapper">
+            <!-- TIMER START -->
+            <div class="timer-container">
+            <!-- Event Information -->
+            <div class="event-info">
+              <p class="conference-details">School Of Ministry Details</p> <br>
+              <p> <b>The Godhouse Centre, Warri.</b> </p>
+              <p>2, Indian Street, beside Mansal Hotel,
+                Jakpa Road, Warri-Effurun, Delta State, Nigeria</p> <br>
+              <p>Saturday 1st – Sunday 2nd, Mach, 2025.</p> <br>
+              <p>Saturday - 9:00 am & 4:00 pm WAT</p>
+              <p>Sunday - 4:00 pm WAT</p> <br>
+              <p>
+                <b>(There will be a closed viewing for those following online)</b>
+              </p>
+              <p>
+                <b style="color: red;">Registration Fee: N5000 (Five Thousand Naira)</b>
+              </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <div class="how-to-register">
+      <b class="how-to">How To Register:</b>
+
+      <p class="htc">
+          To be a part of this cohort of School of Ministry, make a payment ₦5,000 <br>
+        (Five Thousand Naira) to the account displayed (with the narration stating “school <br> of ministry,” and fill the form below.
+      </p>
+
+      <div class="account-details">
+
+        <div class="account-container">
+          <div class="acc-1">Account Name:</div>
+          <div class="acc-2">Theophilus Danjuma</div>
+        </div>
+  
+        <div class="account-container">
+          <div class="acc-1">Account Number:</div>
+          <div class="acc-2">0043306505</div>
+        </div>
+  
+        <div class="account-container">
+          <div class="acc-1">Bank Name:</div>
+          <div class="acc-2">Access Bank</div>
+        </div>
+      </div>
+
+    </div>
+        <section class="container" id="register">
+            <form action="{% url 'ministrySchool:register' %}" method="POST" class="form"  enctype="multipart/form-data" style="text-align: center;">
+            {% csrf_token %}
+            <h2>Registration Form</h2>
+            <p style="1rem 0">(please fill in your details correctly and attach receipt of payment before sumitting)</p>
+            <div class="input-box">
+              <label>Full Name</label>
+              <input type="text" placeholder="Enter full name" name="name" required />
+            </div>
+    
+            <div class="input-box">
+              <label>Email Address</label>
+              <input type="text" placeholder="Enter email address" name="email" required />
+            </div>
+    
+            <div class="column">
+              <div class="input-box">
+                <label>Phone Number</label>
+                <input type="tel" placeholder="Enter phone number" name="phone" required />
+              </div>
+            </div>
+    
+    
+            <div class="column">
+                <div class="select-box">
+                  <label>How will you be attending</label>
+                  <select name="attending">
+                    <option hidden>-- Select Option--</option>
+                    <option value="Online">Online</option>
+                    <option value="Onsite">Onsite</option>
+                  </select>
+                </div>
+            </div>
+            
+            <div class="column">
+                <div class="input-box select-box">
+                  <label>Proof of payment</label>
+                  <input type="file" placeholder="Enter Location" name="image" required />
+                </div>
+            </div>
+            <button type="submit">Register</button>
+            <p style="3rem 0">
+                For further inquiries, send an email to <b>schoolofministry@godhouse.org</b><br> or call +234 907 151 1079
+            </p>
+          </form>
+        </section>
+    
+        <footer>
+            <div class="middle">
+                <img src="{% static 'core/image/SOM_MARCH_logo.png' %}" class="logo">
+            </div>
+    
+            <div class="middle">
+                <img src="{% static 'core/images/logo.jpg' %}" alt="">
+            </div>
+        </footer>
+    </div>
+    <script src="{% static 'core/js/home.js' %}"></script>
+  </body>
+</html>

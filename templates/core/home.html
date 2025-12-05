@@ -1,0 +1,233 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}HOME{% endblock %}
+{% block link %}<link rel="stylesheet" href="{% static 'core/css/home.css' %}">{% endblock %}
+{% block content %}
+
+<div class="live_header">
+        {% for h in header %}
+        <a href="{{ h.link }}">
+            <div class="live_header_one">{{ h.display_text }}</div>
+        </a>
+        {% endfor %}
+</div>
+<section class="first_section">
+    <!--FIRST SECTION CONTENT START-->
+    <div class="first_section_content">
+    <div class="first_section_first_content">We are Godhouse! </div>
+    <div class="first_section_second_content typing-animation">We are here, we are there, we are everywhere!</div>
+    
+    <!--Learn more-->
+    <a href="/about/">
+        <div class="learn_more">Learn More <span>&rarr;</span></div>
+    </a>
+    <!--Learn more end-->
+
+    </div>
+    <!--FIRST SECTION CONTENT END-->
+    
+</section>
+<!--Second section start-->
+<section class="second_section">
+    <div class="second_section_sub_container">
+        <div class="second_container_one">
+            <img src="{% static 'core/asset/bg.png' %}" alt="background-image">
+        </div>
+        <div class="second_container_two">
+            <a href="/locations/">
+                <img class="blink_image" src="{% static 'core/asset/Location-2.png' %}" alt="location-image">
+            </a>
+        </div>
+    </div>
+
+    <div class="second_session_sub_container_two">
+        <div class="same_second">
+            <div class="second_session_first_content same">Find a Godhouse</div>
+            <div class="second_session_second_content same">Center near You</div>
+        </div>
+        
+        <div class="minimal_content">
+            <div>Enjoy the gift of a GodHouse meeting at any of our centres near you.</div>
+            <div>our centres near you.</div>
+        </div>
+
+        <div class="find_location_container">
+            <a href="/locations/">
+                <div class="find_location">
+                    Find Location <span>&rarr;</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+<!--Second section end-->
+
+<!--Third Section Start-->
+<div class="third_section">
+    <div class="third_section_sub">
+        <div class="third_image">
+            <img class="play_popup" src="{% static 'core/asset/youtube-popup.png' %}" alt="youtube">
+        </div>
+        <div class="third_section_content">
+            Watch Whole Word TV 24/7
+        </div>
+        <a href="wholewordtv/">
+            <div class="join_now">
+                Watch Live <span>&rarr;</span>
+            </div>
+        </a>
+    </div>
+</div>
+<!--Third Section End-->
+
+<!--Fourth Section Start-->
+<div class="fourth_section">
+    <div class="fourth_section_sub">
+        <div class="fourth_testimony_content">
+            <div class="first_tc">Jesus is not an</div>
+            <div class="second_tc">ex-miracle worker</div>
+            <div class="third_tc">See testimonies of what God is doing</div>
+        </div>
+
+        <div class="testimony_home_gallery">
+            <div class="thg_1">
+                <div class="merge_div">
+                    <img class="merge merge_image" src="{% static 'core/asset/quotation.png' %}" alt="quotation">
+                </div>
+                <p class="testimony_text merge">
+                    I kept on believing that my SS would turn into AA, and God did it through the ministry of Apostle T. D. Philips.
+                </p>
+                <div class="testifier merge">Bro. Yerhowo</div>
+            </div>
+
+            <div class="thg_1">
+                <div class="merge_div">
+                    <img class="merge merge_image" src="{% static 'core/asset/quotation.png' %}" alt="quotation">
+                </div>
+                <p class="testimony_text merge">
+                    I  had decided that I would attend RVC 2023 on-site from the US. Instead of my emergency 
+                    Advanced Parole being approved, my Green Card was miraculously issued.
+                </p>
+                <div class="testifier merge">Min. Olajesu</div>
+            </div>
+
+            <div class="thg_1">
+                <div class="merge_div">
+                    <img class="merge merge_image" src="{% static 'core/asset/quotation.png' %}" alt="quotation">
+                </div>
+                <p class="testimony_text merge">
+                    We were in church one Saturday evening preparing for Sunday service, and a man walked in that he had a testimony to share.
+                </p>
+                <div class="testifier merge">Pst. Benedicta</div>
+            </div>
+        </div>
+    </div>
+    <div class="testimony_btn_container">
+        <a href='/testimony/'>
+            <div class="testimony_btn">See More Testimonies</div>
+        </a>
+    </div>
+</div>
+<!--Fourth Section End-->
+
+<!--Fifth Section Start--> 
+<div class="fifth_section">
+    <div class="fifth_section_sub_container">
+        <div class="message_content">
+            <div class="message_image"><img src="{% static 'core/asset/message-.png' %}"></div>
+            <div class="message_text_container">
+                <div>Listen to the latest</div>
+                <div>messages from</div>
+                <div>Apostle TD Philips</div>
+            </div>
+
+            <div class="message_text_small">
+                <div>Want to grow as a believer? Find and</div>
+                <div>listen to messages that will build your faith</div>
+            </div>
+
+            <a href="/churchMessages/">
+                <div class="fifth_section_btn">Find Message <span>&rarr;</span></div>
+            </a>
+        </div>
+        <div class="message_content2"><img src="{% static 'core/asset/apostle-message-home-page.png' %}" alt="apostle-message-home-page"></div>
+    </div>
+</div>
+<!--Fifth Section End-->
+
+<!--Sixth section start-->
+<div class="sixth_section">
+    <div class="sixth_section_container">
+        <div class="sixth_header_content">
+            <div class="get_in">Get Involved</div>
+            <div class="be_part">Be a part of God’s people making a difference</div>
+        </div>
+
+        <div class="get_involve_extra">
+            <div class="community_image">
+                <div class="icon">
+                    <img src="{% static 'core/asset/Icons.png' %}"></div>
+                <div class="community_left">
+                    <img class="community_left_img" src="{% static 'core/asset/Left-community.png' %}">
+                </div>
+            </div>
+
+            <div class="get_involve_extra_text">
+                <div class="home_community_text">Find a community</div>
+                <div class="home_community_text">to belong to</div>
+
+                <div class="home_community_small_text">The best way to make a church home is by </div>
+                <div class="home_community_small_text">getting involved in a community.</div>
+
+                <div class="Know_more_dropdown">
+                <div class="know_more_dropbtn">
+                    Know More <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                <div class="know_more_dropdown_content">
+                    {% for church in churches %}
+                        <a href="{{ church.get_absolute_url }}">{{ church.name }}</a>
+                    {% endfor %}
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Sixth section start-->
+
+<!--Seventh Section Start-->
+<div class="seventh_section">
+    <div class="seventh_section_container">
+        <div class="get_involve_extra_text">
+            <div class="home_community_text">Serve With</div>
+            <div class="home_community_text">a Unit</div>
+
+            <div class="home_community_small_text">Serve with a unit in one of our centres or  </div>
+            <div class="home_community_small_text">partner with a community outreach.</div>
+
+            <a class="known_container" href="/community/unit">
+                <div class="know_more">Know More <span class="know_more_span">&rarr;</span></div>
+            </a>
+        </div>
+
+        <div class="community_image">
+            <div class="community_left">
+                <img class="Serve_image_right" src="{% static 'core/asset/unit.jpg' %}">
+            </div>
+            <div class="icon-2">
+                <img src="{% static 'core/asset/Icons.png' %}">
+            </div>
+        </div>
+    </div>
+</div>
+<!--Seventh Section End-->
+
+<!--blog-section-start-->
+<div class="blog_header">
+    <div class="blog_header_content">
+        <div class="blog_header_content_one">Articles and Blog</div>
+        <div class="blog_header_content_two">Learn more about how to live like Christ and experience true fulfillment.</div>
+    </div>
+    <a class="blog_link" href="https://blog.godhouse.org" target="_blank"><div class="blog_btn">Go to Blog <span>&rarr;</span></div></a>
+<!--blog-section-End-->
+{% endblock  %}

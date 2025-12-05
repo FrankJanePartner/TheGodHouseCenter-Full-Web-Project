@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ video.name }}</title>
+    <link rel="shortcut icon" href="{% static 'core/images/logo.jpg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'core/css/papa.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+    <style>
+        .content_container{
+            align-items: flex-start;
+        }
+    </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-297C7ZR3QW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-297C7ZR3QW');
+</script>
+<body>
+    <div class="first_container">
+
+        <div class="header">
+           <a href="/rezonance/">
+             <div class="go_back">Go Back</div>
+           </a>
+            <a class="header_image" href="/" style="width:20%; height:10%; display: flex; justify-content: flex-start; align-items:flex-start">
+                <img src="{% static 'core/images/logo.jpg' %}" alt="church-logo" style="width:70%; height:10%; object-fit: contain;">
+            </a>
+        </div>
+
+        <div class="content_container">
+            <div class="left_image" style="display: flex; flex-direction: column; justify-content: space-between; align-items:center;">
+                <img src="{{ video.images.url }}" alt="mama-image">
+                <audio controls autoplay style="margin: 1rem 0;">
+                    {% if video.audioFile %}
+                        <source src="{{ video.audioFile.url }}" type="audio/mpeg">
+                    {% else %}
+                        <p>Audio file not available</p>
+                    {% endif %}
+                </audio>
+                
+            </div>
+
+            <div class="right_content">
+                <h1 style="text-align: center">{{ video.name }}</h1>
+                {{ video.lyrics|safe }}
+                <div class="icons" style="width: 100%; display: flex; justify-content: center; align-items: center;">
+                    <a href="{% url 'rezonance:download' video.id %}" style="color:white; padding: 0.5rem 1rem;background: linear-gradient(254.81deg, #FF0000 8.13%, #FF6E01 92.46%); border-radius: 5px; font-family: 'Poppins', sans-serif;">Download Song</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!--Ionicon Link Start-->
+     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            {% if messages %}
+                {% for message in messages %}
+                    alert("{{ message }}");
+                {% endfor %}
+            {% endif %}
+        });
+    </script>
+     <!--Ionicon Link End-->
+</body>
+</html>

@@ -1,0 +1,126 @@
+/* GOGGLE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Montserrat:wght@100;200;300;400;500&family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+
+/* BASE */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.header a {
+    text-decoration: none;
+    color: black;
+}
+
+.go_back {
+    margin-left: 30px;
+    font-size: 25px;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+
+.header_image {
+    margin-right: 30px;
+}
+
+.first_container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.content_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 4rem;
+}
+
+.left_image img {
+    width: 320px;
+}
+
+.right_content p {
+    width: 400px;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-bottom: 10px;
+}
+
+.icons a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 767px) {
+    .header {
+        padding-top: 15px;
+    }
+
+    .header_image img {
+        width: 70px;
+    }
+
+    .go_back {
+        margin-left: 15px;
+        font-size: 25px;
+        font-weight: 500;
+    }
+    
+    .header_image {
+        margin-right: 15px;
+    }
+    
+    .first_container {
+        width: 100vw;
+        height: 100vh;
+    }
+    
+    .content_container {
+        gap: 1rem;
+        padding: 2rem;
+        flex-direction: column;
+    }
+
+    .left_image {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .left_image img {
+        width: 260px;
+    }
+    
+    .right_content p {
+        width: 250px;
+        font-size: 18px;
+        font-family: sans-serif;
+        margin-bottom: 20px;
+        text-align:left;
+    }
+
+    .icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .icons a {
+        color: black;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    
+}

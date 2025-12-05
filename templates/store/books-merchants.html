@@ -1,0 +1,1210 @@
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book & Merch  - The GodHouse Center</title>
+    <link rel="stylesheet" href="{% static 'core/assests/bootstrap-icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'core/assests/remixicon/remixicon.css' %}">
+    <link rel="stylesheet" href="{% static 'core/assests/boxicons/css/boxicons.css' %}">
+    <link rel="shortcut icon" href="{% static 'core/images/logo.jpg' %}" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <script type="text/javascript">
+		var user = '{{request.user}}'
+
+		function getToken(name) {
+		    var cookieValue = null;
+		    if (document.cookie && document.cookie !== '') {
+		        var cookies = document.cookie.split(';');
+		        for (var i = 0; i < cookies.length; i++) {
+		            var cookie = cookies[i].trim();
+		            // Does this cookie string begin with the name we want?
+		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+		var csrftoken = getToken('csrftoken')
+
+		function getCookie(name) {
+		    // Split cookie string and get all individual name=value pairs in an array
+		    var cookieArr = document.cookie.split(";");
+
+		    // Loop through the array elements
+		    for(var i = 0; i < cookieArr.length; i++) {
+		        var cookiePair = cookieArr[i].split("=");
+
+		        /* Removing whitespace at the beginning of the cookie name
+		        and compare it with the given string */
+		        if(name == cookiePair[0].trim()) {
+		            // Decode the cookie value and return
+		            return decodeURIComponent(cookiePair[1]);
+		        }
+		    }
+
+		    // Return null if not found
+		    return null;
+		}
+		var cart = JSON.parse(getCookie('cart'))
+
+		if (cart == undefined){
+			cart = {}
+			console.log('Cart Created!', cart)
+			document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
+		}
+		console.log('Cart:', cart)
+	
+	</script>
+    <style>
+        /* GOGGLE FONT */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Montserrat:wght@100;200;300;400;500&family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+        /* BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+
+        body {
+            /*background-color: rgba(255, 188, 14, 0.05);*/
+            background: rgba(255, 255, 255, 1);
+        }
+
+        /* FIRST SECTION HEADER START */
+        .header_container {
+            padding-top: 10px;
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            /*backdrop-filter: blur(4px);*/
+            z-index: 1000;
+            width: 100%;
+            height: 110px;  /* 229px */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .left img {
+            margin-left: 13px;
+        }
+
+        .right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-right: 20px;
+        }
+
+        .right .give_btn button {
+            width: 242px; /*242px*/
+            height: 79px;
+            border-radius: 16px;
+            background: linear-gradient(254.81deg, #FF0000 8.13%, #FF6E01 92.46%);
+            color: #fff;
+            border: none;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            line-height: 17.92px;
+            letter-spacing: 2%;
+            font-size: 23px;
+            cursor: pointer;
+
+        }
+
+        .right .give_btn button:hover {
+            background: #FF6E01;
+        }
+
+        .right .menu_bar {
+            width: 241px;
+            height: 79px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border-radius: 16px;
+            cursor: pointer;
+        }
+
+        #menu-btn {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        #menu-btn.fa-times { /* cancel and Menu Navbar*/
+            font-size: 1.5rem;
+            transform: rotate(180deg);
+        }
+
+        .right .menu_bar .menu_span {
+            font-family: "Montserrat", sans-serif;
+            font-size: 27px;
+            font-weight: 500;
+            line-height: 23px;
+            letter-spacing: 0px;
+        }
+
+        .accordion_menu {
+            position: absolute;
+            top: 100%;
+            left: 5;
+            right: 0;
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            width: 515px;
+            height: 658px;
+            background: rgba(213, 166, 25, 1);
+            transition:  2 ease-in-out;
+        }
+
+        .accordion_menu.active {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+
+        .accordion_menu li.active .dropdown {
+            color: #fff;
+        }
+        .accordion_menu li.active .dropdown  .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        .dropdown, .dropdown_text {
+            cursor: pointer;
+            display: block;
+            font-family: "Poppins", sans-serif;
+            font-size: 30px;
+            font-weight: 500;
+            line-height: 34px;
+            padding: 1.16rem 1.5rem; /* 1rem 1.5rem*/
+            border-bottom: 1px solid white;
+            color: black;
+            position: relative;
+            border-width: 2px;
+            transition: 0.3s;
+            margin-left: 17px;
+            margin-right: 17px;
+        }
+
+        .dropdown:hover {
+            color: #fff;
+        }
+
+        .dropdown_text:hover {
+            color: #fff;
+        }
+        
+        .dropdown .fa-chevron-down {
+            position: absolute;
+            right: 12px;
+            left: auto;
+            transition: transform 0.2s ease-in-out;
+            font-size: 1.5rem;
+        }
+
+        .submenuItems {
+            display: none;
+            transition: all 2s ease-in-out;
+        }
+
+        .accordion_menu li.active .submenuItems{
+            display: block;
+        }
+
+        .submenuItems a {
+            display: block;
+            cursor: pointer;
+            font-family: "Poppins", sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 23px;
+            padding: 1rem 1.5rem; /* 1rem 1.5rem*/
+            border-bottom: 1px solid black;
+            color: #fff;
+            border-width: 2px;
+            transition: 0.3s;
+            margin-left: 17px;
+            margin-right: 17px;
+            text-decoration: none;
+        }
+
+        .submenuItems a:hover {
+            color: #fff;
+            transition:  2 ease-in-out;
+        }
+        /* FIRST SECTION HEADER START END */
+
+
+        main{
+            flex-direction: column;
+            margin-top: 0rem;
+            margin-bottom: 5rem;
+            background-color: white;
+            height: fit-content !important;
+            padding: 0.5rem;
+            padding-top: 0px;
+        }
+
+        footer{
+            justify-content: space-evenly;
+            align-items: flex-start;
+            padding: 3rem;
+            height: 25rem;
+            background-color: black;
+            box-sizing: border-box;
+            margin-top: 1rem;
+        }
+
+        footer span{
+            width: 23%;
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            color: white;
+        }
+
+        footer span h1{
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0px 0px 10px;
+        }
+
+        footer span a{
+            margin: 0px 0px 10px;
+            font-weight: 100;
+            color: white;
+            text-decoration: none;
+        }
+
+        footer span img{
+            width: 7rem;
+            object-fit: cover;
+        }
+
+        footer span span{
+            width: 100%;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        footer span span a{
+            margin-right: 5rem;
+        }
+
+        footer span span p{
+            margin: 0px;
+        }
+
+        /* Blog Page */
+        .blogPage main{
+            overflow-x: hidden;
+            margin-top: 0rem;
+            align-items: center;
+        }
+
+        .blogPage main section{
+            width: 90%;
+            padding-top: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+
+        .blogPage main .greySection{
+            width: 100%;
+            height: 5rem;
+            margin: 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: gray;
+            color: white;
+        }
+
+        .blogPage main .greySection div{
+            width: 40%;
+            height: 50%;
+            margin-right: 2rem;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: flex-start;
+        }
+
+        .blogPage main .greySection h2{
+            margin-left: 2rem;
+            font-size: 2rem;
+        }
+
+        .blogPage main .greySection a{
+            color: white;
+            font-size: 1.1rem;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .blogPage main .greySection a i{
+            font-size: 1rem;
+        }
+
+        .blogPage main .greySection a.active{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blogPage main .blackSection{
+            width: 100%;
+            height: 20rem;
+            margin: 0px;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .blogPage main .blackSection h1{
+            font-size: 2.5rem;
+            width: 40%;
+        }
+
+        .blogPage main .introSection{
+            width: 80%;
+            height: 30rem;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .blogPage main .introSection div{
+            width: 50%;
+            height: 80%;
+            margin: 0px;
+            position: relative;
+        }
+
+        .blogPage main .introSection .text{
+            width: 40%;
+            margin-right: 2rem;
+        }
+
+        .blogPage main .introSection .text h3{
+            font-size: 3.5rem;
+            margin: 0;
+        }
+
+        .blogPage main .introSection .text a{
+            color: #FF0000;
+        }
+
+        .blogPage main .introSection div span{
+            width: 30rem;
+            height: 17rem;
+            border-radius: 1rem;
+            background-image: linear-gradient(to right, #FF6E01, #FF0000);
+            position: absolute;
+            left: 0;
+            top: 30px;
+        }
+
+        .blogPage main .introSection div img{
+            width: 30rem;
+            height: 20rem;
+            border-radius: 1rem;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            object-fit: cover;
+        }
+
+        /* Books and Merchant design */
+        .books main{
+            width: 100dvw !important;
+            overflow-x: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .books .blackSection img{
+            width: 8rem;
+            height: 12rem;
+            margin-right: 2rem;
+            object-fit: cover;
+        }
+
+        .books .sectionTitle{
+            text-align: center;
+            margin-top: 5rem;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        .books section .grid-container-one{
+            width: 96% !important;
+            display: grid !important;
+            grid-template-columns: 1fr 1fr 1fr !important;
+            gap: 5rem !important;
+            margin-bottom: 5rem;
+        }
+
+        .books section .grid-container-one .book{
+            position: relative;
+            background-color: white;
+            width: 100% !important;
+            height: 15rem !important;
+            box-shadow: 0px 0px 15px 10px rgb(209, 208, 208);
+        }
+
+        .books section .grid-container-one .book span{
+            width: 70% !important;
+            height: fit-content !important;
+            position: absolute;
+            right: 1rem;
+        }
+        .books section .grid-container-one .book span h3{
+            margin: 10px 0px;
+        }
+
+        .books section .grid-container-one .book span p{
+            /* width: 70%; */
+            font-size: 1rem;
+            margin: 5px 0px;
+        }
+
+        .books section .grid-container-one .book span p.p{
+            margin: 0px;
+            font-weight: 600;
+        }
+
+        .books section .grid-container-one .book span a{
+            padding: 0.5rem 30% !important;
+            border: 1px solid #FF6E01;
+            background-color: #fdd5b6;
+            color: #FF6E01;
+            border-radius: 5px;
+        }
+
+        .books section .grid-container-one .book span a:hover{
+            border: none;
+            background-color: #FF6E01;
+            color: white;
+        }
+
+        .books section .grid-container-one .book span button{
+            width: 90%!important;
+            height: 2rem !important;
+            border: 1px solid #FF6E01;
+            background-color: #fdd5b6;
+            color: #FF6E01;
+            border-radius: 5px;
+        }
+
+        .books section .grid-container-one .book span button:hover{
+            border: none;
+            background-color: #FF6E01;
+            color: white;
+        }
+
+        .books section .grid-container-one .book img{
+            position: absolute;
+            height: 12rem;
+            width: 7rem;
+            top: 1.5rem;
+            left: -3rem;
+            object-fit: cover;
+        }
+        
+        .buy-now{
+            color:#FF6E01;
+        }
+
+        .buy-now:hover{
+            color: white !important;
+        }
+
+        .books main .cart{
+            position: fixed;
+            bottom: 2rem;
+            right: 4rem;
+            background-color: rgb(210, 209, 209);
+            color: black;
+            width: 5rem;
+            height: 5rem;
+            border-radius: 10rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .books main .cart p{
+            margin: 0;
+        }
+        
+        .books main .cart sup{
+            position: fixed;
+            bottom: 5.5rem;
+            right: 4rem;
+            background-color: black;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 2rem;
+        }
+
+        /* for tablet size screen */
+        @media screen and (max-width: 750px) {
+            /* general styling */
+            header,
+            main,
+            footer{
+                width: 100dvw;
+                margin: 0;
+            }
+
+            header{
+                height: 4rem;
+            }
+
+            header .logo img{
+                width: 4rem;
+                margin-left: 1rem;
+                object-fit: cover;
+            }
+
+            header .btn{
+                width: 30%;
+                margin: 0;
+            }
+
+            header .btn button{
+                border-radius: 10px;
+                font-size: 0.7rem;
+            }
+
+            header .btn button a{
+                font-size: 0.7rem;
+            }
+
+            header .btn .orangebtn{
+                padding: 0.1rem 2rem;
+            }
+
+            header .btn .whitebtn{
+                padding: 0.3rem 1rem;
+            }
+
+            header .btn .whitebtn i{
+                font-size: 1rem;
+            }
+
+            main{
+                margin-top: 3rem;
+                margin-bottom: 3rem;
+            }
+
+            footer span h1{
+                font-size: 1rem;
+            }
+
+            footer span img{
+                width: 7rem;
+                object-fit: cover;
+            }
+
+            footer span a{
+                color: white;
+                text-decoration: none;
+            }
+
+            footer span span{
+                width: 100%;
+                margin-bottom: 1rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+
+            /* Blog Page */
+            .blogPage main{
+                margin-top: 0rem;
+                align-items: center;
+            }
+
+            .blogPage main .greySection div{
+                height: 20%;
+            }
+
+            .blogPage main .greySection h2{
+                margin-left: 2rem;
+                font-size: 1.5rem;
+            }
+
+            .blogPage main .greySection a{
+                font-size: 0.75rem;
+            }
+
+            .blogPage main .greySection a i{
+                font-size: 0.7rem;
+            }
+
+            .blogPage main .blackSection{
+                height: 15rem;
+            }
+
+            .blogPage main .introSection{
+                height: 20rem;
+            }
+
+            .blogPage main .introSection div{
+                width: 50%;
+                height: 80%;
+                margin: 0px;
+                position: relative;
+            }
+
+            .blogPage main .introSection .text h3{
+                font-size: 2rem;
+                margin: 0;
+            }
+
+            .blogPage main .introSection div span{
+                width: 15rem;
+                height: 10rem;
+            }
+
+            .blogPage main .introSection div img{
+                width: 15rem;
+                height: 10rem;
+                object-fit: cover;
+            }
+
+            /* Books and Merchant design */
+            .books section .grid-container-one{
+                grid-template-columns: 1fr 1fr !important;
+            }
+            
+            /* Serve Page */
+            .servePage .grid-container .serve span .text h3{
+                top: 7rem;
+            }
+        }
+
+        @media screen and (max-width: 450px) {
+            /* general styling */
+            header,
+            main,
+            footer{
+                width: 100dvw;
+                margin: 0;
+            }
+
+            header .btn{
+                width: 43%;
+                margin: 0;
+            }
+
+            header .btn button a{
+                font-size: 0.7rem;
+            }
+
+            main{
+                margin-top: 3rem;
+                margin-bottom: 3rem;
+            }
+
+            footer{
+                flex-direction: column;
+                height: fit-content;
+            }
+
+            footer span h1{
+                font-size: 1rem;
+            }
+
+            
+            footer span{
+                width: 90%;
+                margin-bottom: 2rem;
+            }
+
+            /* Blog Page */
+            .blogPage main{
+                margin-top: 0rem;
+                align-items: center;
+            }
+
+            .blogPage main .greySection div{
+                height: 20%;
+            }
+
+            .blogPage main .greySection h2{
+                margin-left: 1rem;
+                font-size: 1.1rem;
+            }
+
+            .blogPage main .greySection a{
+                font-size: 0.5rem;
+            }
+
+            .blogPage main .greySection a i{
+                font-size: 0.7rem;
+            }
+
+            .blogPage main .blackSection{
+                height: 15rem;
+            }
+
+            .blogPage main .blackSection h1{
+                font-size: 1rem;
+            }
+
+            .blogPage main .introSection{
+                height: 20rem;
+            }
+
+            .blogPage main .introSection div{
+                width: 40%;
+                height: 60%;
+                margin: 0px;
+                position: relative;
+            }
+
+            .blogPage main .introSection .text{
+                width: 60%;
+            }
+
+            .blogPage main .introSection .text h3{
+                font-size: 0.97rem;
+                margin: 0;
+            }
+
+            .blogPage main .introSection .text p{
+                font-size: 0.3;
+            }
+
+            .blogPage main .introSection div span{
+                width: 10rem;
+                height: 7rem;
+                top: 2rem;
+                left: -1rem;
+            }
+
+            .blogPage main .introSection div img{
+                width: 10rem;
+                height: 7rem;
+                bottom: 2rem;
+                right: -2rem;
+                object-fit: cover;
+            }
+
+            /* Books and Merchant design */
+            .books section .grid-container-one{
+                grid-template-columns: 1fr !important;
+            }
+            
+            .blogPage main .greySection div{
+                display: none ;
+            }
+            
+            .books section .grid-container-one .book{
+                height: 19rem !important;
+            }
+            
+            .books section .grid-container-one .book img{
+                height: 15rem;
+            }
+            
+        }
+        @media screen and (max-width: 767px) {
+        /* Styles for phone */
+        /* HEADER START */
+        .header_container {
+            position: fixed;
+            background-color: #f9f9f9;
+            width: 100%;
+            height: 60px;
+            padding: none;   
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    
+        
+        .left img {
+        margin-left: 7px;
+        }
+    
+        .left img {
+            width: 5rem;
+        }
+    
+        .give_btn {
+            display: none;
+        }
+    
+        .right .menu_bar {
+            width: 0;
+            border: none;
+        }
+        
+        .right .menu_bar .menu_span {
+            display: none;
+        }
+    
+         /* NAVBAR ACCORDION START */
+         .accordion_menu {
+            width: 100%;
+            height: 100vh;
+            background-color: grey;
+        }
+    
+        .dropdown, .dropdown_text {
+            font-size: 18px;
+            font-weight: 500;
+            border-width: 1.5px;
+        }    
+    
+        .dropdown .fa-chevron-down {
+            font-size: 1rem;
+        }
+    
+        .submenuItems a {
+            font-size: 17px;
+            font-weight: 300;
+            border-width: 1px;
+        }
+    
+        /* NAVBAR ACCORDION END */
+    
+        .second_header {
+            display: none;
+        }
+    
+        /* HEADER END */  
+    
+        }   
+        
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
+            /* HEADER START */
+            .header_container {
+                position: fixed;
+                background-color: #f9f9f9;
+                width: 100vw;
+                height: 70px;
+                padding: none;   
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        
+        
+            .left img {
+                width: 5rem;
+            }
+        
+            
+            .right .give_btn button {
+                width: 170px; /*242px*/
+                height: 55px;
+                border-radius: 16px;
+            }
+        
+            .right .menu_bar {
+                width: 170px;
+                height: 55px;
+                gap: 8px;
+                border-radius: 16px;
+            }
+        
+            /* NAVBAR ACCORDION START */
+            .accordion_menu {
+                width: 100%;
+                height: 100vh;
+                background: rgba(213, 166, 25, 1);
+            }
+        
+            .dropdown, .dropdown_text {
+                font-size: 29px;
+                font-weight: 300;
+                border-width: 1.5px;
+            }
+        
+            .dropdown .fa-chevron-down {
+                font-size: 1rem;
+            }
+        
+            .submenuItems a {
+                font-size: 17px;
+                font-weight: 300;
+                border-width: 1px;
+            }
+        
+            /* NAVBAR ACCORDION END */
+        }
+        
+        
+        @media screen and (min-width: 1024px) and (max-width: 1279px) {
+            .accordion_menu {
+                width: 100vw;
+                height: 100vh;
+            }
+        
+            .dropdown, .dropdown_text {
+                font-size: 30px;
+                font-weight: 300;
+                line-height: 34px;
+                border-width: 2px;
+            }
+        
+            .dropdown .fa-chevron-down {
+                font-size: 1rem;
+            }
+        
+            .submenuItems a {
+                font-size: 22px;
+                font-weight: 300;
+                line-height: 23px;
+                border-width: 1px;
+            }
+        
+            .right .give_btn button {
+                width: 200px; /*242px*/
+                height: 70px;
+                border-radius: 16px;
+            }
+            
+            .right .menu_bar {
+                width: 200px;
+                height: 70px;
+            }
+        
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <!--WRAPPER START-->
+    <div class="wrapper">
+        <section class="first_section">
+        <!--HEADER-->
+        <div class="header_container" style="background-color:white;">
+            <div class="left" style="width:30%; height:100%; display: flex; justify-content: flex-start; align-items:flex-start">
+                <a href="/" style="width:40%; height:90%; display: flex; justify-content: flex-start; align-items:flex-start">
+                    <img src="{% static 'core/images/logo.jpg' %}" alt="church-logo" style="width:100%; height:100%; object-fit: contain;">
+                </a>
+            </div>
+    
+            <div class="right">
+                <div class="give_btn">
+                    <a href="/give/"><button>Give</button></a>
+                </div>
+
+                <button class="menu_bar">
+                    <div id="menu-btn" class="fas fa-bars"></div>
+                    <div><span class="menu_span">Menu</span></div>
+                </button>
+            </div>
+
+            <!--NAVBAR ACCORDION START-->
+            <ul class="accordion_menu">    
+                <li><a class="dropdown_text" href="/">Home</a></li>
+                <li class="link">
+                    <div class="dropdown">
+                        About
+                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="/about/">Who We Are</a></li>
+                        <li><a href="/belief/">Our Belief</a></li>
+                        <li><a href="/leaders/">Leadership</a></li> 
+                    </ul>
+                </li>
+                <li><a class="dropdown_text" href="/locations/">Our Centers</a></li>
+                <li class="link">
+                    <div class="dropdown">
+                        Resources
+                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="/testimony/">Testimonies</a></li>
+                        <li><a href="/store/">Books</a></li>
+                        <li><a href="https://blog.godhouse.org" target="_blank">Blog</a></li>
+                        <li><a href="/rezonance/">Worship with Rezonance</a></li>
+                    </ul>
+                </li>
+                <li><a class="dropdown_text" href="/events/">Event</a></li>
+                <li class="link">
+                    <div class="dropdown">
+                        Watch & Listen
+                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="/churchMessages/#videomessages">Video</a></li>
+                        <li><a href="/churchMessages/#audio">Audio</a></li>
+                        <li><a href="/wholewordtv/">Live TV</a></li>
+                    </ul>
+                </li>
+                <li><a class="dropdown_text" href="/give/">Give</a></li>
+                <li><a class="dropdown_text" href="/contact/">Contact</a></li>
+            </ul>
+            <!--NAVBAR ACCORDION END-->
+        
+        </div>
+        <!--END - HEADER-->
+        
+    <div class="books blogPage">
+        <main>
+            <section class="greySection">
+                <h2>Resources</h2>
+                <div>
+                    <a href="/testimony/">Testimonies</a>
+                    <a href="/shekinah/">Worship with Shekinah</a>
+                    <a href="/store/" class="active">
+                        Books &  Merch
+                        <i class="bi bi-record-fill"></i>
+                    </a>
+                    <a href="https://blog.godhouse.org" target="_blank">Blogs</a>
+                </div>
+            </section>
+            <section class="blackSection">
+                <img src="{% static 'core/image/shoptop.jpg'%}" alt="">
+                <h1>
+                    Grow Spiritual and cultivate a deeper relationship with God through the various books by Apostle TD Philips.
+                </h1>
+            </section>
+                            <h1 styly="color: red;">Warning!!! This page is under construction and not fully active yet. For Enquiries go to the Enquiry page <a href="/contact/enquiry/">Equiries</a></h1>
+            <section class="sectionTitle">
+                <h4>Featured Books</h4>
+            </section>
+            <section class="box">
+                <div class="grid-container-one">
+                    {% for product in products %}
+                        <div class="grid-item-one book" style="height: fit-content; padding: 0.5rem">
+                            <img src="{{ product.image.url }}" alt="">
+                            <span>
+                                <h3>{{ product.product_name }}</h3>
+                                <p class="p">{{ product.author }}</p>
+                                <p>{{ product.description|safe|slice:":100" }}</p>
+                                <h5 style="color: #FF0000; font-size: 1.4rem; margin: 0.9rem 0rem;"><del>N</del>{{ product.price|intcomma }}</h5>
+                                <button type="button" class="buy-now add-button add-btn update-cart" style="width: 100%; height: 100%;" data-product="{{product.id}}" data-action="add">Add to cart</button>
+                            </span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+            <a href="{% url "store:cart" %}" style='text-decoration:none;' class="cart">
+                <i class="bi bi-cart-fill"></i>
+                <p>Cart</p>
+                <sup id="cart-total" class="basket-qty">{{cartItems}}</sup>
+            </a>
+        </main>
+    </div>
+    </div>
+    
+    <!--Ionicon Link Start-->
+    <script>
+        var updateBtns = document.getElementsByClassName('update-cart')
+
+        for (i = 0; i < updateBtns.length; i++) {
+            updateBtns[i].addEventListener('click', function(){
+                var productId = this.dataset.product
+                var action = this.dataset.action
+                console.log('productId:', productId, 'Action:', action)
+                console.log('USER:', user)
+
+                if (user == 'AnonymousUser'){
+                    addCookieItem(productId, action)
+                }else{
+                    updateUserOrder(productId, action)
+                }
+            })
+        }
+
+        function updateUserOrder(productId, action){
+            console.log('User is authenticated, sending data...')
+
+                var url = '/update_item/'
+
+                fetch(url, {
+                    method:'POST',
+                    headers:{
+                        'Content-Type':'application/json',
+                        'X-CSRFToken':csrftoken,
+                    }, 
+                    body:JSON.stringify({'productId':productId, 'action':action})
+                })
+                .then((response) => {
+                return response.json();
+                })
+                .then((data) => {
+                    location.reload()
+                });
+        }
+
+        function addCookieItem(productId, action){
+            console.log('User is not authenticated')
+
+            if (action == 'add'){
+                if (cart[productId] == undefined){
+                cart[productId] = {'quantity':1}
+
+                }else{
+                    cart[productId]['quantity'] += 1
+                }
+            }
+
+            if (action == 'remove'){
+                cart[productId]['quantity'] -= 1
+
+                if (cart[productId]['quantity'] <= 0){
+                    console.log('Item should be deleted')
+                    delete cart[productId];
+                }
+            }
+            console.log('CART:', cart)
+            document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
+            
+            location.reload()
+        }
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!--Ionicon Link End-->
+
+    <!--Javascript Link-->
+    {% block script %}<script src="{% static 'core/js/home.js' %}"></script>{% endblock %}
+    
+      
+    <!--Javascript link End-->
+</body>
+</html>

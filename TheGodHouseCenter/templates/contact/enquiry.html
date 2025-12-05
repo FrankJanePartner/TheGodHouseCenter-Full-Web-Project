@@ -1,0 +1,152 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}Enquiry{% endblock %}
+{% block link %}<link rel="stylesheet" href="{% static 'core/css/enquiry.css' %}">{% endblock %}
+{% block content %}
+        <!--FIRST SECTION START-->
+        <div class="first_section_content">
+            <div class="fs_one">
+                <div class="fs_c">Got a question? Contact us. </div> 
+                <div class="fs_d">We’d love to get to know you!</div>
+            </div>
+            <div class="fs_one_image">
+                <img class="fs_one_image" src="{% static 'core/asset/contact-image.png' %}" alt="contact-image">
+            </div>
+        </div>
+        <!--FIRST SECTION START-->
+
+        <!--SECOND SECTION START-->
+        <div class="second_section">
+            <div class="second_section_container">
+                <div class="social_one_content">
+                    <div class="map_image">
+                        <ion-icon class="icon_icon" name="location-outline"></ion-icon>
+                    </div>
+
+                    <div class="map-content">Visit Us:</div>
+                    <div class="map_link"><a href="/locations/">At any of our centers</a></div>
+                </div>
+
+                <div class="social_one_content">
+                    <div class="map_image">
+                        <ion-icon class="icon_icon" name="mail-open-outline"></ion-icon>
+                    </div>
+
+                    <div class="map-content">Send us a mail</div>
+                    <div class="map_link"><a href="mailto:info@godhouse.org">info@godhouse.org</a></div>
+                </div>
+
+                <div class="social_one_content">
+                    <div class="map_image">
+                        <ion-icon class="icon_icon" name="logo-facebook"></ion-icon>
+                    </div>
+
+                    <div class="map-content">Facebook</div>
+                    <div class="map_link"><a href="https://w.facebook.com/theGodHouseCentre">@theGodHouseCentre</a></div>
+                </div>
+
+                <div class="social_one_content">
+                    <div class="map_image">
+                        <ion-icon class="icon_icon" name="logo-instagram"></ion-icon>
+                    </div>
+
+                    <div class="map-content">Instagram</div>
+                    <div class="map_link"><a href="https://www.instagram.com/thegodhousecentre">@thegodhousecentre</a></div>
+                </div>
+            </div>
+        </div>
+        <!--SECOND SECTION END-->
+
+        <!--THIRD SECTION START-->
+        <div class="third_section">
+            <div class="third_section_container">
+                <div class="reach">What are you trying to reach on?</div>
+            </div>
+        </div>
+        <!--THIRD SECTION END-->
+
+        <!--FORTH SECTION START-->
+        <div class="forth_section">
+            <div class="form_section">
+                <div class="header_text">
+                   <div class="form_header_one">Enquiry</div>
+                </div>
+
+                <form action="" method='post'>
+                    {% csrf_token %}
+                    <div class="form_group">
+    
+                        <input type="text" name="name" placeholder="Name" class="form_control" required>
+                        <input type="email" name="email" placeholder="Email" class="form_control">
+                        <input type="text"  name="phone_number" placeholder="Phone number" class="form_control" required>
+
+                        <div class="text_area">
+                            <textarea class="text_message" name="message" placeholder="Make enquiry..." cols="30" rows="10"></textarea>
+                        </div>
+                        
+                        <div class="g-recaptcha" data-sitekey="6Lcg_L8qAAAAAMheLbLhhLx6HURNEaclfcz3IAVJ"></div>
+    
+                        <div class="button">
+                            <button class="btn" type="submit">Send</button>
+                        </div>
+                    </div>
+    
+                </form>
+                
+            </div>
+        </div>
+
+{% endblock %}
+{% block script %}
+<script src="{% static 'core/js/contact.js' %}"></script>
+<script>
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const captchaResponse = grecaptcha.getResponse();
+        if (!captchaResponse.length > 0) {
+            alert("Captcha not completed!");
+            return;
+        }
+
+        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        const fd = new FormData(e.target);
+        fd.append('g-recaptcha-response', captchaResponse); // Add reCAPTCHA response
+
+        const submitButton = e.target.querySelector('button[type="submit"]'); // Select the button
+
+        // Disable button during submission
+        if (submitButton) {
+            submitButton.disabled = true;
+        }
+
+        fetch(form.action || window.location.href, {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": csrfToken,
+            },
+            body: fd,
+        })
+            .then((res) => {
+                if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+                return res.json();
+            })
+            .then((data) => {
+                alert(data.message || "Your enquiry was submitted successfully.");
+                form.reset();
+                grecaptcha.reset();
+            })
+            .catch((err) => {
+                console.error("Error:", err);
+                alert("An error occurred while submitting your request.");
+            })
+            .finally(() => {
+                if (submitButton) {
+                    submitButton.disabled = false; // Re-enable button
+                }
+            });
+    });
+</script>
+{% endblock %}

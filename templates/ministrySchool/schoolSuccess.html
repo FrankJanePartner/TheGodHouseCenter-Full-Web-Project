@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'core/images/logo.jpg' %}" type="image/x-icon">
+    <title>Succcess- The GodHouse Center</title>
+    <style>
+        body{
+            width: 100vw;
+            height: fit-content;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-image: linear-gradient(to right, white, #fff6f6);
+        }
+        
+        .logo{
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            border: none !important;
+        }
+        
+        .logo img{
+            width: 10rem;
+        }
+        
+        .success{
+            height: fit-content;
+            text-align: center;
+            width: 95vw;
+            margin: 8rem 0 0 0;
+        }
+        
+        h1{
+            font-size: 3rem;
+            color: #FF0000;
+        }
+        
+        p{
+            font-size: 2rem;
+        }
+        
+        a{
+            text-decoration: none;
+            border: 1px solid red;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            color: red;
+        }
+        
+        @media all and (max-width:450px){
+            body{
+                width: 100vw;
+                height: 100vh;
+                margin: 0;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-image: linear-gradient(to right, white, #fff6f6);
+            }
+            
+            .logo img{
+                width: 5rem;
+            }
+        
+            .success{
+                width: 80vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                width: 80vw;
+                margin: 0;
+            }
+        
+            h1{
+                font-size: 1.7rem;
+                color: #FF0000;
+            }
+        
+            p{
+                font-size: 0.9rem;
+                margin: 0;
+                margin-bottom: 9px;
+            }
+        
+            a{
+                text-decoration: none;
+                color: red;
+            }
+        }
+        
+        
+    </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-297C7ZR3QW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-297C7ZR3QW');
+</script>
+<body>
+    <a href="/" class="logo">
+        <img src="{% static 'core/images/logo.jpg' %}" alt="church-logo">
+    </a>
+    <div class="success">
+        <h1>Congratulations!</h1>
+        <p>You have successfully registered for School of Minstry</p>
+        <p>
+            For further enquiries, send an email to: schoolofministry@godhouse.org; or call+234 907 151 1079, +234 805 026 9090.
+        </p>
+        <p>If you paid for someone else please go back to the form and fill their details!<br><a href="/schoolofministry/" style="border: none; text-decoration: underline;"> Click here to go back to form</a></p>
+        <p>See you there!</p>
+        <a href="/schoolofministry/">Go Back</a>
+    </div>
+</body>
+</html>

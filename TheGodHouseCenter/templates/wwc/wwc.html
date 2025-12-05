@@ -1,0 +1,1350 @@
+{% load date_extras %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ wwc.name }}  - The GodHouse Center</title>
+    <link rel="shortcut icon" href="{% static 'core/images/logo.jpg' %}" type="image/x-icon">
+    <!-- forth container slider -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <!-- forth container slider -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .first-container {
+            background: linear-gradient(1500deg, #8873d6, #2e1385);
+        }
+
+
+        .first-header-section {
+            padding-top: 6rem;
+            padding-left: 4rem;
+            color: #fff;
+            font-size: 50px;
+            font-family: 'Lilita One', sans-serif;
+        }
+
+        .theme,.date {
+            font-size: 25px;
+            padding-top: 5px;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 20px;
+            color: white;
+            margin-top: 25px;
+            padding-left: 4rem;
+            font-family:'Lilita One', sans-serif;
+        }
+
+        .time-box {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .time-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .time-box p {
+            margin: 0;
+        }
+
+        .time-box .value {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .time-box .label {
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* Button Styles */
+        .sliding-btn {
+            position: relative;
+            width: 160px;
+            height: 50px;
+            background: linear-gradient(150deg,#4f46e5, #9333ea);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'Lilita One', sans-serif;
+            font-size: 18px;
+            cursor: pointer;
+            overflow: hidden;
+            margin-top: 27px;
+            margin-bottom: 30px;
+            margin-left: 4rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .sliding-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Text Container */
+        .text-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Individual Text Items */
+        .text-item {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .text-item.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .text-item.next {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+
+        .btn-link {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .bubbles {
+            position: absolute;
+            bottom: 20%;
+            top: 5%;
+            width: 100%;
+            height: 60%;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-around;
+            z-index: 0;
+        }
+        
+        .bubbles span {
+            top: 50%;
+            position: relative;
+            width: 25px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: bubbleRise 10s linear infinite;
+            animation-duration: calc(100s / var(--i));
+        }
+        
+        @keyframes bubbleRise {
+            0% {
+            transform: translateY(0) scale(1);
+            opacity: 0.8;
+            }
+            100% {
+            transform: translateY(-100px) scale(0.5);
+            opacity: 0;
+            }
+        }
+
+        /* second container start */
+        .second-container {
+            background: #f9f9f9;
+            padding-bottom: 3rem;
+        }
+        .second-container .about-wwc {
+            font-size: 30px;
+            padding-top: 3rem;
+            font-family:'Lilita One', sans-serif;;
+            text-align: center;
+        }
+
+        .awc-flex {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .awc-img-container img {
+            border-radius: 5px;
+            width: 340px;
+            height: 440px;
+        }
+
+        .awc-content-box .acb {
+            width: 430px;
+            font-size: 20px;
+            font-family: sans-serif;
+        }
+
+        .acb-one {
+            margin-bottom: 20px;
+        }
+
+        .second-btn button {
+            width: 160px;
+            height: 50px;
+            background: linear-gradient(150deg,#4f46e5, #9333ea);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'Lilita One', sans-serif;
+            font-size: 18px;
+            cursor: pointer;
+            overflow: hidden;
+            margin-top: 27px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .second-btn button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* second container end */
+
+        /* third container start */
+        .third-container {
+            background: linear-gradient(360deg,#c2b8b8, #f9f9f9);;
+            padding-bottom: 3rem;
+            padding-top: 30px;
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 18px;
+        }
+
+        .first-info {
+            font-size: 25px;
+            font-weight: 600;
+            font-family: sans-serif;
+        }
+
+        .details {
+            padding-bottom: 10px;
+        }
+
+        .conference-day {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .session {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .m-s {
+            margin-right: 10px;
+        }
+        /* third container end */
+
+        /* alone start */
+        .photo-gallery {
+            padding-top: 3rem;
+            font-size: 25px;
+            font-weight: 600;
+            font-family: sans-serif;
+            background: #f9f9f9;
+            text-align: center;
+        }
+        /* alone end */
+
+        /* forth container start */
+        /* SLIDER START */
+
+        .first-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 35px;
+            background: #f9f9f9;
+        }
+
+        .wrapper {
+            display: flex;
+            max-width: 1200px;
+            position: relative;
+        }
+
+        .wrapper i {
+            top: 50%;
+            height: 44px;
+            width: 44px;
+            color: #343F4F;
+            cursor: pointer;
+            font-size: 1.15rem;
+            position: absolute;
+            text-align: center;
+            line-height: 44px;
+            background: #fff;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.1s linear;
+        }
+
+        .wrapper i:active {
+            transform: translateY(-50%) scale(0.9);
+        }
+
+        .wrapper i:hover {
+            background: #f2f2f2;
+        }
+
+        .wrapper i:first-child {
+            left: -22px;
+            display: none;
+        }
+
+        .wrapper i:last-child {
+            right: -22px;
+        
+        }
+
+        .wrapper .carousel {
+            font-size: 0px;
+            cursor: pointer;
+            overflow: hidden;
+            white-space: nowrap;
+            scroll-behavior: smooth;
+        }
+        .carousel.dragging {
+            cursor: grab;
+            scroll-behavior: auto;
+        }
+        .carousel.dragging img {
+            pointer-events: none;
+        }
+
+        .carousel img {
+            height: 340px;
+            object-fit: cover;
+            user-select: none;
+            margin-left: 14px;
+            width: calc(100% / 3);
+        }
+
+        .carousel img:first-child {
+            margin-left: 0px;
+        }
+        /*SLIDER BREAK POINT START */ 
+        @media screen and (max-width: 900px) {
+            .carousel img{
+            width: calc(100% / 2);
+            }
+        }
+        
+        @media screen and (max-width: 550px) {
+            .carousel img{
+            width: 100%;
+            }
+        }
+        /* SLIDER END */
+        /*SLIDER BREAK POINT END */
+
+        /* forth container end */
+
+        /* footer start */
+        footer {
+            background: rgb(59 130 246 / .5);
+            color: black;
+            padding-top: 3rem;
+            text-align: center;
+            font-size: 17px;
+            font-family: sans-serif;
+        }
+
+        .call {
+            padding-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer a {
+            color: black;
+        }
+
+        .copywright {
+            padding-bottom: 4rem;
+        }
+        /* footer end */
+
+
+        /* RESPONSIVENESS START */
+        @media screen and (max-width: 767px) {
+            /* HEADER START */
+            .first-header-section {
+                padding-top: 4rem;
+                padding-left: 1.5rem;
+                font-size: 25px;
+            }
+
+            .countdown {
+                gap: 10px;
+                margin-top: 25px;
+                padding-left: 1.5rem;
+            }
+            
+            .time-box {
+                width: 80px;
+                height: 90px;
+                padding: 15px;
+            }
+
+            .bubbles {
+                bottom: 20%;
+                left: 35%;
+                top: 5%;
+                width: 60%;
+                height: 70%;
+            }
+            
+            /* Button Styles */
+            .sliding-btn {
+                width: 140px;
+                height: 50px;
+                border-radius: 10px;
+                font-size: 16px;
+                margin-top: 24px;
+                margin-bottom: 30px;
+                margin-left: 1.5rem;
+            }
+            
+            /* Text Container */
+            .text-slider {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* second container start */
+            .second-container .about-wwc {
+                font-size: 20px;
+                padding-top: 2rem;
+                padding-bottom: 1rem;
+            }
+            
+            .awc-flex {
+                margin-top: 1rem;
+                flex-direction: column;
+                gap: 3rem;
+            }
+            
+            .awc-img-container img {
+                width: 350px;
+                height: 450px;
+            }
+            
+            .awc-content-box .acb {
+                width: 350px;
+                font-size: 20px;
+                font-family: sans-serif;
+            }
+            
+            .acb-one {
+                margin-bottom: 20px;
+            }
+            
+            .second-btn button {
+                width: 160px;
+                height: 50px;
+                background: linear-gradient(150deg,#4f46e5, #9333ea);
+                border: none;
+                border-radius: 10px;
+                color: #fff;
+                font-family: 'Lilita One', sans-serif;
+                font-size: 18px;
+                cursor: pointer;
+                overflow: hidden;
+                margin-top: 27px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                transition: all 0.3s ease;
+            }
+            
+            .second-btn button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            }
+            
+            /* second container end */    
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
+            /* Styles for tablet */
+            /* HEADER START */
+            .first-header-section {
+                padding-top: 6rem;
+                padding-left: 2rem;
+                font-size: 50px;
+            }
+            
+            .theme,.date {
+                font-size: 30px;
+                padding-top: 5px;
+            }
+            
+            .countdown {
+                gap: 20px;
+                padding-left: 2rem;
+            }
+            
+            .time-box {
+                width: 120px;
+                height: 120px;
+            }
+            
+            /* Button Styles */
+            .sliding-btn {
+                margin-left: 2rem;
+            }
+
+            /* second container start */
+
+            .second-container .about-wwc {
+            padding-top: 4rem;
+            }
+
+            
+        .awc-flex {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .awc-img-container img {
+            margin-top: 2rem;
+            border-radius: 10px;
+            width: 400px;
+            height: 420px;
+        }
+
+        .awc-content-box .acb {
+            width: 400px;
+            font-size: 20px;
+            font-family: sans-serif;
+        }
+
+        .acb-one {
+            margin-bottom: 20px;
+        }
+
+        .second-btn button {
+            width: 160px;
+            height: 50px;
+            border-radius: 10px;
+            font-size: 18px;
+            margin-top: 27px;
+        
+        }
+
+        }
+        /* second container end */ 
+        
+        /* PopUp registration Page start */
+
+    /* Popup styles */
+    .popup-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    
+    .popup-content {
+      background: white;
+      border-radius: 8px;
+      position: relative;
+      padding: 0;
+      overflow: scroll;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .popup-content.large {
+      width: 600px;
+      height: 500px;
+    }
+    
+    .popup-content .form-container{
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 24px;
+      z-index: 1000;
+      cursor: pointer;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+        /* PopUp registration Page end */
+        .form-container {
+            position: relative;
+            max-width: 700px;
+            width: 100%;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+          }
+
+        .registration-image-container {
+            display: flex;
+            justify-content: center;
+            font-family: sans-serif;
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+        
+        
+        .form-container .form {
+          margin-top: 30px;
+        }
+        .form .input-box {
+          width: 100%;
+          margin-top: 20px;
+        }
+        .input-box label {
+          color: #333;
+        }
+        .form :where(.input-box input, .select-box) {
+          position: relative;
+          height: 50px;
+          width: 100%;
+          outline: none;
+          font-size: 1rem;
+          color: #707070;
+          margin-top: 8px;
+          border: 1px solid #ddd;
+          border-radius: 6px;
+          padding: 0 15px;
+        }
+        .input-box input:focus {
+          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+        }
+        .form .column {
+          display: flex;
+          column-gap: 15px;
+        }
+        .form .gender-box {
+          margin-top: 20px;
+        }
+        .gender-box h3 {
+          color: #333;
+          font-size: 1rem;
+          font-weight: 400;
+          margin-bottom: 8px;
+        }
+        .form :where(.gender-option, .gender) {
+          display: flex;
+          align-items: center;
+          column-gap: 50px;
+          flex-wrap: wrap;
+        }
+        .form .gender {
+          column-gap: 5px;
+        }
+        .gender input {
+          accent-color: rgb(130, 106, 251);
+        }
+        .form :where(.gender input, .gender label) {
+          cursor: pointer;
+        }
+        .gender label {
+          color: #707070;
+        }
+        
+        label {
+          font-weight: 600;
+        }
+        
+        .select-an-option {
+          width: 90%;
+          height: 60%;
+          padding: 5px;
+          border-radius: 5px;
+        }
+        
+        .address :where(input, .select-box) {
+          margin-top: 30px;
+        }
+        .select-box select {
+          height: 100%;
+          width: 100%;
+          outline: none;
+          border: none;
+          color: #707070;
+          font-size: 1rem;
+        }
+        
+        .form button {
+          height: 55px;
+          width: 100%;
+          color: #fff;
+          font-size: 1rem;
+          font-weight: 400;
+          margin-top: 30px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          background: rgb(250, 101, 56);
+          background: rgb(240, 31, 31);
+        }
+        .form button:hover {
+          background: rgb(218, 144, 121);
+        }
+        /*Responsive*/
+        @media screen and (max-width: 500px) {
+        
+          .form .column {
+            flex-wrap: wrap;
+          }
+          .form :where(.gender-option, .gender) {
+            row-gap: 15px;
+          }
+        
+          .select-an-option {
+            width: 100%;
+            height: 60%;
+            padding: 5px;
+            border-radius: 5px;
+          }
+          
+          .address :where(input, .select-box) {
+            margin-top: 15px;
+          }
+        }
+        
+        
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-297C7ZR3QW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-297C7ZR3QW');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="first-container">
+
+            <div class="first-header-section">
+                <div class="fhc-one fhc">WHOLE</div>
+                <div class="fhc-one fhc">WORD</div>
+                <div class="fhc-two fhc">CONFERENCE {{ wwc.date.year }}</div>
+                <div class="theme fhc" style="color: rgb(253, 164, 175);">Theme: Ministering Spirits: Rules of Engagement</div>
+                <div class="date fhc" style="color: rgb(122, 156, 211);">Date: {{ wwc.date|date:'F d, Y' }} - {{ wwc.end_date|date:'F d, Y' }}</div>
+            </div>
+
+
+            <div class="side-gif">
+                <!-- <img src="{% static 'asset/Web background collage.gif' %}" alt=""> -->
+            </div>
+
+            <!-- countdown code start -->
+            <div class="countdown">
+
+                <div class="time-box">
+                    <p class="value" id="days">0</p>
+                    <p class="label">Days</p>
+                </div>
+
+                <div class="time-box">
+                    <p class="value" id="hours">0</p>
+                    <p class="label">Hours</p>
+                </div>
+
+                <div class="time-box">
+                    <p class="value" id="minutes">0</p>
+                    <p class="label">Minutes</p>
+                </div>
+
+                <div class="time-box">
+                    <p class="value" id="seconds">0</p>
+                    <p class="label">Seconds</p>
+                </div>
+
+            </div>
+            <!-- countdown code end -->
+
+            <!-- register button start-->
+            <button class="sliding-btn btn-link" class="openPopupBtn" id="openPopupBtn">
+                <div class="text-slider">
+                    <span class="text-item active openPopupBtn">Join Us!</span>
+                    <span class="text-item openPopupBtn">Save Your Spot</span>
+                    <span class="text-item openPopupBtn">Be there!</span>
+                    <span class="text-item openPopupBtn">Register Now</span>
+                </div>
+            </button>
+            <!-- register button end-->
+
+            <!-- Bubble Animation HTML -->
+            <div class="bubbles">
+                <span style="--i:11;"></span>
+                <span style="--i:12;"></span>
+                <span style="--i:24;"></span>
+                <span style="--i:10;"></span>
+                <span style="--i:14;"></span>
+                <span style="--i:23;"></span>
+                <span style="--i:18;"></span>
+                <span style="--i:16;"></span>
+                <span style="--i:19;"></span>
+                <span style="--i:20;"></span>
+            </div>
+
+        </div>
+
+        <div class="second-container">
+            <div class="about-wwc">ABOUT WWC {{ wwc.date.year }}</div>
+
+            <div class="awc-flex">
+
+                <div class="awc-img-container">
+                    <!-- <img src="{% static 'asset/Web background collage.gif' %}"> -->
+                     <img src="{{ wwc.flyer.url }}">
+                </div>
+
+                <div class="awc-content-box">
+
+                    <div class="acb-one acb">Welcome to the Whole Word Conference {{ wwc.date.year }}, an annual gathering of believers from across the globe. This year's theme, <strong>“Ministering Spirits: The Rules of Engagement,”</strong> focuses on understanding the divine purpose and operations of angels in the life and ministry of a believer.</div>
+                    <div class="acb-two acb">Ministering in this conference is our senior pastors, Apostle T.D. Philips, Pastor Theo’Pistis Danjuma, and other ministers of God. Join us for four days of inspiring teachings, worship sessions, and fellowship in the spirit and by the spirit.</div>
+                    <div class="acb" style="padding-top: 15px;">The Spirit says come!</div>
+                    <div class="second-btn">
+                        <button style="color: white; text-decoration: none;" class="openPopupBtn" id="openPopupBtn">Register Now</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="third-container">
+            <div class="first-info" style="margin-bottom: 1rem;">You Can't Afford to Miss This</div>
+            <div class="details" style="color: rgb(219, 56, 56); padding-top: 4px;">Conference Details</div>
+            <div class="address-one" style="margin-top: 1rem;">The GodHouse Centre Warri</div>
+            <div class="address-two" style="padding-bottom: 4px;">2, Indian Street, beside Mansal Hotel, Jakpa Road, Warri-Effurun, Delta State, Nigeria </div>
+            <div class="conference-day">
+                <box-icon type='solid' name='calendar'></box-icon>
+                <div style="padding-top: 15px;">{{ wwc.date|format_with_suffix }} - {{ wwc.end_date|format_with_suffix }}</div>
+            </div>
+            {% for schedule in wwc.schedule.all %}
+                <div class="session" style="padding-top: 10px;"> 
+                    <box-icon name='time-five'></box-icon>  
+                    <div class="m-s">{{ schedule.session }}</div>
+                </div>
+            {% endfor %}
+            <div class="second-btn">
+                <button style="color: white;" id="openPopupBtn" class="openPopupBtn">Register Now</button>
+            </div>
+
+        </div>
+
+        <!-- Alone start -->
+        <div class="photo-gallery">PHOTO GALLERY</div>
+        <!-- Alone end -->
+
+        <!-- forth container start-->
+        <div class="first-wrapper">
+            <div class="wrapper">
+                <i id="left" class="fa-solid fa-angle-left"></i>
+                <div class="carousel">
+                    {% for image in wwc.slide_image.all %}
+                        <img src="{{ image.image.url }}" alt="img" draggable="false">
+                    {% endfor %}
+                </div>
+                <i id="right" class="fa-solid fa-angle-right"></i>
+             </div>
+        </div>
+
+        <!-- forth container end-->
+        
+
+        <!-- footer start -->
+         <footer>
+            <div class="more-enquires">For more enquiries, kindly send an email to <a style="text-decoration: none;" href="mailto:info@godhouse.org">info@godhouse.org</a></div>
+            <div class="call">
+                <p>or call +2347035763148 , +2349871511979</p>
+            </div>
+            <div class="copywright" style="padding-top: 10px;">© 2025 Whole Word Conference. All rights reserved.</div>
+         </footer>
+        <!-- footer end -->
+
+    </div>
+    <div id="popup" class="popup-overlay">
+        <div class="popup-content large">
+            <span class="close-btn" id="closePopupBtn">&times;</span>
+            <section class="container form-container">
+                <div class="registration-image-container">
+                       WHOLE WORD CONFERENCE
+                </div>
+                <form action="{% url 'core:register' %}" class="form" id="wwcRegisterForm" method="POST">
+                  {% csrf_token %}
+                  <div class="input-box">
+                    <label>First Name</label>
+                    <input type="text" placeholder="Enter first name"  name="fname" required />
+                  </div>
+          
+                  <div class="input-box">
+                    <label>Last Name</label>
+                    <input type="text" placeholder="Enter last name" name="lname"  required />
+                  </div>
+          
+                  <div class="input-box">
+                    <label>Email Address</label>
+                    <input type="text" placeholder="Enter email address" name="email"required />
+                  </div>
+          
+                  <div class="column">
+                    <div class="input-box">
+                      <label>Phone Number</label>
+                      <input type="number" placeholder="Enter phone number" name="phone" required />
+                    </div>
+                  </div>
+          
+                  <div class="column">
+                      <div class="input-box">
+                        <label style="margin-top: 2rem;">Address/Location</label>
+                        <input type="text" placeholder="Enter Location" name="address" required />
+                      </div>
+                    </div>
+          
+                  <div class="input-box address">
+                      <label for="ministry-select" class="visually-hidden">Select Ministry</label>
+                      <div class="column">
+                          <div class="select-box">
+                            <select id="ministry-select" onchange="showAdditionalOptions()" name="ministry">
+                              <option hidden>Select Ministry</option>
+                              <option>Godhouse Center</option>
+                              <option>Other</option>
+                            </select>
+                          </div>
+                        
+                          <!-- Additional options for Godhouse Center -->
+                          <div id="godhouse-options" style="display: none; margin-top: 10px;">
+                              <label for="godhouse-suboption" style="color: red;">Godhouse Center Options:</label>
+                              <select class="select-an-option" required id="godhouse-suboption"  name="godhouse-location">
+                                <option value="" hidden >Choose your centre</option>
+                                {% for location in locations %}
+                                    <option name="{{ location.name }}" style="border: 1px solid blue; width 100%;">{{ location.name }}</option>
+                                {% endfor %}
+                              </select>
+                          </div>
+            
+                        
+                          <!-- Input field for "Other" option -->
+                          <div id="other-input" style="display: none;">
+                            <label for="other-text">Please specify:</label>
+                            <input style="margin-top: 2px; height: 57%;" type="text" id="other-text" name="local_church" placeholder="Enter other ministry">
+                          </div>
+                      </div>
+          
+                    </div>
+          
+                    <div class="column">
+                      <div class="select-box">
+                        <select name="ministry-status">
+                          <option hidden>Ministry Status</option>
+                          <option>Pastor</option>
+                          <option>Minister</option>
+                          <option>Leaders</option>
+                          <option>Workers</option>
+                          <option>Members</option>
+                        </select>
+                      </div>
+                  </div>
+          
+                  <div class="column">
+                      <div class="select-box">
+                        <select name="know">
+                          <option hidden>How did you know about WWC</option>
+                          <option>Godhouse</option>
+                          <option>Banner/Billboard</option>
+                          <option>Fliers</option>
+                          <option>Social media</option>
+                          <option>Invited</option>
+                          <option>Others</option>
+                        </select>
+                      </div>
+                  </div>
+          
+                  <div class="column">
+                      <div class="select-box">
+                        <select name="attending">
+                          <option hidden>How will you be attending</option>
+                          <option>Online</option>
+                          <option>Physical</option>
+                        </select>
+                      </div>
+                  </div>
+          
+                  <div class="column">
+                      <div class="select-box">
+                        <select class="select-box" name="need">
+                          <option hidden>Would You need Accomodation</option>
+                          <option>Yes</option>
+                          <option>No</option>
+                        </select>
+                      </div>
+                  </div>
+                  <div id="formMessage" style="margin-top: 10px;"></div>
+                  <button  type="submit">Submit</button>
+                </form>
+              </section>
+        </div>
+    </div>
+    <!-- Boxi icon Link -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <!-- Boxi icon Link -->
+     
+    <!--SCROOL REVEAL-->
+   <script src="https://unpkg.com/scrollreveal"></script>
+   <!--SCROOL REVEAL-->
+   
+   <script>    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Rotating text animation
+        const items = document.querySelectorAll('.text-item');
+        let currentIndex = 0;
+
+        function rotateText() {
+            const currentItem = items[currentIndex];
+            const nextIndex = (currentIndex + 1) % items.length;
+            const nextItem = items[nextIndex];
+
+            currentItem.classList.remove('active');
+            currentItem.classList.add('next');
+            nextItem.classList.add('active');
+
+            setTimeout(() => {
+                currentItem.classList.remove('next');
+            }, 500);
+
+            currentIndex = nextIndex;
+        }
+
+        setInterval(rotateText, 2500);
+
+        // Open popup for all buttons
+        //const openButtons = document.querySelectorAll('#openPopupBtn');
+        const openButtons = document.querySelectorAll('.openPopupBtn');
+
+        const popup = document.getElementById('popup');
+        const closeBtn = document.getElementById('closePopupBtn');
+
+        openButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                popup.style.display = 'flex';
+                document.body.style.overflow = 'scroll'; // optional: prevent background scroll
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            popup.style.display = 'none';
+            document.body.style.overflow = ''; // reset scroll
+        });
+
+        // Optional: close popup when clicking outside the content
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+    });
+
+    // COUNTDOWN CODE
+    const startDate = new Date("{{ wwc.date|date:'F d, Y' }} 09:00:00").getTime();
+    const endDate = new Date("{{ wwc.end_date|date:'F d, Y' }} 18:00:00").getTime();  // Adjust time if needed
+    function updateCountdown() {
+        const now = new Date().getTime();
+    
+        if (now < startDate) {
+            const timeLeft = startDate - now;
+    
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    
+            document.getElementById("days").textContent = days >= 0 ? days : 0;
+            document.getElementById("hours").textContent = hours >= 0 ? hours : 0;
+            document.getElementById("minutes").textContent = minutes >= 0 ? minutes : 0;
+            document.getElementById("seconds").textContent = seconds >= 0 ? seconds : 0;
+        } else if (now >= startDate && now <= endDate) {
+            document.querySelector(".countdown").innerHTML = `<p>The event has started! <a href="/wholewordtv/">Join Us Here!</a></p>`;
+            clearInterval(timer);
+        } else if (now > endDate) {
+            document.querySelector(".countdown").innerHTML = `<p>The event has ended! <a href="/events/">See Upcoming Events!</a></p>`;
+            clearInterval(timer);
+        }
+    }
+    
+    const timer = setInterval(updateCountdown, 1000);
+
+
+    /* SLIDER START */
+    const carousel = document.querySelector(".carousel"),
+    firstImg = carousel.querySelectorAll("img")[0],
+    arrowIcons = document.querySelectorAll(".wrapper i");
+
+    let isDragStart = false, isDragging = false, prevPageX, prevScrollLeft, positionDiff;
+
+    const showHideIcons = () => {
+        // showing and hiding prev/next icon according to carousel scroll left value
+        let scrollWidth = carousel.scrollWidth - carousel.clientWidth; // getting max scrollable width
+        arrowIcons[0].style.display = carousel.scrollLeft == 0 ? "none" : "block";
+        arrowIcons[1].style.display = carousel.scrollLeft == scrollWidth ? "none" : "block";
+    }
+
+    arrowIcons.forEach(icon => {
+        icon.addEventListener("click", () => {
+            let firstImgWidth = firstImg.clientWidth + 14; // getting first img width & adding 14 margin value
+            // if clicked icon is left, reduce width value from the carousel scroll left else add to it
+            carousel.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
+            setTimeout(() => showHideIcons(), 60); // calling showHideIcons after 60ms
+        });
+    });
+
+    const autoSlide = () => {
+        // if there is no image left to scroll then return from here
+        if(carousel.scrollLeft - (carousel.scrollWidth - carousel.clientWidth) > -1 || carousel.scrollLeft <= 0) return;
+
+        positionDiff = Math.abs(positionDiff); // making positionDiff value to positive
+        let firstImgWidth = firstImg.clientWidth + 14;
+        // getting difference value that needs to add or reduce from carousel left to take middle img center
+        let valDifference = firstImgWidth - positionDiff;
+
+        if(carousel.scrollLeft > prevScrollLeft) { // if user is scrolling to the right
+            return carousel.scrollLeft += positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
+        }
+        // if user is scrolling to the left
+        carousel.scrollLeft -= positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
+    }
+
+    const dragStart = (e) => {
+        // updatating global variables value on mouse down event
+        isDragStart = true;
+        prevPageX = e.pageX || e.touches[0].pageX;
+        prevScrollLeft = carousel.scrollLeft;
+    }
+
+    const dragging = (e) => {
+        // scrolling images/carousel to left according to mouse pointer
+        if(!isDragStart) return;
+        e.preventDefault();
+        isDragging = true;
+        carousel.classList.add("dragging");
+        positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
+        carousel.scrollLeft = prevScrollLeft - positionDiff;
+        showHideIcons();
+    }
+
+    const dragStop = () => {
+        isDragStart = false;
+        carousel.classList.remove("dragging");
+
+        if(!isDragging) return;
+        isDragging = false;
+        autoSlide();
+    }
+
+    carousel.addEventListener("mousedown", dragStart);
+    carousel.addEventListener("touchstart", dragStart);
+
+    document.addEventListener("mousemove", dragging);
+    carousel.addEventListener("touchmove", dragging);
+
+    document.addEventListener("mouseup", dragStop);
+    carousel.addEventListener("touchend", dragStop);
+
+    /* SLIDER END */
+
+
+    /* Scrool reveal.js start */
+    const ln = ScrollReveal ({
+        distance: '65px',
+        duration: 2600,
+        delay: 450,
+        reset: true
+    });
+
+    ln.reveal('.first-header-section',{delay:200, origin:'top'});
+    ln.reveal('.countdown',{delay:450, origin:'bottom'});
+    ln.reveal('.third-container',{delay:450, origin:'bottom'});
+    ln.reveal('.first-wrapper',{delay:450, origin:'bottom'});
+    ln.reveal('.photo-gallery',{delay:450, origin:'bottom'});
+    ln.reveal('.sliding-btn',{delay:300, origin:'left'});
+    ln.reveal('.awc-img-container',{delay:300, origin:'left'});
+    ln.reveal('.awc-content-box',{delay:300, origin:'right'});
+    ln.reveal('.about-wwc',{delay:450, origin:'top'})
+    /* Scrool reveal.js end */
+    function showAdditionalOptions() {
+        const ministrySelect = document.getElementById('ministry-select');
+        const godhouseOptions = document.getElementById('godhouse-options');
+        const otherInput = document.getElementById('other-input');
+    
+        // Display specific field based on selected option
+        if (ministrySelect.value === 'Godhouse Center') {
+          godhouseOptions.style.display = 'block';
+          otherInput.style.display = 'none';
+        } else if (ministrySelect.value === 'Other') {
+          otherInput.style.display = 'block';
+          godhouseOptions.style.display = 'none';
+        } else {
+          godhouseOptions.style.display = 'none';
+          otherInput.style.display = 'none';
+        }
+    }
+    
+    // Function to show additional options based on ministry selection
+     function showAdditionalOptions() {
+        const ministrySelect = document.getElementById('ministry-select');
+        const godhouseOptions = document.getElementById('godhouse-options');
+        const otherInput = document.getElementById('other-input');
+        const godhouseSuboption = document.getElementById('godhouse-suboption');
+        const otherTextInput = document.getElementById('other-text');
+    
+        // Reset fields
+        godhouseOptions.style.display = 'none';
+        otherInput.style.display = 'none';
+        godhouseSuboption.removeAttribute('required');
+        otherTextInput.removeAttribute('required');
+    
+        // Show and set requirements based on selection
+        if (ministrySelect.value === 'Godhouse Center') {
+          godhouseOptions.style.display = 'block';
+          godhouseSuboption.setAttribute('required', 'required');
+        } else if (ministrySelect.value === 'Other') {
+          otherInput.style.display = 'block';
+          otherTextInput.setAttribute('required', 'required');
+        }
+      }
+    
+      // Form validation on submit
+    document.getElementById('ministry-form').addEventListener('submit', function(event) {
+        const ministrySelect = document.getElementById('ministry-select');
+        const godhouseOptions = document.getElementById('godhouse-options');
+        const godhouseSuboption = document.getElementById('godhouse-suboption');
+        const otherInput = document.getElementById('other-input');
+        const otherTextInput = document.getElementById('other-text');
+    
+        // Check if ministry is selected
+        if (!ministrySelect.value) {
+          alert('Please select a ministry.');
+          event.preventDefault();
+          return;
+        }
+    
+        // Validate Godhouse Center Options
+        if (ministrySelect.value === 'Godhouse Center' && !godhouseSuboption.value) {
+          alert('Please select a Godhouse Center option.');
+          event.preventDefault();
+          return;
+        }
+    
+        // Validate Other Ministry
+        if (ministrySelect.value === 'Other' && !otherTextInput.value.trim()) {
+          alert('Please specify the other ministry.');
+          event.preventDefault();
+          return;
+        }
+    });
+   </script>
+   <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('wwcRegisterForm');
+  const messageBox = document.getElementById('formMessage');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    e.innerHTML = `Submitting..`;
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+      body: formData,
+    })
+    .then(response => {
+      if (!response.ok) {
+        return response.json().then(data => {
+          throw new Error(data.error || 'An error occurred');
+        });
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data.redirect_url) {
+        window.location.href = data.redirect_url;
+      } else {
+        messageBox.innerHTML = `<p style="color: green;">Form submitted, but no redirect URL provided.</p>`;
+      }
+    })
+    .catch(error => {
+      messageBox.innerHTML = `<p style="color: red;">${error.message}</p>`;
+    });
+  });
+});
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+.blog-container{
+    width: 100%;
+    display: grid;
+    grid-template-areas: 
+    'big small'
+    'big small1'
+    'big small2';
+    gap: 1rem;
+    justify-content: space-evenly;
+}
+
+.blog-container .grid-item{
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    margin: 0px;
+}
+
+.blog-container .one{
+    grid-area: big;
+}
+
+.blog-container .two{
+    grid-area: small;
+}
+
+.blog-container .three{
+    grid-area: small1;
+}
+
+.blog-container .four{
+    grid-area: small2;
+}
+
+.blog-container h2{
+    font-size: 1rem;
+    margin-left: 1rem;
+}
+
+.blog-container a{
+    margin-left: 1rem;
+    color: red;
+    text-decoration: none;
+}
+
+.blog-container .small{
+    display: flex;
+    align-items: center;
+}
+
+.blog-container img{
+    width: 100%;
+    height: 30rem;
+    object-fit: contain;
+}
+
+.blog-container .small img{
+    height: 90%;
+    width: 50%;
+    margin-right: 3rem;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 450px) {
+    .blog-container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 0;
+    }
+
+    .blog-container .grid-item{
+        text-align: center;
+    }
+
+    .blog-container .small{
+        flex-direction: column;
+    }
+
+    .blog-container img{
+        width: 100% !important;
+        height: 10rem !important;
+        object-fit: contain;
+        margin: 0 !important;
+    }
+
+    .blog-container span{
+        width: 99%;
+
+    }
+
+    .blog-container a{
+        width: 100dvh;
+    }
+}
