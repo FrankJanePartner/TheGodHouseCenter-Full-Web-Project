@@ -106,7 +106,6 @@ CORS_ALLOWED_ORIGINS = [
     "https://www.wholewordtv.godhouse.org",
     "https://rvc.godhouse.org",
     "https://www.rvc.godhouse.org",
-    "https://rvc2026.godhouse.org",
 ]
 if DEBUG:
     CORS_ALLOWED_ORIGINS += ["http://localhost:5173", "http://127.0.0.1:5173", "http://127.0.0.1:8080"]

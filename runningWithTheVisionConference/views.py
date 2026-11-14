@@ -26,7 +26,7 @@ def _send_registration_confirmation(registration):
                 f"Hello {registration.firstName},\n\n"
                 "Congratulations, you are RVC-bound! Your registration for Running with the Vision "
                 "Conference 2026 is confirmed.\n\n"
-                "Visit https://rvc2026.godhouse.org for conference details. For questions or "
+                "Visit https://rvc.godhouse.org for conference details. For questions or "
                 "accommodation enquiries, email rvc@godhouse.org.\n\n"
                 "See you soon,\nThe Godhouse Missions International"
             ),

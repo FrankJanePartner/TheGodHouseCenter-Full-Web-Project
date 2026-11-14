@@ -47,13 +47,26 @@ class RegistrationAPITests(APITestCase):
         self.assertEqual(message.to, [self.payload["email"]])
         self.assertEqual(message.subject, "Registration Confirmed: You're RVC-bound!")
         self.assertIn("Hello Ada & Co,", message.body)
+        self.assertIn("https://rvc.godhouse.org", message.body)
         html, content_type = message.alternatives[0]
         self.assertEqual(content_type, "text/html")
         self.assertIn("Hello Ada &amp; Co,", html)
         self.assertIn("Congratulations, you are RVC-bound!", html)
         self.assertIn("Thank you for registering for RVC 2026.", html)
-        self.assertIn('href="https://rvc2026.godhouse.org"', html)
+        self.assertIn('href="https://rvc.godhouse.org"', html)
         self.assertIn('href="mailto:info@godhouse.org"', html)
+
+    def test_registration_cors_preflight_accepts_current_and_rejects_retired_origin(self):
+        origin = "https://rvc.godhouse.org"
+        headers = {"HTTP_ACCESS_CONTROL_REQUEST_METHOD": "POST"}
+        accepted = self.client.options(self.url, HTTP_ORIGIN=origin, **headers)
+        self.assertEqual(accepted.status_code, 200)
+        self.assertEqual(accepted.headers.get("Access-Control-Allow-Origin"), origin)
+
+        retired = self.client.options(
+            self.url, HTTP_ORIGIN="https://rvc2026.godhouse.org", **headers
+        )
+        self.assertNotIn("Access-Control-Allow-Origin", retired.headers)
 
     def test_mail_failure_keeps_registration_and_reports_no_email(self):
         with patch("django.core.mail.EmailMessage.send", side_effect=SMTPException("mail unavailable")):
