@@ -1,10 +1,7 @@
 import os
 from pathlib import Path
-from datetime import timedelta
+
 import environ
-import psycopg2
-from psycopg2 import OperationalError
-import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -18,32 +15,26 @@ env = environ.Env()
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure--ii!=x!r*thwn+^g%@3o(d#c@@g@w6uy507hbn&55$901^v=@m"
-# SHIPBUBBLE_API_KEY = env('SHIPBUBBLE_API_KEY')
+SECRET_KEY = env("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env.bool("DJANGO_DEBUG", default=False)
 
 SITE_ID = 1
 
-ALLOWED_HOSTS = [
-    # Add allowed hostnames or IP addresses here
-     'godhouse.org',
-     'www.godhouse.org',
-     'https://godhouse.org',
-     'https://www.godhouse.org',
-     'mail.godhouse.org',
-     'localhost:8000',
-     'localhost',
-]
+ALLOWED_HOSTS = env.list(
+    "DJANGO_ALLOWED_HOSTS",
+    default=["godhouse.org", "www.godhouse.org", "mail.godhouse.org", "localhost", "127.0.0.1"],
+)
 
-# Email configuration for Gmail SMTP
-# SECURITY WARNING: Consider using environment variables for sensitive information
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'missionsgodhouse@gmail.com'
-EMAIL_HOST_PASSWORD = 'qmpo qyzq iyvy dubc'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# Email configuration shared with the existing church apps.
+EMAIL_HOST = env("EMAIL_HOST", default="smtp.gmail.com")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER", default="")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD", default="")
+EMAIL_PORT = env.int("EMAIL_PORT", default=587)
+EMAIL_USE_TLS = env.bool("EMAIL_USE_TLS", default=True)
+EMAIL_TIMEOUT = 10
+DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL", default=EMAIL_HOST_USER or "webmaster@localhost")
+EMAIL_BACKEND = env("EMAIL_BACKEND", default="django.core.mail.backends.smtp.EmailBackend")
 
 
 # Application definition
@@ -115,7 +106,10 @@ CORS_ALLOWED_ORIGINS = [
     "https://www.wholewordtv.godhouse.org",
     "https://rvc.godhouse.org",
     "https://www.rvc.godhouse.org",
+    "https://rvc2026.godhouse.org",
 ]
+if DEBUG:
+    CORS_ALLOWED_ORIGINS += ["http://localhost:5173", "http://127.0.0.1:5173", "http://127.0.0.1:8080"]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://wholewordtv.godhouse.org",
@@ -156,22 +150,14 @@ WSGI_APPLICATION = 'TheGodHouseCenter.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': env("DJANGO_DB_PATH", default=str(BASE_DIR / "db.sqlite3")),
     }
 }
 
-CSRF_COOKIE_SECURE = True   # True in production
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
 CSRF_COOKIE_HTTPONLY = False
 CSRF_COOKIE_SAMESITE = "Lax"
-
-
-#DATABASES = {
-#    "default": dj_database_url.config(
-#        default=env("SUPABASE_DB_URL"),
-#        conn_max_age=600,
-#        ssl_require=True
-#    )
-#}
 
 
 # Password validation
@@ -268,26 +254,6 @@ CELERY_TIMEZONE = 'UTC'
 # LOGIN_REDIRECT_URL = "/wholewordtv/"
 
 
-
-# Social account providers with app credentials loaded from environment variables
-
-
-# SOCIALACCOUNT_PROVIDERS = {
-#     "google": {
-#         "APP": {
-#             "client_id": "547988421723-o7d92bh1vf7cqb670dkf823m8dspqv87.apps.googleusercontent.com",
-#             "secret": "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",
-#             "key": ""
-#         },
-#         "SCOPE": [
-#             "profile",
-#             "email",
-#         ],
-#         "AUTH_PARAMS": {
-#             "access_type": "online",
-#         },
-#     }
-# }
 
 # REST_FRAMEWORK = {
 #     "DEFAULT_AUTHENTICATION_CLASSES": [

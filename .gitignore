@@ -197,6 +197,7 @@ tempFolder/
 # Ignore all migration files except __init__.py
 **/migrations/*.py
 !**/migrations/__init__.py
+!/runningWithTheVisionConference/migrations/*.py
 
 # .env
 # .env.ex

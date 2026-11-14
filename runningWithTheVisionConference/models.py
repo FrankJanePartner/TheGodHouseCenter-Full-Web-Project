@@ -29,6 +29,7 @@ class Registration(models.Model):
     attendanceType = models.CharField(max_length=10, choices=ATTENDANCE_TYPE_CHOICES, blank=True)
     accommodation = models.CharField(max_length=3, choices=ACCOMMODATION_CHOICES, blank=True)
 
+    registration_email_key = models.CharField(max_length=64, unique=True, null=True, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

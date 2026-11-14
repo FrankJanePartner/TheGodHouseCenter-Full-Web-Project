@@ -11,7 +11,7 @@ class RegistrationAdmin(admin.ModelAdmin):
     
     def export_as_csv(self, request, queryset):
         meta = self.model._meta
-        fieldnames = [field.name for field in meta.fields]
+        fieldnames = [field.name for field in meta.fields if field.name != "registration_email_key"]
         response = HttpResponse(content_type='text/csv')
         response['Content-Disposition'] = 'attachment; filename={}.csv'.format(meta)
         
