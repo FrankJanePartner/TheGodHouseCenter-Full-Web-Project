@@ -198,6 +198,7 @@ tempFolder/
 **/migrations/*.py
 !**/migrations/__init__.py
 !/runningWithTheVisionConference/migrations/*.py
+!/WholeWordTv/migrations/*.py
 
 # .env
 # .env.ex

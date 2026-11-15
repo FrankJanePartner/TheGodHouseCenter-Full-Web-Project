@@ -36,6 +36,12 @@ EMAIL_TIMEOUT = 10
 DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL", default=EMAIL_HOST_USER or "webmaster@localhost")
 EMAIL_BACKEND = env("EMAIL_BACKEND", default="django.core.mail.backends.smtp.EmailBackend")
 
+WWTV_FRONTEND_URL = env("WWTV_FRONTEND_URL", default="https://wholewordtv.godhouse.org")
+WWTV_GOOGLE_CLIENT_ID = env("WWTV_GOOGLE_CLIENT_ID", default="")
+WWTV_GOOGLE_CLIENT_SECRET = env("WWTV_GOOGLE_CLIENT_SECRET", default="")
+WWTV_GOOGLE_REDIRECT_URI = env("WWTV_GOOGLE_REDIRECT_URI", default="")
+WWTV_PARTNERSHIP_NOTIFICATION_EMAIL = env("WWTV_PARTNERSHIP_NOTIFICATION_EMAIL", default="")
+
 
 # Application definition
 # This list includes built-in Django apps, custom project apps, and third-party apps
@@ -117,6 +123,8 @@ CSRF_TRUSTED_ORIGINS = [
     "https://rvc.godhouse.org",
     "https://www.rvc.godhouse.org",
 ]
+if DEBUG:
+    CSRF_TRUSTED_ORIGINS += ["http://127.0.0.1:8080"]
 
 
 

@@ -1,355 +1,300 @@
-from rest_framework import viewsets, status
-from rest_framework.decorators import api_view, permission_classes, action
-from rest_framework.permissions import IsAuthenticated, AllowAny
-from rest_framework.response import Response
-from django.contrib.auth.models import User
-from django.utils import timezone
-from .models import (
-    ChatRoom,
-    Message,
-    WholeWordPartner,
-    NextLive,
-    CurrentSeries,
-    ChatUsers,
-    MessageReads,
-    UserPresence,
-)
-from .serializers import (
-    WholeWordPartnersSerializer,
-    NextLiveSerializer,
-    CurrentSeriesSerializer,
-    ChatRoomSerializer,
-    MessageSerializer,
-    ChatUsersSerializer,
-    MessageReadsSerializer,
-    UserPresenceSerializer,
-)
-from rest_framework.response import Response as DRFResponse
-from django.core.mail import send_mail, EmailMultiAlternatives
+import logging
+from datetime import timedelta
+from smtplib import SMTPException
+
 from django.conf import settings
-from django.template import loader
-from rest_framework import filters
-from typing import Any
-from rest_framework.request import Request
-from rest_framework.authtoken.models import Token
-from django.contrib.auth import get_user_model
+from django.core.mail import EmailMultiAlternatives, send_mail
+from django.middleware.csrf import rotate_token
+from django.shortcuts import get_object_or_404
+from django.template import TemplateDoesNotExist
+from django.template.loader import render_to_string
+from django.utils import timezone
+from django.views.decorators.cache import never_cache
+from rest_framework import status, viewsets
+from rest_framework.authentication import SessionAuthentication
+from rest_framework.decorators import action, api_view, authentication_classes, permission_classes, throttle_classes
+from rest_framework.exceptions import PermissionDenied
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
+from rest_framework.throttling import AnonRateThrottle
+
+from .chat_auth import CHAT_SESSION_KEY, attach_chat_session, chat_user, require_chat_user, session_payload
+from .models import ChatRoom, ChatUsers, CurrentSeries, Message, NextLive, UserPresence
+from .serializers import (
+    ChatRoomSerializer,
+    ChatUserSerializer,
+    CurrentSeriesSerializer,
+    GuestLoginSerializer,
+    MessageContentSerializer,
+    MessageSerializer,
+    MessageUpdateSerializer,
+    NextLiveSerializer,
+    PresenceSerializer,
+    WholeWordPartnersSerializer,
+)
 
 
-User = get_user_model()
+logger = logging.getLogger(__name__)
+RECENT_MESSAGE_LIMIT = 100
+PRESENCE_LIFETIME = timedelta(seconds=60)
+TYPING_LIFETIME = timedelta(seconds=12)
 
 
-@api_view(["POST"])
-@permission_classes([AllowAny])
-def guest_login(request):
-    """Register guest user and return Token"""
-    try:
-        username = request.data.get("username")
-        email = request.data.get("email")
-
-        if not username or not email:
-            return Response(
-                {"error": "Username and email are required"},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
-
-        # Check if user exists
-        user, created = User.objects.get_or_create(
-            email=email,
-            defaults={
-                "username": username,
-                "first_name": username,
-                "password": None,  # no password for guest
-            },
-        )
-
-        # Get or create token
-        token, _ = Token.objects.get_or_create(user=user)
-
-        return Response(
-            {
-                "token": token.key,
-                "user": {
-                    "id": user.id,
-                    "username": user.username,
-                    "email": user.email,
-                },
-            }
-        )
-    except Exception as e:
-        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+class GuestThrottle(AnonRateThrottle):
+    rate = "20/hour"
+    scope = "wwtv-guest"
 
 
-@api_view(["GET", "POST"])
-@permission_classes([AllowAny])  # AllowAny for GET, IsAdminUser for POST
-def chat_status(request):
-    """Get or set chat status"""
-    try:
-        room, created = ChatRoom.objects.get_or_create(name="Main Chat")
-
-        if request.method == "GET":
-            return Response({"is_on": room.is_active, "room_id": room.id})
-
-        elif request.method == "POST":
-            # Only authenticated users (admins) should be able to change status
-            if not request.user.is_authenticated or not request.user.is_staff:
-                return Response(
-                    {"error": "Authentication required to change chat status"},
-                    status=status.HTTP_401_UNAUTHORIZED,
-                )
-
-            new_status = request.data.get("is_on")
-            if new_status is None:
-                return Response(
-                    {"error": "'is_on' parameter is required"},
-                    status=status.HTTP_400_BAD_REQUEST,
-                )
-
-            room.is_active = new_status
-            room.save()
-
-            if not new_status:  # If chat is being turned off, wipe messages
-                Message.objects.filter(room=room).delete()
-
-            return Response(
-                {
-                    "is_on": room.is_active,
-                    "room_id": room.id,
-                    "message": "Chat status updated",
-                }
-            )
-
-    except Exception as e:
-        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+class PartnershipThrottle(AnonRateThrottle):
+    rate = "10/hour"
+    scope = "wwtv-partnership"
 
 
+@never_cache
 @api_view(["GET"])
-@permission_classes([IsAuthenticated])
+@authentication_classes([])
+@permission_classes([AllowAny])
 def current_user(request):
-    """Get current user info"""
-    return Response(
-        {
-            "id": request.user.id,
-            "username": request.user.username,
-            "email": request.user.email,
-        }
+    return Response(session_payload(request, chat_user(request)))
+
+
+@never_cache
+@api_view(["POST"])
+@authentication_classes([])
+@permission_classes([AllowAny])
+@throttle_classes([GuestThrottle])
+def guest_login(request):
+    SessionAuthentication().enforce_csrf(request)
+    serializer = GuestLoginSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    values = serializer.validated_data
+
+    # An unverified address is contact information only and cannot identify an existing account.
+    user = ChatUsers.objects.create(fullname=values["fullname"], contact_email=values["email"])
+    attach_chat_session(request, user)
+    return Response(session_payload(request, user), status=status.HTTP_201_CREATED)
+
+
+@never_cache
+@api_view(["POST"])
+@authentication_classes([])
+@permission_classes([AllowAny])
+def logout(request):
+    SessionAuthentication().enforce_csrf(request)
+    user_id = request.session.pop(CHAT_SESSION_KEY, None)
+    if user_id is not None:
+        UserPresence.objects.filter(chat_user_id=user_id).update(is_online=False, is_typing=False)
+        request.session.cycle_key()
+        rotate_token(request)
+    return Response(session_payload(request, None))
+
+
+@never_cache
+@api_view(["GET"])
+@authentication_classes([])
+@permission_classes([AllowAny])
+def chat_status(request):
+    room_id = (
+        ChatRoom.objects.filter(is_active=True).order_by("pk").values_list("pk", flat=True).first()
     )
-
-
-# Chat Room List/Detail Views
-@api_view(["GET"])
-@permission_classes([AllowAny])
-def ChatRoomList(request):
-    """List all chat rooms"""
-    rooms = ChatRoom.objects.all()
-    serializer = ChatRoomSerializer(rooms, many=True)
-    return Response(serializer.data)
+    return Response({"is_on": room_id is not None, "room_id": room_id})
 
 
 @api_view(["GET"])
+@authentication_classes([])
 @permission_classes([AllowAny])
-def ChatRoomDetail(request, pk):
-    """Get specific chat room"""
-    try:
-        room = ChatRoom.objects.get(pk=pk)
-        serializer = ChatRoomSerializer(room)
-        return Response(serializer.data)
-    except ChatRoom.DoesNotExist:
-        return Response(
-            {"error": "Chat room not found"}, status=status.HTTP_404_NOT_FOUND
-        )
+def chat_room_list(request):
+    return Response(ChatRoomSerializer(ChatRoom.objects.order_by("pk"), many=True).data)
 
 
-# Chat Message Views
+@api_view(["GET"])
+@authentication_classes([])
+@permission_classes([AllowAny])
+def chat_room_detail(request, pk):
+    return Response(ChatRoomSerializer(get_object_or_404(ChatRoom, pk=pk)).data)
+
+
+@never_cache
 @api_view(["GET", "POST"])
+@authentication_classes([])
 @permission_classes([AllowAny])
-def ChatMessageList(request, room_id):
-    """List messages for a room or create a new message"""
-    try:
-        room = ChatRoom.objects.get(pk=room_id)
+def room_messages(request, room_id):
+    room = get_object_or_404(ChatRoom, pk=room_id, is_active=True)
+    if request.method == "GET":
+        recent = Message.objects.filter(room=room, hidden_at__isnull=True).order_by("-created_at", "-pk")
+        messages = list(recent[:RECENT_MESSAGE_LIMIT])
+        return Response(MessageSerializer(messages[::-1], many=True).data)
 
-        if request.method == "GET":
-            messages = Message.objects.filter(room=room).order_by("created_at")
-            serializer = MessageSerializer(messages, many=True)
-            return Response(serializer.data)
-
-        elif request.method == "POST":
-            content = request.data.get("content")
-            username = request.data.get(
-                "username", "Anonymous"
-            )  # Use provided username
-
-            if not content:
-                return Response(
-                    {"error": "Message content is required"},
-                    status=status.HTTP_400_BAD_REQUEST,
-                )
-
-            message = Message.objects.create(
-                room=room,
-                content=content,
-                username=username,
-                user=None,  # Do not link to Django User object
-            )
-            serializer = MessageSerializer(message)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-    except ChatRoom.DoesNotExist:
-        return Response(
-            {"error": "Chat room not found"}, status=status.HTTP_404_NOT_FOUND
-        )
-    except Exception as e:
-        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    user = require_chat_user(request)
+    if user.is_muted:
+        raise PermissionDenied("Your account is muted in chat.")
+    serializer = MessageContentSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    message = Message.objects.create(
+        room=room,
+        content=serializer.validated_data["content"],
+        username=user.fullname[:100],
+        chat_user=user,
+    )
+    return Response(MessageSerializer(message).data, status=status.HTTP_201_CREATED)
 
 
-@api_view(["GET", "PUT", "DELETE"])
+def visible_message(message_id):
+    return get_object_or_404(Message, pk=message_id, room__is_active=True, hidden_at__isnull=True)
+
+
+@never_cache
+@api_view(["GET", "PATCH", "DELETE"])
+@authentication_classes([])
 @permission_classes([AllowAny])
-def ChatMessageDetail(request, pk):
-    """Get specific message"""
-    try:
-        message = Message.objects.get(pk=pk)
-        serializer = MessageSerializer(message)
-        return Response(serializer.data)
-    except Message.DoesNotExist:
-        return Response(
-            {"error": "Message not found"}, status=status.HTTP_404_NOT_FOUND
-        )
+def message_detail(request, pk):
+    if request.method == "DELETE":
+        return hide_chat_message(request, pk)
+    message = visible_message(pk)
+    if request.method == "GET":
+        return Response(MessageSerializer(message).data)
+
+    user = require_chat_user(request)
+    serializer = MessageUpdateSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    values = serializer.validated_data
+    if "pinned" in values:
+        if not user.is_admin:
+            raise PermissionDenied("Only chat moderators can pin messages.")
+        message.pinned = values["pinned"]
+        message.save(update_fields=["pinned", "updated_at"])
+    else:
+        if message.chat_user_id != user.pk or user.is_muted:
+            raise PermissionDenied("Only the author can edit this message when allowed to post.")
+        message.content = values["content"]
+        message.edited_at = timezone.now()
+        message.save(update_fields=["content", "edited_at", "updated_at"])
+    return Response(MessageSerializer(message).data)
+
+
+def hide_chat_message(request, message_id):
+    require_chat_user(request, moderator=True)
+    message = visible_message(message_id)
+    message.hidden_at = timezone.now()
+    message.save(update_fields=["hidden_at", "updated_at"])
+    return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 @api_view(["DELETE"])
-@permission_classes([IsAuthenticated])
+@authentication_classes([])
+@permission_classes([AllowAny])
 def delete_message(request, message_id):
-    """Delete a message"""
-    return Response({"message": "Message deleted successfully"})
+    return hide_chat_message(request, message_id)
 
 
 @api_view(["POST"])
-@permission_classes([IsAuthenticated])
+@authentication_classes([])
+@permission_classes([AllowAny])
 def flag_message(request, message_id):
-    """Flag a message"""
-    return Response({"message": "Message flagged successfully"})
+    user = require_chat_user(request)
+    message = visible_message(message_id)
+    now = timezone.now()
+    Message.objects.filter(pk=message.pk, is_reported=False).update(
+        is_reported=True, reported_by=user, reported_at=now, updated_at=now
+    )
+    return Response({"message": "Message reported."})
 
 
-class WholeWordPartnerViewSet(viewsets.ModelViewSet):
-    queryset = WholeWordPartner.objects.all()
-    serializer_class = WholeWordPartnersSerializer
-
-    @action(detail=False, methods=["post"])
-    def submit(self, request):
-        serializer = self.get_serializer(data=request.data)
-        if serializer.is_valid():
-            partner = serializer.save()
-
-            # Send email to user with HTML template
-            user_email = partner.email
-            subject = "Thank you for partnering with WholeWord TV"
-            from_email = settings.DEFAULT_FROM_EMAIL
-            to = [user_email]
-            html_content = loader.render_to_string("wwt/PartnerEmail.html")
-            msg = EmailMultiAlternatives(subject, "", from_email, to)
-            msg.attach_alternative(html_content, "text/html")
-            msg.send(fail_silently=True)
-
-            # Send email to admin(s)
-            admin_emails = ["info.godhouse@gmail.com"]
-            send_mail(
-                "New Partnership Request",
-                f"""New partner: {partner.first_name} {partner.last_name}, \n
-                Email: {partner.email}\n
-                Phone Number: {partner.phone_number}\n
-                partnership Amount: {partner.currency}{partner.partnership_amount}\n""",
-                settings.DEFAULT_FROM_EMAIL,
-                admin_emails,
-                fail_silently=True,
-            )
-
-            return Response(
-                {"message": "Partnership request submitted successfully."},
-                status=status.HTTP_201_CREATED,
-            )
-        else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class CurrentSeriesViewSet(viewsets.ModelViewSet):
-    queryset = CurrentSeries.objects.all()
-    serializer_class = CurrentSeriesSerializer
-
-
-class NextLiveViewSet(viewsets.ModelViewSet):
-    serializer_class = NextLiveSerializer
-    filter_backends = [filters.OrderingFilter]
-    ordering_fields = ["datetime"]
-    ordering = ["datetime"]
-
-    def get_queryset(self) -> Any:
-        now = timezone.now()
-        return NextLive.objects.filter(datetime__gte=now).order_by("datetime")
-
-    # Additional action to get the next closest live service
-    @action(detail=False, methods=["get"])
-    def next_closest(self, request: Request) -> DRFResponse:
-        now = timezone.now()
-        one_hour_ago = now - timezone.timedelta(hours=1)
-
-        # Check for a live stream that started in the last hour
-        live_stream = (
-            NextLive.objects.filter(datetime__gte=one_hour_ago, datetime__lte=now)
-            .order_by("-datetime")
-            .first()
+@never_cache
+@api_view(["GET", "POST"])
+@authentication_classes([])
+@permission_classes([AllowAny])
+def room_presence(request, room_id):
+    room = get_object_or_404(ChatRoom, pk=room_id, is_active=True)
+    if request.method == "POST":
+        user = require_chat_user(request)
+        serializer = PresenceSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        active = serializer.validated_data["is_online"]
+        UserPresence.objects.update_or_create(
+            room=room, chat_user=user,
+            defaults={
+                "is_online": active,
+                "is_typing": active and serializer.validated_data["is_typing"],
+            },
         )
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
-        current_series = CurrentSeries.objects.first()
-        current_series_data = (
-            CurrentSeriesSerializer(current_series).data if current_series else None
-        )
-
-        if live_stream:
-            return DRFResponse(
-                {
-                    "next_live": None,
-                    "current_series": current_series_data,
-                    "message": "🚀🎉 WE ARE LIVE!!! 🎉🚀",
-                }
-            )
-
-        next_live = (
-            NextLive.objects.filter(datetime__gte=now).order_by("datetime").first()
-        )
-
-        response_data = {
-            "next_live": None,
-            "current_series": current_series_data,
-            "message": "No upcoming broadcast",
+    now = timezone.now()
+    presences = UserPresence.objects.filter(
+        room=room, is_online=True, last_seen__gte=now - PRESENCE_LIFETIME, chat_user__is_banned=False
+    ).select_related("chat_user").order_by("pk")
+    return Response([
+        {
+            **ChatUserSerializer(presence.chat_user).data,
+            "is_typing": presence.is_typing and presence.last_seen >= now - TYPING_LIFETIME,
         }
-
-        if next_live:
-            serializer = self.get_serializer(next_live)
-            response_data["next_live"] = serializer.data
-            response_data["message"] = "Upcoming broadcast found"
-
-        return DRFResponse(response_data)
+        for presence in presences
+    ])
 
 
-class ChatRoomViewSet(viewsets.ModelViewSet):
-    queryset = ChatRoom.objects.all()
-    serializer_class = ChatRoomSerializer
+def send_partnership_emails(partner):
+    try:
+        confirmation = EmailMultiAlternatives(
+            "Thank you for partnering with WholeWord TV",
+            "Thank you for submitting your WholeWord TV partnership request.",
+            settings.DEFAULT_FROM_EMAIL, [partner.email],
+        )
+        confirmation.attach_alternative(render_to_string("wwt/PartnerEmail.html"), "text/html")
+        confirmation.send()
+    except (OSError, SMTPException, TemplateDoesNotExist):
+        logger.warning("WholeWord TV could not send a partnership confirmation.")
+
+    recipient = getattr(settings, "WWTV_PARTNERSHIP_NOTIFICATION_EMAIL", "")
+    if recipient:
+        try:
+            send_mail(
+                "New WholeWord TV partnership request",
+                "A partnership request was saved. Sign in to Django admin to view it.",
+                settings.DEFAULT_FROM_EMAIL, [recipient],
+            )
+        except (OSError, SMTPException):
+            logger.warning("WholeWord TV could not send a partnership notification.")
 
 
-class MessageViewSet(viewsets.ModelViewSet):
-    queryset = Message.objects.all()
-    serializer_class = MessageSerializer
+@api_view(["POST"])
+@authentication_classes([])
+@permission_classes([AllowAny])
+@throttle_classes([PartnershipThrottle])
+def submit_partnership(request):
+    serializer = WholeWordPartnersSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    partner = serializer.save()
+    send_partnership_emails(partner)
+    return Response(
+        {"message": "Partnership request submitted successfully."},
+        status=status.HTTP_201_CREATED,
+    )
 
 
-class ChatUsersViewSet(viewsets.ModelViewSet):
-    queryset = ChatUsers.objects.all()
-    serializer_class = ChatUsersSerializer
+class CurrentSeriesViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = CurrentSeries.objects.order_by("pk")
+    serializer_class = CurrentSeriesSerializer
+    permission_classes = [AllowAny]
 
 
-class MessageReadsViewSet(viewsets.ModelViewSet):
-    queryset = MessageReads.objects.all()
-    serializer_class = MessageReadsSerializer
+class NextLiveViewSet(viewsets.ReadOnlyModelViewSet):
+    serializer_class = NextLiveSerializer
+    permission_classes = [AllowAny]
 
+    def get_queryset(self):
+        return NextLive.objects.filter(datetime__gte=timezone.now()).order_by("datetime", "pk")
 
-class UserPresenceViewSet(viewsets.ModelViewSet):
-    queryset = UserPresence.objects.all()
-    serializer_class = UserPresenceSerializer
+    @action(detail=False, methods=["get"])
+    def next_closest(self, request):
+        now = timezone.now()
+        is_live = NextLive.objects.filter(datetime__gte=now - timedelta(hours=1), datetime__lte=now).exists()
+        next_live = None if is_live else NextLive.objects.filter(datetime__gte=now).order_by("datetime", "pk").first()
+        current_series = CurrentSeries.objects.order_by("pk").first()
+        message = "We are live." if is_live else "Upcoming broadcast found" if next_live else "No upcoming broadcast"
+        return Response({
+            "next_live": self.get_serializer(next_live).data if next_live else None,
+            "current_series": CurrentSeriesSerializer(current_series).data if current_series else None,
+            "is_live": is_live,
+            "message": message,
+        })

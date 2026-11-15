@@ -33,8 +33,12 @@ class Message(models.Model):
     )
     reported_at = models.DateTimeField(null=True, blank=True)
     edited_at = models.DateTimeField(null=True, blank=True)
+    hidden_at = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        indexes = [models.Index(fields=["room", "-created_at"], name="wwtv_room_message_time")]
 
     def __str__(self):
         return f"{self.username}: {self.content[:50]}"
@@ -56,9 +60,11 @@ class MessageReads(models.Model):
 
 class ChatUsers(models.Model):
     fullname = models.CharField(max_length=255)
-    email = models.EmailField(unique=True)
+    email = models.EmailField(unique=True, null=True, blank=True, verbose_name="legacy email")
+    contact_email = models.EmailField(blank=True)
     is_guest = models.BooleanField(default=True)
     google_id = models.CharField(max_length=255, unique=True, null=True, blank=True)
+    google_subject = models.CharField(max_length=255, unique=True, null=True, blank=True, editable=False)
     avatar_url = models.TextField(null=True, blank=True)
     is_admin = models.BooleanField(default=False)
     is_muted = models.BooleanField(default=False)
@@ -80,6 +86,7 @@ class UserPresence(models.Model):
 
     class Meta:
         unique_together = ("chat_user", "room")
+        indexes = [models.Index(fields=["room", "is_online", "-last_seen"], name="wwtv_room_presence_seen")]
 
     def __str__(self):
         return f"{self.chat_user.fullname} in {self.room.name}"
@@ -130,4 +137,4 @@ class CurrentSeries(models.Model):
         verbose_name_plural = "Current Series"
 
     def __str__(self):
-        return f"{self.title} at {self.title}"
+        return self.title
