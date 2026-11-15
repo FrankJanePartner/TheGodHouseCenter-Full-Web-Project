@@ -8,11 +8,17 @@ import logging
 from django.http import JsonResponse, HttpResponse
 from datetime import datetime
 from django.urls import reverse
+from django.utils.cache import add_never_cache_headers
 from django.utils.html import strip_tags
 from django.views.generic import TemplateView
 
 # Create your views here.
 def home(request):
+    if settings.HOMEPAGE_REDIRECT_URL:
+        response = redirect(settings.HOMEPAGE_REDIRECT_URL)
+        add_never_cache_headers(response)
+        return response
+
     units = Unit.objects.all()
     context = {
         'units':units
