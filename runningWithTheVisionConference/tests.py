@@ -32,29 +32,22 @@ class RegistrationAPITests(APITestCase):
         self.assertEqual(response.status_code, 201)
         self.assertEqual(
             response.json(),
-            {"message": "Your registration was received.", "confirmation_email_sent": True},
+            {"message": "Your registration was received.", "confirmation_email_sent": False},
         )
         registration = Registration.objects.get()
         for field, value in self.payload.items():
             self.assertEqual(getattr(registration, field), value)
         self.assertEqual(registration.otherChurch, "")
 
-    def test_confirmation_sends_the_supplied_html_with_an_escaped_greeting(self):
-        response = self.client.post(self.url, {**self.payload, "firstName": "Ada & Co"}, format="json")
-        self.assertTrue(response.json()["confirmation_email_sent"])
-        self.assertEqual(len(mail.outbox), 1)
-        message = mail.outbox[0]
-        self.assertEqual(message.to, [self.payload["email"]])
-        self.assertEqual(message.subject, "Registration Confirmed: You're RVC-bound!")
-        self.assertIn("Hello Ada & Co,", message.body)
-        self.assertIn("https://rvc.godhouse.org", message.body)
-        html, content_type = message.alternatives[0]
-        self.assertEqual(content_type, "text/html")
-        self.assertIn("Hello Ada &amp; Co,", html)
-        self.assertIn("Congratulations, you are RVC-bound!", html)
-        self.assertIn("Thank you for registering for RVC 2026.", html)
-        self.assertIn('href="https://rvc.godhouse.org"', html)
-        self.assertIn('href="mailto:info@godhouse.org"', html)
+    def test_registration_never_invokes_the_backend_mailer(self):
+        with patch("django.core.mail.send_mail") as send:
+            with patch("django.core.mail.EmailMessage.send") as message_send:
+                response = self.client.post(self.url, self.payload, format="json")
+        self.assertEqual(response.status_code, 201)
+        self.assertFalse(response.json()["confirmation_email_sent"])
+        send.assert_not_called()
+        message_send.assert_not_called()
+        self.assertEqual(len(mail.outbox), 0)
 
     def test_registration_cors_preflight_accepts_current_and_rejects_retired_origin(self):
         origin = "https://rvc.godhouse.org"
@@ -68,21 +61,34 @@ class RegistrationAPITests(APITestCase):
         )
         self.assertNotIn("Access-Control-Allow-Origin", retired.headers)
 
-    def test_mail_failure_keeps_registration_and_reports_no_email(self):
+    def test_registration_does_not_use_an_unavailable_backend_mailer(self):
         with patch("django.core.mail.EmailMessage.send", side_effect=SMTPException("mail unavailable")):
-            with self.assertLogs("runningWithTheVisionConference.views", level="WARNING"):
-                response = self.client.post(self.url, self.payload, format="json")
+            response = self.client.post(self.url, self.payload, format="json")
         self.assertEqual(response.status_code, 201)
         self.assertFalse(response.json()["confirmation_email_sent"])
         self.assertTrue(Registration.objects.filter(email=self.payload["email"]).exists())
 
-    def test_mail_backend_accepting_zero_messages_reports_no_email(self):
-        with patch("django.core.mail.EmailMessage.send", return_value=0) as send:
-            response = self.client.post(self.url, self.payload, format="json")
-        send.assert_called_once()
-        self.assertEqual(response.status_code, 201)
-        self.assertFalse(response.json()["confirmation_email_sent"])
-        self.assertTrue(Registration.objects.filter(email=self.payload["email"]).exists())
+    def test_desk_registration_accepts_null_or_empty_email_without_sharing_duplicate_key(self):
+        with patch("django.core.mail.EmailMessage.send") as send:
+            for email in (None, ""):
+                with self.subTest(email=email):
+                    response = self.client.post(
+                        self.url, {**self.payload, "email": email}, format="json"
+                    )
+                    self.assertEqual(response.status_code, 201)
+                    self.assertFalse(response.json()["confirmation_email_sent"])
+        send.assert_not_called()
+        self.assertEqual(
+            list(Registration.objects.order_by("pk").values_list("email", "registration_email_key")),
+            [("", None), ("", None)],
+        )
+
+    def test_email_property_is_required_even_when_an_explicit_empty_value_is_accepted(self):
+        payload = {key: value for key, value in self.payload.items() if key != "email"}
+        response = self.client.post(self.url, payload, format="json")
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("email", response.json()["errors"])
+        self.assertFalse(Registration.objects.exists())
 
     def test_required_and_invalid_fields_return_structured_errors(self):
         response = self.client.post(
@@ -126,7 +132,7 @@ class RegistrationAPITests(APITestCase):
         self.assertEqual(response.status_code, 409)
         self.assertEqual(set(response.json()), {"message"})
         self.assertEqual(Registration.objects.get().firstName, "Ada")
-        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(len(mail.outbox), 0)
 
     def test_legacy_email_does_not_block_current_registration(self):
         legacy = Registration.objects.create(email=self.payload["email"])

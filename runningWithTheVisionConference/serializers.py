@@ -34,9 +34,13 @@ class RegistrationSerializer(serializers.ModelSerializer):
             )
         }
         extra_kwargs.update({
+            "email": {"required": True, "allow_blank": True, "allow_null": True, "write_only": True},
             "godhouseCentre": {"write_only": True},
             "otherChurch": {"write_only": True},
         })
+
+    def validate_email(self, value):
+        return value or ""
 
     def validate_phone(self, value):
         if not re.fullmatch(r"\+?[0-9(). -]+", value) or len(re.findall(r"[0-9]", value)) < 10:
